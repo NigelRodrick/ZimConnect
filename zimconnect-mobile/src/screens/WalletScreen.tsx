@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useMemo, useState } from "react";
 import { colors } from "../theme/colors";
 
 const transactions = [
@@ -7,31 +8,88 @@ const transactions = [
   { label: "ZETDC Bill Payment", amount: "-$20.00", tone: "debit" },
 ];
 
-export function WalletScreen() {
+type WalletScreenProps = {
+  searchQuery: string;
+};
+
+export function WalletScreen({ searchQuery }: WalletScreenProps) {
+  const [showBalances, setShowBalances] = useState(true);
+  const [activeCurrency, setActiveCurrency] = useState<"USD" | "ZiG">("USD");
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const activeBalance = useMemo(
+    () => (activeCurrency === "USD" ? "$1,284.73" : "ZiG 13,240.55"),
+    [activeCurrency]
+  );
+  const filteredTransactions = useMemo(() => {
+    if (!normalizedQuery) return transactions;
+    return transactions.filter((item) => item.label.toLowerCase().includes(normalizedQuery));
+  }, [normalizedQuery]);
+
   return (
     <View>
       <Text style={styles.title}>Zim-Wallet</Text>
       <Text style={styles.subtitle}>Multi-currency, QR pay, and P2P transfers.</Text>
 
+      <View style={styles.toggleRow}>
+        <Pressable
+          onPress={() => setActiveCurrency("USD")}
+          style={[
+            styles.currencyChip,
+            activeCurrency === "USD" && styles.currencyChipActive,
+          ]}
+        >
+          <Text
+            style={[
+              styles.currencyChipText,
+              activeCurrency === "USD" && styles.currencyChipTextActive,
+            ]}
+          >
+            USD
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setActiveCurrency("ZiG")}
+          style={[
+            styles.currencyChip,
+            activeCurrency === "ZiG" && styles.currencyChipActive,
+          ]}
+        >
+          <Text
+            style={[
+              styles.currencyChipText,
+              activeCurrency === "ZiG" && styles.currencyChipTextActive,
+            ]}
+          >
+            ZiG
+          </Text>
+        </Pressable>
+        <Pressable onPress={() => setShowBalances((prev) => !prev)} style={styles.visibilityBtn}>
+          <Text style={styles.visibilityBtnText}>{showBalances ? "Hide" : "Show"} balances</Text>
+        </Pressable>
+      </View>
+
       <View style={styles.balanceCard}>
         <View style={styles.balanceBlock}>
           <Text style={styles.balanceLabel}>USD Balance</Text>
-          <Text style={styles.balanceValue}>$1,284.73</Text>
+          <Text style={styles.balanceValue}>{showBalances ? "$1,284.73" : "******"}</Text>
         </View>
         <View style={styles.balanceDivider} />
         <View style={styles.balanceBlock}>
           <Text style={styles.balanceLabel}>ZiG Balance</Text>
-          <Text style={styles.balanceValue}>ZiG 13,240.55</Text>
+          <Text style={styles.balanceValue}>{showBalances ? "ZiG 13,240.55" : "******"}</Text>
         </View>
       </View>
 
       <View style={styles.rateCard}>
-        <Text style={styles.rateTitle}>Live FX</Text>
-        <Text style={styles.rateText}>1 USD = 10.31 ZiG</Text>
+        <Text style={styles.rateTitle}>Selected Balance</Text>
+        <Text style={styles.rateText}>
+          {activeCurrency}: {showBalances ? activeBalance : "******"}
+        </Text>
       </View>
 
       <Text style={styles.sectionTitle}>Recent Transactions</Text>
-      {transactions.map((item) => (
+      {filteredTransactions.map((item) => (
         <View key={item.label} style={styles.txRow}>
           <Text style={styles.txLabel}>{item.label}</Text>
           <Text
@@ -44,6 +102,10 @@ export function WalletScreen() {
           </Text>
         </View>
       ))}
+      {!filteredTransactions.length ? (
+        <Text style={styles.emptyText}>No transactions found for this search.</Text>
+      ) : null}
+      <Text style={styles.signatureText}>Fidinsky Tech Solutions</Text>
     </View>
   );
 }
@@ -59,6 +121,40 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     fontSize: 14,
     color: colors.muted,
+  },
+  toggleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 10,
+  },
+  currencyChip: {
+    backgroundColor: "#EEF4F2",
+    borderWidth: 1,
+    borderColor: "#DDE9E5",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  currencyChipActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  currencyChipText: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: "700",
+  },
+  currencyChipTextActive: {
+    color: "#FFFFFF",
+  },
+  visibilityBtn: {
+    marginLeft: "auto",
+  },
+  visibilityBtnText: {
+    color: colors.info,
+    fontSize: 12,
+    fontWeight: "600",
   },
   balanceCard: {
     backgroundColor: colors.primary,
@@ -133,6 +229,17 @@ const styles = StyleSheet.create({
   },
   debit: {
     color: "#B42318",
+  },
+  emptyText: {
+    color: colors.muted,
+    marginTop: 8,
+  },
+  signatureText: {
+    marginTop: 4,
+    textAlign: "center",
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "600",
   },
 });
 

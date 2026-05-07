@@ -1,19 +1,39 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useMemo, useState } from "react";
 import { colors } from "../theme/colors";
+import { TabKey } from "../types/navigation";
 
 type QuickAction = {
   title: string;
   subtitle: string;
+  targetTab: TabKey;
 };
 
 const quickActions: QuickAction[] = [
-  { title: "Scan to Pay", subtitle: "Instant QR payments" },
-  { title: "Wallet", subtitle: "USD / ZiG balances" },
-  { title: "News", subtitle: "Local updates" },
-  { title: "Pay Fees", subtitle: "School and utility" },
+  { title: "Scan to Pay", subtitle: "Instant QR payments", targetTab: "wallet" },
+  { title: "Wallet", subtitle: "USD / ZiG balances", targetTab: "wallet" },
+  { title: "Official News", subtitle: "Local updates", targetTab: "chat" },
+  { title: "Pay Fees", subtitle: "School and utility", targetTab: "services" },
 ];
 
-export function HomeScreen() {
+type HomeScreenProps = {
+  searchQuery: string;
+  onQuickAction: (tab: TabKey) => void;
+};
+
+export function HomeScreen({ searchQuery, onQuickAction }: HomeScreenProps) {
+  const [selectedAction, setSelectedAction] = useState<string | null>(null);
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const visibleActions = useMemo(() => {
+    if (!normalizedQuery) return quickActions;
+    return quickActions.filter(
+      (item) =>
+        item.title.toLowerCase().includes(normalizedQuery) ||
+        item.subtitle.toLowerCase().includes(normalizedQuery)
+    );
+  }, [normalizedQuery]);
+
   return (
     <>
       <View style={styles.heroCard}>
@@ -25,13 +45,34 @@ export function HomeScreen() {
 
       <Text style={styles.sectionTitle}>Quick Actions</Text>
       <View style={styles.grid}>
-        {quickActions.map((item) => (
-          <View key={item.title} style={styles.actionCard}>
+        {visibleActions.map((item) => (
+          <Pressable
+            key={item.title}
+            onPress={() => {
+              setSelectedAction(item.title);
+              onQuickAction(item.targetTab);
+            }}
+            style={[
+              styles.actionCard,
+              selectedAction === item.title && styles.actionCardSelected,
+            ]}
+          >
             <Text style={styles.cardTitle}>{item.title}</Text>
             <Text style={styles.cardSubtitle}>{item.subtitle}</Text>
-          </View>
+          </Pressable>
         ))}
       </View>
+      {!visibleActions.length ? (
+        <Text style={styles.emptyText}>No quick actions match your search.</Text>
+      ) : null}
+      {selectedAction ? (
+        <View style={styles.selectionCard}>
+          <Text style={styles.selectionTitle}>{selectedAction}</Text>
+          <Text style={styles.selectionText}>
+            Shortcut selected. This will route to the full flow in the next build.
+          </Text>
+        </View>
+      ) : null}
 
       <Text style={styles.sectionTitle}>Recent Updates</Text>
       <View style={styles.feedCard}>
@@ -46,6 +87,7 @@ export function HomeScreen() {
           Fresh groceries now available with same-day delivery.
         </Text>
       </View>
+      <Text style={styles.signatureText}>Fidinsky Tech Solutions</Text>
     </>
   );
 }
@@ -89,6 +131,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
+  actionCardSelected: {
+    borderColor: colors.primary,
+    backgroundColor: "#F0F6F4",
+  },
   cardTitle: {
     fontSize: 16,
     fontWeight: "700",
@@ -98,6 +144,27 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontSize: 13,
     color: colors.muted,
+  },
+  selectionCard: {
+    backgroundColor: "#FFF8EE",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 12,
+    marginBottom: 14,
+  },
+  selectionTitle: {
+    color: colors.text,
+    fontWeight: "700",
+    marginBottom: 4,
+  },
+  selectionText: {
+    color: colors.muted,
+    lineHeight: 20,
+  },
+  emptyText: {
+    color: colors.muted,
+    marginBottom: 12,
   },
   feedCard: {
     backgroundColor: colors.card,
@@ -116,6 +183,13 @@ const styles = StyleSheet.create({
     marginTop: 4,
     color: colors.muted,
     lineHeight: 20,
+  },
+  signatureText: {
+    marginTop: 4,
+    textAlign: "center",
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "600",
   },
 });
 

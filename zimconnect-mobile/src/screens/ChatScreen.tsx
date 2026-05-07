@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useMemo, useState } from "react";
 import { colors } from "../theme/colors";
 
 const conversations = [
@@ -7,22 +8,51 @@ const conversations = [
     preview: "Ndatuma quote for uniforms.",
     time: "14:03",
     badge: "2",
+    unread: true,
+    official: false,
   },
   {
     name: "ZETDC Official",
     preview: "Token purchase issue resolved.",
     time: "12:22",
     badge: "",
+    unread: false,
+    official: true,
   },
   {
     name: "GreenGrocer",
     preview: "Your order is out for delivery.",
     time: "09:17",
     badge: "1",
+    unread: true,
+    official: false,
   },
 ];
 
-export function ChatScreen() {
+type ChatScreenProps = {
+  searchQuery: string;
+};
+
+export function ChatScreen({ searchQuery }: ChatScreenProps) {
+  const [filter, setFilter] = useState<"all" | "unread" | "official">("all");
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const visibleConversations = useMemo(() => {
+    const byFilter =
+      filter === "unread"
+        ? conversations.filter((item) => item.unread)
+        : filter === "official"
+          ? conversations.filter((item) => item.official)
+          : conversations;
+
+    if (!normalizedQuery) return byFilter;
+    return byFilter.filter(
+      (item) =>
+        item.name.toLowerCase().includes(normalizedQuery) ||
+        item.preview.toLowerCase().includes(normalizedQuery)
+    );
+  }, [filter, normalizedQuery]);
+
   return (
     <View>
       <Text style={styles.title}>Chat</Text>
@@ -30,7 +60,38 @@ export function ChatScreen() {
         Voice notes, translation, and trusted official accounts.
       </Text>
 
-      {conversations.map((item) => (
+      <View style={styles.filterRow}>
+        <Pressable
+          onPress={() => setFilter("all")}
+          style={[styles.filterChip, filter === "all" && styles.filterChipActive]}
+        >
+          <Text style={[styles.filterText, filter === "all" && styles.filterTextActive]}>
+            All
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setFilter("unread")}
+          style={[styles.filterChip, filter === "unread" && styles.filterChipActive]}
+        >
+          <Text
+            style={[styles.filterText, filter === "unread" && styles.filterTextActive]}
+          >
+            Unread
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setFilter("official")}
+          style={[styles.filterChip, filter === "official" && styles.filterChipActive]}
+        >
+          <Text
+            style={[styles.filterText, filter === "official" && styles.filterTextActive]}
+          >
+            Official
+          </Text>
+        </Pressable>
+      </View>
+
+      {visibleConversations.map((item) => (
         <View key={item.name} style={styles.row}>
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>{item.name[0]}</Text>
@@ -49,6 +110,10 @@ export function ChatScreen() {
           </View>
         </View>
       ))}
+      {!visibleConversations.length ? (
+        <Text style={styles.emptyText}>No conversations found for this search/filter.</Text>
+      ) : null}
+      <Text style={styles.signatureText}>Fidinsky Tech Solutions</Text>
     </View>
   );
 }
@@ -64,6 +129,31 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     fontSize: 14,
     color: colors.muted,
+  },
+  filterRow: {
+    flexDirection: "row",
+    gap: 8,
+    marginBottom: 12,
+  },
+  filterChip: {
+    backgroundColor: "#EEF4F2",
+    borderWidth: 1,
+    borderColor: "#DDE9E5",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  filterChipActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  filterText: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: "600",
+  },
+  filterTextActive: {
+    color: "#FFFFFF",
   },
   row: {
     flexDirection: "row",
@@ -121,6 +211,17 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 11,
     fontWeight: "700",
+  },
+  emptyText: {
+    color: colors.muted,
+    marginTop: 8,
+  },
+  signatureText: {
+    marginTop: 4,
+    textAlign: "center",
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "600",
   },
 });
 
