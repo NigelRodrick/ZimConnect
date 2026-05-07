@@ -40,6 +40,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Ensure EAS project is configured
+        run: |
+          npx eas-cli project:info --non-interactive || npx eas-cli init --non-interactive --force
+
       - name: Build APK with EAS
         id: eas_build
         run: |
