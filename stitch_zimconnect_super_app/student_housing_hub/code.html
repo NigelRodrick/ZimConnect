@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Living | Zim-Housing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#795900",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002117",
+                        "surface": "#f9f9ff",
+                        "tertiary-container": "#b4ab84",
+                        "tertiary": "#665f3d",
+                        "surface-tint": "#2b6954",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#80bea6",
+                        "inverse-primary": "#95d3ba",
+                        "primary-fixed": "#b0f0d6",
+                        "surface-container-low": "#f1f3ff",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "on-tertiary-container": "#453f20",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-container": "#ffc329",
+                        "tertiary-fixed": "#ede3b8",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "on-surface-variant": "#404944",
+                        "primary-container": "#064e3b",
+                        "secondary-fixed": "#ffdf9f",
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "inverse-surface": "#293040",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "surface-dim": "#d3daef",
+                        "primary": "#003527",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e9edff",
+                        "on-secondary-container": "#6f5100",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "outline-variant": "#bfc9c3",
+                        "outline": "#707974",
+                        "inverse-on-surface": "#edf0ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#261a00",
+                        "on-background": "#141b2b",
+                        "on-tertiary-fixed": "#201c02",
+                        "surface-variant": "#dce2f7",
+                        "on-surface": "#141b2b",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#95d3ba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "gutter": "20px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "h3": ["Newsreader"],
+                        "h2": ["Newsreader"],
+                        "h1": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+            color: #141b2b;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-background border-b border-outline-variant/10 flex justify-between items-center w-full px-md h-16">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/20">
+<img alt="Student Profile Portrait" class="w-full h-full object-cover" data-alt="A professional and friendly portrait of a young African university student smiling confidently. He is wearing a modern polo shirt, and the background is a soft-focus campus setting with warm, golden hour sunlight. The image has a clean, editorial look with high-key lighting that perfectly matches a sophisticated student-oriented mobile application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzhkVLoYsZKa--vsJsgPF11L60zfd8t8prfF2df6spq0fJBIrwVerY5S4hMcTvZjhw-fByhERKliwADiGHozdn8LlFDLuVY8YXIes8WpUiFJiG08pSGo_YkH1PCXpRphrcNoFrQuLGemxMfEcdWcyJxsEeTsKh80k06JwCxpzVvwPy7C0d8V2ulIOcQmddFuggC0ovxTmzEq1mBRUtdo_lOB9onMWk4S1Tad1pjij_9iy1a7C85SxtvYHNCPDG9uJXOnzZrTnYNwn3"/>
+</div>
+<h1 class="font-h3 text-h3 font-semibold text-primary dark:text-primary-fixed-dim">Student Living</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest transition-colors active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+</button>
+</header>
+<main class="max-w-container-max mx-auto px-md py-base">
+<!-- Hero Search Section -->
+<section class="mt-base mb-lg">
+<div class="bg-primary-container rounded-xl p-md text-on-primary-container shadow-xl shadow-[#064e3b08]">
+<h2 class="font-h2 text-h2 text-on-primary mb-sm">Find your home near campus.</h2>
+<div class="relative group mt-base">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg bg-surface text-on-surface border-none focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Search Hostels or Shared Rooms near UZ..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<button class="bg-on-primary-container/10 hover:bg-on-primary-container/20 text-on-primary text-label-sm font-label-sm px-4 py-2 rounded-full border border-on-primary-container/20 transition-colors">Near UZ</button>
+<button class="bg-on-primary-container/10 hover:bg-on-primary-container/20 text-on-primary text-label-sm font-label-sm px-4 py-2 rounded-full border border-on-primary-container/20 transition-colors">Near HIT</button>
+<button class="bg-on-primary-container/10 hover:bg-on-primary-container/20 text-on-primary text-label-sm font-label-sm px-4 py-2 rounded-full border border-on-primary-container/20 transition-colors">Near MSU</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+<!-- Roommate Match Card (2/3 width on desktop) -->
+<div class="md:col-span-2 relative h-64 rounded-xl overflow-hidden group cursor-pointer border border-outline-variant/10 shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent z-10"></div>
+<img alt="Students working together" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Two diverse university students sitting together in a modern, sunlit student lounge, collaborating on a laptop with friendly expressions. The environment features warm wood textures, cream-colored walls, and large windows. The lighting is soft and natural, emphasizing a sense of community, trust, and shared living in a high-end academic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWjwEr8XJmCVb98gKYkxk2ZwaidQLuj6zEbUm-fj6KEJrvPzcVnd2ie2ZKsbTeqsUFHjEqKL-SDKdMXxeeTHUJvz2PFDI91zpzn7ZZDdPGhT4i5ExSn55s61O3ifu37NtOIFqKXIzAG9dN4ZSbKWNt_Nmvi9CjUxo35ChuXs-3g95R0Icl4pBwblHruMEjQf-Fbjns2l5ETN-qP4pbkb5E4i8MxMpVgPvcFMHvKFbF0U8AOTRMXi1GUyjrw-fHpuNVq_dR_Ffkeu_"/>
+<div class="absolute bottom-0 left-0 p-md z-20">
+<span class="inline-block bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-base">New Service</span>
+<h3 class="font-h2 text-h2 text-on-primary">Find a Roommate</h3>
+<p class="text-on-primary/80 font-body-md text-body-md mt-xs">Match with students sharing your interests and habits.</p>
+</div>
+</div>
+<!-- Stats/Trust Card (1/3 width) -->
+<div class="bg-surface-container rounded-xl p-md flex flex-col justify-between border border-outline-variant/10">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-base" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-h3 text-h3 text-primary">100% Verified</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mt-xs leading-snug">Every listing is physically inspected by the Zim-Housing team for your safety.</p>
+</div>
+<button class="mt-md text-primary font-label-sm text-label-sm flex items-center gap-xs hover:gap-base transition-all">
+                    Learn about verification <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Verified Listings Section -->
+<section class="mb-xl">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Verified Student Housing</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Hand-picked properties meeting national student safety standards.</p>
+</div>
+<button class="text-primary font-label-sm text-label-sm border-b-2 border-primary pb-xs hidden md:block">View all listings</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Listing Card 1 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 hover:shadow-xl hover:shadow-[#064e3b08] transition-all group">
+<div class="relative h-48">
+<img alt="Student Hostel Interior" class="w-full h-full object-cover" data-alt="A clean, modern student hostel bedroom with minimalist furniture, light wood textures, and a large window providing plenty of natural light. The room is organized and professional, featuring a desk, a comfortable bed with neutral-toned linens, and a small green plant. The aesthetic is bright, heritage-inspired, and premium, evoking a sense of calm and focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC48hCx2lv76DbZXvbpRF14FlW9cEdvQJNgwLLnscr0Kdno5abFGzQyfQfmHWLkV0FAJgLBjtQwurpGdl8uzuvakrKwynuiWazx2MlCUnjQOaC27P1vCMGAp3Mwp6UvLTlvi7WI6-Bg8XFari2KjZETrH6WaabXRruM9oIpvC8qiM4s5QoF7PU7zSAaIllXsQv5muSAdt4pHnN1HKWDwn_3WVh9oYavmGU0R54EmBoGplDg9Z1kXABBh1qvmV-hz-n_tMwLZUx15UCQ"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-sm text-label-sm shadow-sm">
+                            $450/semester
+                        </div>
+</div>
+<div class="p-md">
+<div class="flex flex-wrap gap-xs mb-sm">
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] font-semibold px-2 py-1 rounded">Near UZ</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] font-semibold px-2 py-1 rounded">WiFi Included</span>
+</div>
+<h4 class="font-h3 text-h3 text-primary group-hover:text-secondary transition-colors">Greenwood Shared Villa</h4>
+<p class="text-outline font-body-md text-body-md flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Mt Pleasant, Harare
+                        </p>
+<div class="mt-md pt-md border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="font-label-sm text-label-sm">2-Person Share</span>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Listing Card 2 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 hover:shadow-xl hover:shadow-[#064e3b08] transition-all group">
+<div class="relative h-48">
+<img alt="Cozy Shared Room" class="w-full h-full object-cover" data-alt="An inviting and sophisticated student room for women, styled with soft cream walls and warm lighting. It features elegant yet functional furniture, including a study area with a modern chair and organized shelves. The atmosphere is safe, quiet, and premium, reflecting the heritage modernism style with a focus on comfort and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO2IAa8nf8mvwZFiUSjRM1VpxKoaiUr4moSLNDFnVU8wVfAKc81CzKLKTUuxkfSFbaaeZo6cTu_L8edDMUjM2sDFe3NrgKWK5xM2Tb4cwFD4o2T6DLecrlAaPuR7bJUo2_NpBu-7czlKdv-3VSl29OtbHpiwTzIbbpdrwIDajk5T8xr6efjLG0fTC7ca2P17PQIi_FVodkpLzvcH5XM-8qRDlv24hqpLEmVYFK7PRbI4bXwNSWlEzrQ1TN5f3FLenUF57HqAUnxut9"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-sm text-label-sm shadow-sm">
+                            $520/semester
+                        </div>
+</div>
+<div class="p-md">
+<div class="flex flex-wrap gap-xs mb-sm">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[12px] font-semibold px-2 py-1 rounded">Female Only</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] font-semibold px-2 py-1 rounded">Near UZ</span>
+</div>
+<h4 class="font-h3 text-h3 text-primary group-hover:text-secondary transition-colors">The Heights Residence</h4>
+<p class="text-outline font-body-md text-body-md flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Belgravia, Harare
+                        </p>
+<div class="mt-md pt-md border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">meeting_room</span>
+<span class="font-label-sm text-label-sm">Private Room</span>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Listing Card 3 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20 hover:shadow-xl hover:shadow-[#064e3b08] transition-all group">
+<div class="relative h-48">
+<img alt="Modern Student Apartment" class="w-full h-full object-cover" data-alt="A contemporary student apartment complex exterior with clean lines and large windows, surrounded by well-maintained green spaces. The building design reflects a high-end modern institutional style, combining glass and stone textures. The lighting is bright mid-day sun, highlighting the security features and the premium nature of the development." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGv6LsTxN0f9KyWNDyKWIZTaws6w7hHcC_Rsgdy9UdL9OyMqqh-xyS8oB5xae4WqWlBhgTZ5pWQmWy6j6m83USO8Lne4rzk6WuRk8mWSLO6cozk6tIVkR0H-QpbQhPWXQ_mpYRCNBpbNjmaLq4VZXFAvE39ye2k7olKv8RSAoBvFBdGvShaeX0aVt00yIr5fmawHqvV7xCY0XIL-7GPA6trn_zz0L7zyyqWe_wBX6yjK6KKdqSJITMDLqhf1M4inq3oYUcc_NM0JIN"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-sm text-label-sm shadow-sm">
+                            $380/semester
+                        </div>
+</div>
+<div class="p-md">
+<div class="flex flex-wrap gap-xs mb-sm">
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] font-semibold px-2 py-1 rounded">Near UZ</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] font-semibold px-2 py-1 rounded">WiFi Included</span>
+</div>
+<h4 class="font-h3 text-h3 text-primary group-hover:text-secondary transition-colors">University View Hostels</h4>
+<p class="text-outline font-body-md text-body-md flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Avondale, Harare
+                        </p>
+<div class="mt-md pt-md border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="font-label-sm text-label-sm">4-Person Dorm</span>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Banner -->
+<section class="mb-xl">
+<div class="bg-secondary text-on-secondary rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg text-center md:text-left">
+<div class="flex-1">
+<h2 class="font-h2 text-h2 mb-sm">Are you a Property Owner?</h2>
+<p class="font-body-lg text-body-lg opacity-90">Join the Zim-Housing Student ecosystem and get your property verified today to reach thousands of students.</p>
+</div>
+<button class="bg-on-secondary text-secondary font-label-sm text-label-sm px-xl py-4 rounded-full hover:bg-secondary-fixed transition-all active:scale-95 whitespace-nowrap">List Your Property</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base py-sm pb-safe bg-surface-container dark:bg-surface-container-lowest border-t border-outline-variant/10 shadow-[0_-4px_12px_rgba(6,78,59,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-low transition-colors rounded-lg px-4 py-1">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm">Match</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-low transition-colors rounded-lg px-4 py-1">
+<span class="material-symbols-outlined">dashboard_customize</span>
+<span class="font-label-sm text-label-sm">Requests</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-low transition-colors rounded-lg px-4 py-1">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+</nav>
+</body></html>

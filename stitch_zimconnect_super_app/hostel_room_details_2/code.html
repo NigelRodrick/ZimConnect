@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#795900",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002117",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#b4ab84",
+                    "tertiary": "#665f3d",
+                    "surface-tint": "#2b6954",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#80bea6",
+                    "inverse-primary": "#95d3ba",
+                    "primary-fixed": "#b0f0d6",
+                    "surface-container-low": "#f1f3ff",
+                    "secondary-fixed-dim": "#f9bd22",
+                    "on-tertiary-container": "#453f20",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#dce2f7",
+                    "secondary-container": "#ffc329",
+                    "tertiary-fixed": "#ede3b8",
+                    "on-tertiary-fixed-variant": "#4d4727",
+                    "on-surface-variant": "#404944",
+                    "primary-container": "#064e3b",
+                    "secondary-fixed": "#ffdf9f",
+                    "surface-container-high": "#e1e8fd",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "inverse-surface": "#293040",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#d1c79d",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "surface-dim": "#d3daef",
+                    "primary": "#003527",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e9edff",
+                    "on-secondary-container": "#6f5100",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "outline-variant": "#bfc9c3",
+                    "outline": "#707974",
+                    "inverse-on-surface": "#edf0ff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#261a00",
+                    "on-background": "#141b2b",
+                    "on-tertiary-fixed": "#201c02",
+                    "surface-variant": "#dce2f7",
+                    "on-surface": "#141b2b",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#95d3ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "gutter": "20px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "h3": ["Newsreader"],
+                    "h2": ["Newsreader"],
+                    "h1": ["Newsreader"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+            color: #141b2b;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased mb-20">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-50 border-b border-outline-variant/10 flex justify-between items-center w-full px-md h-16">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_back</span>
+<h1 class="font-h3 text-h3 font-semibold text-primary">Student Living</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="Student Profile Portrait" data-alt="A professional headshot of a young student with a friendly expression. The lighting is bright and clean, characteristic of a high-end educational platform. The background is a soft, out-of-focus university courtyard with lush greenery and ivory stone architecture, maintaining a premium light-mode aesthetic with deep forest green and cream accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEPCKoMnUSGObdicnajVNNUeyeHW9LirW5_2eEpQY3gkHsNRTLwwDf1hjGJ24BSG-cIcXhlMmMMpHzBm8wLSYdHwG80obmYv5u0tRam9E3EqRxnV6djakenh5OCtMQ5A8fYK7rew7fqBvaJGqrRv2-vwFdhrGQuaBQ-6lPHJuC-k_VhX9t7PWznUheoNkqhHWvXUxt6oPj7k7fCmlB_rQJ2xj0lUlusvAZ94AHTbMxZYKDk8huVU3o_L17RTIJOeRgzrFyHyux-3U6"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md py-md lg:py-lg grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Hero & Image Gallery (Bento Style) -->
+<section class="lg:col-span-8 space-y-md">
+<div class="grid grid-cols-4 grid-rows-2 gap-xs h-[400px] rounded-xl overflow-hidden shadow-sm">
+<div class="col-span-3 row-span-2 relative">
+<img class="w-full h-full object-cover" data-alt="A spacious and modern student apartment living room featuring a minimalist aesthetic. Large windows allow natural light to flood the room, illuminating high-quality furniture in neutral cream and deep forest green tones. The space is clean and organized, conveying a sense of premium student life and collaborative vitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt_sDBtEj--akdFpjyNx2CgmjeyIasCCHSohUYUXFYsaK76mWWIx1BrnM8My9rvClPegbZ9-u5_i1ZZVJmAwja-3YW3uG5FaQn70wRwjPXhhk8vyo-lWsXGAftSMQQobpfp1nn7uh-QzwyNNWqxNqajZ83ExNWlV1IVoMf7hifzi6IVybOTdkTzSidJdJAf8Nr14tavB1LRhJSy9qh7z_nGNvhNV7_ei9cIvgdVb_EVsnIyMJaQIzjnryvxP1VI7Gn6PQTfHOe8WDe"/>
+<div class="absolute bottom-4 left-4 bg-primary/80 backdrop-blur-md text-on-primary px-sm py-xs rounded-lg font-label-sm text-label-sm">
+                        2/4 Beds Filled
+                    </div>
+</div>
+<div class="col-span-1 row-span-1">
+<img class="w-full h-full object-cover" data-alt="A high-end shared kitchen area in a student residence. It features stainless steel appliances, pristine white countertops, and warm wooden accents. The lighting is soft and inviting, emphasizing cleanliness and modern design with a palette of cream and deep green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDqMCJkHzkQW_q--whWvZ5QV4Hq-JaNX-fRAPc3OONlIHmjU8E1HQVd-JWgJlGzu_EJklv9p-fcaGSgZGTZCkEdrPbafEsLcWfE8UZkG-ycYYuvMtFiM9JItocrzs3UV0bkR19mGNRxDmV3d2oLm9Crv1Jzxn6xYyBBX8fcKxN7AVvSNpslNPPexjAv-AC5axRI-suo3QDrtskJO81noFCvZoU5EoRaxKrxZ0KcpBT6j8OxrlS_F9SVFk6Hd-tGlyy7_bFylF1Qiv6"/>
+</div>
+<div class="col-span-1 row-span-1 relative">
+<img class="w-full h-full object-cover" data-alt="A dedicated study area with individual desks separated by elegant partitions. Each desk is equipped with a modern lamp and comfortable ergonomic chair. The environment is quiet and focused, with a bright, airy atmosphere reflecting the future vitality of professional development." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpk8on0pTGHF_y1wdQHEqE-rrKUfA2pB8XXKeU8RoNa0zoUZJ6se-igbamFt5d_FiXABGthIejAMJEGLk04Zih4GSr9O9_SA4LbK4hLIQ1XxU-6qibAgdL9WmVRwHLIPf3HBPttiS-DNNyxkUeQNEz6yuQibIWVE_FsIAg9lufM1L5T8KXqlo20Y0uLiFH-E2VBMxMxb8XCs543d_3qKxoPLB4ggHIeEOU1oRUzggvuSMJxjYKSJWzvM72CnMT7HhZOgBalMw05E1W"/>
+<div class="absolute inset-0 bg-primary/40 flex items-center justify-center cursor-pointer">
+<span class="text-on-primary font-label-sm text-label-sm">+12 Photos</span>
+</div>
+</div>
+</div>
+<!-- Property Overview -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Heritage Quad Shared Suite</h2>
+<p class="text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                            University Heights, District 7
+                        </p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-sm text-label-sm">
+                        VERIFIED LISTING
+                    </div>
+</div>
+<p class="text-on-surface leading-relaxed max-w-2xl">
+                    Experience the perfect blend of collaborative living and academic focus. Our Shared Living suites are designed for students who value community, safety, and modern convenience. Each resident enjoys private amenities within a secure, professionally managed environment.
+                </p>
+</div>
+<!-- Features Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-base">
+<div class="bg-white p-sm border border-outline-variant/10 rounded-xl flex flex-col items-center text-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">countertops</span>
+<span class="font-label-sm text-label-sm text-primary">Shared Kitchen</span>
+</div>
+<div class="bg-white p-sm border border-outline-variant/10 rounded-xl flex flex-col items-center text-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">laptop_mac</span>
+<span class="font-label-sm text-label-sm text-primary">Individual Study Desks</span>
+</div>
+<div class="bg-white p-sm border border-outline-variant/10 rounded-xl flex flex-col items-center text-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">lock</span>
+<span class="font-label-sm text-label-sm text-primary">Secure Locker</span>
+</div>
+<div class="bg-white p-sm border border-outline-variant/10 rounded-xl flex flex-col items-center text-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">local_laundry_service</span>
+<span class="font-label-sm text-label-sm text-primary">In-unit Laundry</span>
+</div>
+</div>
+<!-- Current Roommates -->
+<div class="bg-surface-container-low p-md rounded-xl">
+<h3 class="font-h3 text-h3 text-primary mb-md">Current Roommates</h3>
+<div class="flex flex-wrap gap-md">
+<!-- Roommate 1 -->
+<div class="flex items-center gap-sm bg-white p-sm rounded-lg border border-outline-variant/20 pr-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Marcus" data-alt="Close up portrait of a young male student with a kind smile. He is wearing a simple polo shirt. The background is a clean, bright interior with warm lighting, reflecting the reliable and modern design language of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTte0jiw0FKM9vr73c_kuhCDyGCacKIQ2rL9KC9SSkMHt398WlE1UgnW4JMvOiQ6COJ6ErcXEkvZ24YqHguRGlEH9JdRzKqBdZsXu20RhMizw7viBB5DbzthsfYvrVOF9RmHk3KurXDeVPZ1sLmxm0YmXGAe01aIXP6ecd3ucCIgYdi76GuIfYmYrlvCFSZZG1z47Jh-f345xTqaEhoBgwrBOAEDG82TKTShfONqA-MU316NbWON2o_yPSKCPpdII0YYcjmcg2YT_t"/>
+</div>
+<div>
+<p class="font-bold text-primary">Marcus K.</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Engineering • Yr 3</p>
+</div>
+</div>
+<!-- Roommate 2 -->
+<div class="flex items-center gap-sm bg-white p-sm rounded-lg border border-outline-variant/20 pr-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Sarah" data-alt="Portrait of a female student with glasses and a focused expression. She is in a library setting with soft natural light. The aesthetic is professional and modern, using neutral tones that align with the heritage-inspired design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPERwQH6yKBDdkX_etzs57GdhsG4UYuGjGwQpjArfyTfO6XI3VUlpz_W-ceYO1osIKvqs5GoDiNd0EE2aul3XOUEu9V5-8d1liu_VMyDeLA9l9K5e7vOxuDLDX00uwMsbv71m0zMcfeGv_Dp5g9dOVcXf2PnCCJupzwg_EypwcdqoH7TpOI5CExy7JrbsekSD8s08lrpfU-MtLnZc_sBNShV2xUS1Ff0C-QqvJ_Bkgu-Kmv5Tpd9KriQwuCTwb8cS2VcZDxQ6YYQQ"/>
+</div>
+<div>
+<p class="font-bold text-primary">Sarah J.</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Medicine • Yr 2</p>
+</div>
+</div>
+<!-- Empty Slot -->
+<div class="flex items-center gap-sm bg-surface-container border-2 border-dashed border-outline-variant/40 p-sm rounded-lg pr-md opacity-60">
+<div class="w-12 h-12 rounded-full bg-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">person_add</span>
+</div>
+<div>
+<p class="font-bold text-outline">Available</p>
+<p class="text-outline font-label-sm text-label-sm">Waiting for you</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar / Booking Card -->
+<aside class="lg:col-span-4 space-y-md">
+<div class="sticky top-24 bg-white p-md rounded-xl border border-outline-variant/20 shadow-xl shadow-[#064e3b08]">
+<div class="mb-md">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Total Monthly Cost</span>
+<div class="flex items-baseline gap-xs mt-xs">
+<h2 class="font-h2 text-h2 text-primary">$350</h2>
+<span class="text-on-surface-variant">/month</span>
+</div>
+</div>
+<div class="space-y-sm mb-md p-sm bg-surface-container-lowest rounded-lg border border-outline-variant/10">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Base Rent</span>
+<span class="font-medium">$290</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Utilities &amp; WiFi</span>
+<span class="font-medium">$40</span>
+</div>
+<div class="flex justify-between text-body-md pb-sm border-b border-outline-variant/10">
+<span class="text-on-surface-variant">Locker &amp; Security</span>
+<span class="font-medium">$20</span>
+</div>
+<div class="flex justify-between text-primary font-bold pt-xs">
+<span>Total USD</span>
+<span>350</span>
+</div>
+</div>
+<div class="space-y-sm">
+<button class="w-full bg-primary text-on-primary py-sm rounded-xl font-bold flex items-center justify-center gap-sm hover:bg-primary-container transition-colors active:scale-95 duration-150">
+                        Apply Now
+                    </button>
+<button class="w-full bg-white border border-primary text-primary py-sm rounded-xl font-bold flex items-center justify-center gap-sm hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">chat</span>
+                        Message Roommates
+                    </button>
+</div>
+<p class="mt-md text-center text-label-sm font-label-sm text-on-surface-variant">
+                    3-month minimum tenancy required
+                </p>
+</div>
+<!-- Management Card -->
+<div class="bg-surface-container p-md rounded-xl flex items-center gap-md">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">National Trust Verified</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Safe &amp; Secure Tenancy Agreement</p>
+</div>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container border-t border-outline-variant/10 shadow-[0_-4px_12px_rgba(6,78,59,0.05)] flex justify-around items-center px-base py-sm pb-safe">
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm mt-xs">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-sm text-label-sm">Match</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-label-sm text-label-sm mt-xs">Requests</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label-sm text-label-sm mt-xs">Saved</span>
+</div>
+</nav>
+</body></html>

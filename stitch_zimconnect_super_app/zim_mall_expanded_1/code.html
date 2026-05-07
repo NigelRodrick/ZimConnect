@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zim-Mall | Future of Zimbabwe Commerce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary-container": "#6f5100",
+                        "inverse-surface": "#293040",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-container-highest": "#dce2f7",
+                        "on-primary-fixed": "#002117",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "primary": "#003527",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bfc9c3",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#b0f0d6",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-primary-container": "#80bea6",
+                        "surface-container": "#e9edff",
+                        "on-surface": "#141b2b",
+                        "secondary-container": "#ffc329",
+                        "surface-tint": "#2b6954",
+                        "on-background": "#141b2b",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#95d3ba",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "on-tertiary-container": "#453f20",
+                        "on-tertiary-fixed": "#201c02",
+                        "on-surface-variant": "#404944",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261a00",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "surface-dim": "#d3daef",
+                        "outline": "#707974",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ede3b8",
+                        "tertiary-container": "#b4ab84",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed": "#ffdf9f",
+                        "secondary": "#795900",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#dce2f7",
+                        "primary-container": "#064e3b",
+                        "tertiary": "#665f3d",
+                        "background": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "xl": "80px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "h2": ["Newsreader"],
+                        "h1": ["Newsreader"],
+                        "label-sm": ["Work Sans"],
+                        "h3": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+            color: #141b2b;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-primary dark:bg-primary-container shadow-sm flex justify-between items-center px-md py-sm w-full">
+<div class="flex items-center gap-sm">
+<button class="active:scale-95 transition-transform text-on-primary dark:text-on-primary-container">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h2 text-h2 font-bold text-secondary-fixed dark:text-secondary-container">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary">notifications</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-secondary-fixed overflow-hidden">
+<img alt="User Profile" data-alt="A professional portrait of a smiling Zimbabwean woman in a business environment. She has a warm, confident expression and is wearing modern African attire with subtle patterns. The lighting is soft and natural, with a shallow depth of field focusing on her face against a bright, corporate interior backdrop. The overall aesthetic is clean, professional, and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzrkOEJiu6j-KfriuolJ7rD3YaRCwyhBnPrNO6sK0HribBPUpYt0cgVZutqBWF_SjPp--ZDbx7BsPPfJNxA4hKVEebUFILeJJvvoPVepdDbMFPz_D5sVDsFVwB3KgtERtbO95YQmNXRGTK3RWBVMk64AZS9LWa9XQZ97_jts6pkTDWtHs_bIME81i8mNlgPUKU0EiLVnQIpg8yHT9PIZ9OoD92iNzuxR938VA3trnbVJj9jT8-FPllb5d-PQaAWkPvIi12xJdt6ZCG"/>
+</div>
+</div>
+</header>
+<main class="pt-[80px] pb-[100px] max-w-container-max mx-auto px-md">
+<!-- Search Bar Section -->
+<section class="mt-md mb-lg">
+<div class="relative max-w-2xl mx-auto">
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-lowest border-none shadow-sm rounded-xl focus:ring-2 focus:ring-primary text-body-md" placeholder="Search for groceries, electronics, craft" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">search</span>
+</div>
+</section>
+<!-- Featured Categories: Asymmetric Bento Grid -->
+<section class="mb-lg">
+<h2 class="font-h3 text-h3 mb-md text-primary font-bold">Featured Categories</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<!-- Agriculture (Large Card) -->
+<div class="relative col-span-2 row-span-2 rounded-xl overflow-hidden group h-64 md:h-auto border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant close-up of fresh organic vegetables including green maize and tomatoes, presented in a traditional woven basket under warm Zimbabwean sunlight. The scene is rich with earthy tones and lush greens, symbolizing national food security and agricultural vitality. The lighting is high-contrast and natural, evoking a premium farm-to-table aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFexBoxzzEgNe2B7eUXXdTwvUY_Dvde0-kAM1FAPzbvtMweTjMuRYiBJXPu1ZLg_-QMnPBqxdxKn710XPAZxZMKXPvihC8ZYuKP50wqe0MGKB78m8-QvQN0RF5GETmiquuGudHtBrJJJH_bcjAvTnnfG_K-hdOskb-Jk7udHJIqzZ3yFjO9NhgwJEg8rVLnt4rhPKwO5vU5u-g8Mmr4LXTPc69FuFDCJ-6QtrgWEQ_mlXcsh8fvn10PIG8tRfv4KZG30bV7FYi2yEn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="font-h3 text-h3 font-bold block">Agriculture</span>
+<p class="text-sm opacity-90">Farm to Table Staples</p>
+</div>
+</div>
+<!-- Electronics -->
+<div class="relative col-span-2 md:col-span-1 rounded-xl overflow-hidden h-40 border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, minimalist arrangement of modern high-tech electronics including a smartphone and wireless earbuds. The devices are set against a sleek, light cream surface that mirrors the design system's color palette. The lighting is cool and professional, emphasizing sharp edges and premium materials, suggesting digital progress and connectivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCqlgO2p0bhMa6Y0lqHAagm-MSePlN9s5WHu-kVqge4MOpHd0p4lErgaxgOXf3v2tLn4bDX-ErU3O_KIWbFbg6gMm9-cnwHj7kkKuwYmQA1TJ0kWb6oHdwuD4oJZqlBHX2W2w9e2c6HK7BOzO-Wit1qLMIQ8lLhFzdX1SDGftEbiBApB7SoSwIwycliEQIO97xKoDZbT2lwGxPAaMf6Z19kGahqUrVJrAi1DcitPGcgspq9FDnh7gUJKo78OClDn3bth7uFojLDMot"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="font-bold text-label-sm">Electronics</span>
+</div>
+</div>
+<!-- Local Crafts -->
+<div class="relative col-span-1 rounded-xl overflow-hidden h-40 border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Exquisite Shona stone sculptures and hand-woven baskets displayed in a light-filled gallery space. The textures of the dark stone and light fiber are highlighted by soft side-lighting. The background is a warm beige, creating a sophisticated heritage feel that honors traditional Zimbabwean craftsmanship through a modern lens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdJKfDFELeyVhygWho_q4JVSummX_DrPRuTiV0v36dcL0rc9VQNiT0WSnnm5cjTTomy6fcHThniEZJKvT3-f2vOGLye_n5wv0dEQH8UepZ2OXol0tg96-3OtB5ryPhW042QZ_I434wHn-NUCpiDz7UHOrtI4gFWttQ3vEajijPpNkEprdBEIEnMFu8vmKkmfZU0F14b5PaALpLPMDkahY_npuPmgI4lwuWL4CC7rzSbj4D-b1Y3v_nfw1gzG8grWlSUOweXsitZ95B"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="font-bold text-label-sm">Local Crafts</span>
+</div>
+</div>
+<!-- Fashion -->
+<div class="relative col-span-1 rounded-xl overflow-hidden h-40 border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="High-fashion shot of vibrant African print textiles with intricate geometric patterns in green, gold, and deep earth tones. The fabrics are draped elegantly, catching the light to show off their premium texture. The setting is bright and upscale, blending traditional heritage with contemporary style trends." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_PD0fbaqI0y5So10M3x4ByGSM-08BLQy5YUCau8J8QTaBYFQHtGB6k1agBRFezK3s9W8tme5yZWUmHPsk9KIB6X6ISohSm_p6KvHrJvnfdu8mMA4Uh7eQXsl-UU6226M-gBzdf0tbokdCEFtucJpOGL-_pCKSRi0YeHUjXJei-WhqarRHUNiqgf8LYnN08q99qG6uILllz9sDUbwXsaowkmq_3olryOz3bTsuoba8pfh08qBMeZaaOemgXH1iow-EcYMid0-ik-cK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="font-bold text-label-sm">Fashion</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Flash Deals -->
+<section class="mb-lg bg-secondary-fixed/10 p-md rounded-2xl border-l-4 border-secondary-container">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h2 class="font-h3 text-h3 font-bold text-secondary">Flash Deals</h2>
+</div>
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm font-bold">Ends in 04:22:10</span>
+</div>
+<div class="flex gap-md overflow-x-auto pb-sm no-scrollbar">
+<!-- Flash Item 1 -->
+<div class="min-w-[180px] bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-sm shrink-0">
+<img class="w-full aspect-square object-cover rounded-lg mb-xs" data-alt="A premium luxury wristwatch presented on a clean white surface with sharp, crisp lighting. The product is the central focus, appearing high-end and desirable. The overall atmosphere is professional and commercial, fitting for a top-tier retail experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKnvPKwAmVami-WkJGYCz-6kArEszuPPo9KisB2hMmwk-PjWdjI0LLCQLWUbMVrp4lzK0FoNFDVWyS5NMWmfiRRRYmidamjP6OhZ5lgHRzA_IBWiSkdIgLgqcO_5kExlP-CsQzXEr10n3OifABR-pZJRsUwRIOpVB2e_olhtvkunYMr3rXKSH0emIgoF0ZJSW3Yz158oBZ6WNk-RqIQeDOMFeuIWrrayKYj6h73y8lNx0aVh4D26Tzgq2BByYJLq_vIetSZtFNQj7"/>
+<div class="flex flex-col gap-xs mt-2">
+<span class="text-label-sm font-bold text-primary truncate">Smart Watch Pro</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-bold text-secondary">ZiG 450</span>
+<span class="text-xs line-through opacity-50">ZiG 600</span>
+</div>
+</div>
+</div>
+<!-- Flash Item 2 -->
+<div class="min-w-[180px] bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-sm shrink-0">
+<img class="w-full aspect-square object-cover rounded-lg mb-xs" data-alt="Close-up of a pair of bright red athletic sneakers, symbolizing energy and motion. The shoes are set against a minimalist light grey background with professional studio lighting that highlights the fabric texture and sleek design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpCV_IMAeW5c_yrWUaOlMOycNuka5HVykmbtX636H4s6I0T_U8o6PhWMmaDtseU7IGd2oVPLzE5Kz_Jujnu0MAAe8axJCCoSoC5361o0qdHexIl-PpY3d4FY3GYmKelrkIQ9ee8BH92sGJylpHHlg4A5jHqR-qfXQmBCGQCB4NMQtC-Ttv-6IA1Sjy77uXBujrMvf0hmOHuFr8KBO5wjGddbVG6DZZQrtbk6BDJU_qTfYfSpV9CfTyt7RKXmK7BJtSz4mMQ9DE4I9A"/>
+<div class="flex flex-col gap-xs mt-2">
+<span class="text-label-sm font-bold text-primary truncate">Swift Runners</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-bold text-secondary">ZiG 320</span>
+<span class="text-xs line-through opacity-50">ZiG 500</span>
+</div>
+</div>
+</div>
+<!-- Flash Item 3 -->
+<div class="min-w-[180px] bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-sm shrink-0">
+<img class="w-full aspect-square object-cover rounded-lg mb-xs" data-alt="High-quality noise-cancelling headphones resting on a minimalist desk. The scene is lit with warm, ambient tones that suggest a premium audio experience. The composition is clean and focused, reflecting high-end electronics retail standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxSlXA8Nko0lsaj1RsRsR-WYSKpQtx4xk06DajHlewtB7riYcjqRk7sSQNlJzDguOby2DkJ6HFbCT6qz1u_D2inYcWeneW0oDsYltSZuwPKftQe76dkAEz4bkyGtOAcmhdDBcXffohbxK5iJd0swiXUvsnHukDcP0C1AgoEwYhM2DyFY9VL8UWe__jIKwjhpmwx1A9xJ_c3vv-UknR5mOpZuF5iT9oMtXLzvt_6pezx7faMDYoxuIjf2x4XFxnrOKbQKanvy8RsKbc"/>
+<div class="flex flex-col gap-xs mt-2">
+<span class="text-label-sm font-bold text-primary truncate">Aero Audio G2</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-bold text-secondary">ZiG 890</span>
+<span class="text-xs line-through opacity-50">ZiG 1.2k</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Verified Local Vendors Carousel -->
+<section class="mb-lg">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h2 class="font-h3 text-h3 font-bold text-primary">Verified Local Vendors</h2>
+<p class="text-on-surface-variant text-sm">Supporting the pillars of our national economy</p>
+</div>
+<button class="text-primary font-bold text-label-sm flex items-center gap-1">
+                    VIEW ALL <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="flex gap-md overflow-x-auto pb-sm no-scrollbar">
+<!-- Vendor 1 -->
+<div class="min-w-[140px] flex flex-col items-center gap-xs">
+<div class="w-24 h-24 rounded-full border-4 border-primary p-1 bg-white relative">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of a male artisan vendor in his workshop. He is smiling warmly, surrounded by handmade furniture and craft materials. The lighting is earthy and golden, creating a sense of authenticity, trust, and heritage. The overall mood is welcoming and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrf7fODznmfMN1Et5iOXdY5yxSu-TZGlHHDs9h8Nyzq1TiYoyxWi-v93cRtQOc_v5ebLi69pVspUcZvMSlGuAYhGsu_-PCAWVRw0yYAzDpfTIdVwM0tEmyDJ7Ic9DVPuZtgHy-uIuaWlrwp9LDOi4YlOsBbOqYNtT-OMLwxPLSoh6HlDS8HGIfEQ3INRL1HskhD394GIqpJ1CrQhyAkSllhuaRBFMIxV1UZ_rGOII_47RTE4dB9ocgWG_EifKNokGnrcA_E6TgJH5D"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary rounded-full p-1 border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-white text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<span class="text-label-sm font-bold text-primary text-center">Bongo Crafts</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<!-- Vendor 2 -->
+<div class="min-w-[140px] flex flex-col items-center gap-xs">
+<div class="w-24 h-24 rounded-full border-4 border-primary p-1 bg-white relative">
+<img class="w-full h-full rounded-full object-cover" data-alt="A professional headshot of a female entrepreneur specialized in agriculture technology. She is standing in a lush, green greenhouse environment. The lighting is soft and natural, emphasizing a balance of technology and nature. The aesthetic is clean, modern, and forward-looking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRQd0jM68uZztO344uqzooS98FPkT0lU7LTme90C8DdxlTsTMWaa8tDGdDKPIh2S5R0htVvm8S-VQ52YC8Fms19PkaV38NgZDFs2o5FczQQHSTja5AUEMpNI5tQ0vZ-m9LkYExYqe6HJRdstmwFjcHw4BqoMoycU_0NQ4eAMwu64iy_pyQuRQJmIcWtWgTePdMjyVZruuP0k_sCWU94QVJdGNp0W6vkZk2wxAwg-zabRJ07KFYREKlXFZbuUmYXtg9KS2vXEukl3Nq"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary rounded-full p-1 border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-white text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<span class="text-label-sm font-bold text-primary text-center">AgriTech Zim</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">5.0</span>
+</div>
+</div>
+<!-- Vendor 3 -->
+<div class="min-w-[140px] flex flex-col items-center gap-xs">
+<div class="w-24 h-24 rounded-full border-4 border-primary p-1 bg-white relative">
+<img class="w-full h-full rounded-full object-cover" data-alt="Portrait of a young male clothing designer in a bright, modern studio. He is surrounded by colorful textiles and a sewing machine is visible in the background. The lighting is crisp and even, highlighting the creative and professional atmosphere of a high-end local fashion brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH2SIAa02fUZj5mh6-eOjOheRXG4kuR9ei8oKA1LVze_cVqJyOtitQXC_bJk7pmvtQb414CxY6EvuCnbO3hlf2ylFSjHmVcF8sF2F85cQrdnQmwVaGFjYwo6l0AMW8yXklZKR7hiZgsWDFAC6EbfNwvpz2-vwgo1s8h4v8h3iFCHkdvhXWLSI4po9HdGLNJMLIsWqD1-mWfrGlTIhyINZxtTPiNLPoC9Qp9_mrVk6kOhaYYD5RPeYBImG4MfCidnatE3sJCPXc2Omi"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary rounded-full p-1 border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-white text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<span class="text-label-sm font-bold text-primary text-center">Vibe Fashion</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.7</span>
+</div>
+</div>
+<!-- Vendor 4 -->
+<div class="min-w-[140px] flex flex-col items-center gap-xs">
+<div class="w-24 h-24 rounded-full border-4 border-primary p-1 bg-white relative">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of a senior traditional healer or craft expert, showcasing wisdom and cultural authority. The background is a soft-focus Zimbabwean landscape at dusk, with warm golden-hour lighting. The scene is dignified and respectful, emphasizing the 'National Trust' core of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCJx1xFqZ9iiWxOOAOTluQ64tJMQ7YYNobAAJ-eZ0ha_ohTazdEedzkiJcYHGvuWqMAGajFk1KIjT_v6ZFYzgI1LKUg6Kni6QvrRMsubvdCY3rS39S4KViyTT-4EUxNJCMrTkbUPUm5sF9VcNoqrl2-I-G6w09erTXC72fmcr0I8AaAOHMyr-Dd0cwyiS98VYuxLyVivohB1Q4D0TbirtJ_G6FzK4WAWbnl2aPBJGmzMKA5v6MorASwto0wfBKvMXyA_pY-uYSYYNk"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary rounded-full p-1 border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-white text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<span class="text-label-sm font-bold text-primary text-center">Heritage Arts</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Feed -->
+<section class="mb-lg">
+<h2 class="font-h3 text-h3 font-bold text-primary mb-md">For You</h2>
+<div class="grid grid-cols-2 gap-md">
+<!-- Product 1 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm group">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="High-resolution image of artisanal skincare products in amber glass bottles, placed on a textured stone surface with a sprig of fresh lavender. The lighting is bright and high-key, suggesting purity, quality, and a modern health-conscious lifestyle. The color palette is natural and calming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Mouh95oBwO59AH3na7DuJrb-ZEYQz99u_bFdOfbYS3buiG6hYU9s_OQDsSO0N6lFYquG5jfQSXaKT1afGzLQbolc9mZVITpC5IwP5VaJQ1-ZZne_UoJds72IakBNwT7zOm42g751PesDCkoeN8XoiPeCO41-hA_8H41yslDk8cFXQF-gQ4gVD-AbaJlSqrLx1uXpBW6YTDbvGm5DbtfKuyqdPw5Qc5biXFJa-shicAQNbCcbLUDqTPGUyhm8P8cnp_odsLMd5hPJ"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-sm">
+<h3 class="font-bold text-body-md text-primary mb-1 truncate">Pure Organic Honey</h3>
+<div class="flex justify-between items-center mb-2">
+<span class="font-bold text-secondary text-body-lg">ZiG 125.00</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-primary uppercase">LOCAL</span>
+</div>
+<div class="flex items-center gap-1 text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>Delivery: Today (Harare)</span>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm group">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="A modern, abstract painting in vibrant colors featuring shades of green, yellow, and blue, framed in a simple dark wood frame. The painting is displayed on a clean, light beige wall with elegant shadows casting a sophisticated vibe. The lighting is artistic and intentional, highlighting the texture of the canvas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIUNZgn8yWm6SdzZkUSeI6H7trP4sgk6Or_4tSNOgkYofaJPq_HTcZoZAep7jN46wm4PgrVg-7jRfcdPWExwLux7kVedW7OcsRN63bCJI6Zk80w9tO5sMQYVAI30RMlW1V2enpldBIGVWkMDR__xxSnTR6s-Yzh44qZtc2GPb-I4tOlwlIfO0eCsWyiLDeWUDmGmtDB8yn67cn6Pom-YTn_O3INNXkWm_gjz47d2wlRZhejHMiPEgD7rxGoAnFR_f1PwosJR9nQFPJ"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-sm">
+<h3 class="font-bold text-body-md text-primary mb-1 truncate">Abstract Canvas Art</h3>
+<div class="flex justify-between items-center mb-2">
+<span class="font-bold text-secondary text-body-lg">ZiG 850.00</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-primary uppercase">BOUTIQUE</span>
+</div>
+<div class="flex items-center gap-1 text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>2-3 Days (Standard)</span>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm group">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="Premium organic coffee beans spill out of a rustic burlap sack onto a dark wooden table. The lighting is dramatic and warm, with a focus on the oily texture of the roasted beans. The overall atmosphere is artisanal, rich, and high-quality, celebrating local Zimbabwean produce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOu_qSlFhq9Wb2JCDDdiU8NCRGOoh7G-w6071PrfXZolmgvRDiIfI5ytpgGoaL-yIjbsR2K4QmCVsBW_1xvf0hekIjGTYJgm3Dm4_rEtvYnxUfOfZVB6cpNU05hcxozMUO9NBTWeDq94aVB4YsezW9HTSPd87rD7TiSDJ-hMgReZ5fFCLuj57CMXyUk4yZn7-x9C7EHv090DjBKd6U4k53enfOm2yR0aFC-Knfj_qTVWQVtah8pGP3B_6NzjJ3ipHObOvi9sElqvkN"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-sm">
+<h3 class="font-bold text-body-md text-primary mb-1 truncate">Chimanimani Highlands Coffee</h3>
+<div class="flex justify-between items-center mb-2">
+<span class="font-bold text-secondary text-body-lg">ZiG 210.00</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-primary uppercase">FRESH</span>
+</div>
+<div class="flex items-center gap-1 text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>Delivery: Tomorrow</span>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm group">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="Artisanal hand-woven fiber rug with geometric patterns in neutral and earthy tones. The rug is placed on a light hardwood floor in a sun-drenched room. The lighting is soft and airy, emphasizing the natural materials and high-quality craftsmanship of the piece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTiLR0WSSgTjgOvk0Iya1xyDbA8eExUK3rGC55K1-4xYG5lCzLkCbToN_u-wIP678l7W2k5kGXpSDcZbzASXVPYiV4ExRhsdaamZFyYcXzccM6hUBH3GCohLyirQnxJtatk_aoZxEFU6xgCy3LLYaUGz4PETTOD9eprQuzO0QqWnOndwHTpEaFgBvEgsV0m0wPGXcDqcrK_d2CXJFim3zMfVVf5LAwNbLF6mNcaBCejwFTQNghBBAU7bJnJqFARFlreWNRwvEZHXtn"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-sm">
+<h3 class="font-bold text-body-md text-primary mb-1 truncate">Traditional Fiber Rug</h3>
+<div class="flex justify-between items-center mb-2">
+<span class="font-bold text-secondary text-body-lg">ZiG 1,450.00</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-primary uppercase">CRAFT</span>
+</div>
+<div class="flex items-center gap-1 text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>5-7 Days (Bulky)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-lg flex justify-around items-center w-full py-base">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm">Mall</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm">Transport</span>
+</div>
+</nav>
+<!-- Contextual FAB (Mall focused) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40 border-2 border-secondary-fixed">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</body></html>

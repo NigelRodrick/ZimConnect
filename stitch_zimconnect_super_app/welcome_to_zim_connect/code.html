@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zim-Connect Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&amp;family=Newsreader:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "primary": "#003527",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#bdc7db",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "outline-variant": "#bfc9c3",
+                        "surface-container": "#eceef0",
+                        "on-secondary-container": "#684000",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#707974",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-tertiary-fixed": "#121c2a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#002117",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#80bea6",
+                        "primary-fixed": "#b0f0d6",
+                        "inverse-primary": "#95d3ba",
+                        "tertiary-container": "#3b4555",
+                        "tertiary": "#252f3e",
+                        "surface-tint": "#2b6954",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-container": "#fea619",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#404944",
+                        "tertiary-fixed": "#d9e3f7",
+                        "on-tertiary-fixed-variant": "#3d4757",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-container": "#a8b2c6",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-surface": "#2d3133",
+                        "error": "#ba1a1a",
+                        "primary-container": "#064e3b",
+                        "secondary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "xl": "48px",
+                        "margin": "20px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Public Sans"],
+                        "headline-lg": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "body-lg": ["Public Sans"],
+                        "label-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- Hero Section with Background Image -->
+<section class="relative flex-1 flex flex-col justify-end min-h-[530px] overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A breathtaking panoramic view of the Victoria Falls in Zimbabwe, capturing the majestic scale of the waterfalls with lush green vegetation in the foreground. The lighting is golden hour, casting a warm and prestigious glow across the mist and basalt rock formations. The image is professional and high-fidelity, embodying the Modern Heritage aesthetic with deep emerald greens and golden accents. The composition is clean and serene, representing the natural authority and beauty of the Zimbabwean landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2JTrLf2YqNf_boPQSuFGjVJ9zt44op6dkvcjwcsHUyeQe0Vjbi7wJG3ho6_JJ3xXWN_AoKUUZkP-mHaF0bhQn_-4ygnVX09ECMPj5cgDSzyXDV_YY4_d2eem4FVbFk1Qvf3m8Oflt6mlAAcZK_ttbucDfEcI3-HgmrdI9RZe6_LcOHTijjHCEF7GyoFERs5lE7bEpB2632x4NCxzDwEJQr8T9sLfA8kw50cpqawb738jmpAsdVnIKmMvJLKTIXaQuNo2toX8MbCtf"/>
+<!-- Subtle gradient overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<!-- Branding Overlay (Top Left) -->
+<div class="absolute top-0 left-0 p-margin z-10">
+<h1 class="font-display text-headline-md font-bold text-primary">Zim-Connect</h1>
+</div>
+</section>
+<!-- Content Canvas -->
+<main class="relative z-10 bg-background px-margin pt-lg pb-xl flex flex-col items-center text-center">
+<!-- Text Content -->
+<div class="max-w-md space-y-md">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+                Everything Zimbabwe, in One App.
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Connect with friends, manage your business, find housing, and pay securely with Zim-Wallet.
+            </p>
+</div>
+<!-- Progress Indicator -->
+<div class="flex gap-xs mt-lg mb-xl">
+<div class="w-xs h-xs rounded-full bg-secondary-container"></div>
+<div class="w-xs h-xs rounded-full bg-outline-variant"></div>
+<div class="w-xs h-xs rounded-full bg-outline-variant"></div>
+<div class="w-xs h-xs rounded-full bg-outline-variant"></div>
+</div>
+<!-- Action Area -->
+<div class="w-full max-w-sm space-y-sm">
+<!-- CTA: Large Get Started Button -->
+<button class="w-full py-md px-lg bg-primary text-on-primary rounded-xl font-label-md text-label-md hover:opacity-90 active:scale-[0.98] transition-all shadow-md">
+                Get Started
+            </button>
+<!-- Secondary: Sign In -->
+<button class="w-full py-md px-lg bg-transparent text-primary border border-outline rounded-xl font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                Already have an account? <span class="font-bold underline">Sign In</span>
+</button>
+</div>
+<!-- Footer Meta -->
+<div class="mt-xl flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm">Secured by Government of Zimbabwe Standards</span>
+</div>
+</main>
+<!-- Navigation suppressed for Onboarding Journey per "Semantic Shell" mandate -->
+</body></html>

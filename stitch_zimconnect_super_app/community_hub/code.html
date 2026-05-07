@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZimMarket - Community Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#80bea6",
+                      "on-secondary-fixed": "#261a00",
+                      "on-primary-fixed": "#002117",
+                      "tertiary-fixed": "#ede3b8",
+                      "surface-variant": "#dce2f7",
+                      "on-background": "#141b2b",
+                      "inverse-primary": "#95d3ba",
+                      "error-container": "#ffdad6",
+                      "outline": "#707974",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#ffdf9f",
+                      "on-surface-variant": "#404944",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e9edff",
+                      "primary-fixed-dim": "#95d3ba",
+                      "primary": "#003527",
+                      "background": "#f9f9ff",
+                      "error": "#ba1a1a",
+                      "surface": "#f9f9ff",
+                      "on-tertiary-fixed": "#201c02",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "secondary": "#795900",
+                      "secondary-fixed-dim": "#f9bd22",
+                      "inverse-surface": "#293040",
+                      "inverse-on-surface": "#edf0ff",
+                      "surface-tint": "#2b6954",
+                      "on-surface": "#141b2b",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#b0f0d6",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f1f3ff",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "tertiary": "#665f3d",
+                      "tertiary-fixed-dim": "#d1c79d",
+                      "primary-container": "#064e3b",
+                      "on-secondary-container": "#6f5100",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#dce2f7",
+                      "surface-bright": "#f9f9ff",
+                      "on-tertiary-container": "#453f20",
+                      "tertiary-container": "#b4ab84",
+                      "surface-dim": "#d3daef",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#ffc329",
+                      "surface-container-high": "#e1e8fd",
+                      "on-tertiary-fixed-variant": "#4d4727",
+                      "outline-variant": "#bfc9c3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "gutter": "20px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "sm": "12px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Work Sans"],
+                      "h3": ["Newsreader"],
+                      "h1": ["Newsreader"],
+                      "h2": ["Newsreader"],
+                      "body-md": ["Work Sans"],
+                      "body-lg": ["Work Sans"]
+              },
+              "fontSize": {
+                      "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface */
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container shadow-sm docked full-width top-0 z-50 flex items-center justify-between px-md py-base w-full fixed">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border-2 border-on-primary">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8c-PM5OsVrKXWNGhLG0COXjjFpmSBZNKnw0p8GCYWIiRO_aQ7ek-dzr7UNkZYvYhCXLG8bXQWqFruzWeomHn2a7sM4KvqiKYaJFHeIVSDBW6IkqU966UiR3Qc39PBJcFrkoOKlJC4x3GMJblOccUMiFRrbHqAI9nwOQ_ZB_KQ7TQcVxrlaT9l8miyoHUWJaHW_BRwdI3UQeGiH898a02Ev2yZvRXsGSiUY07z8i9KrbDeHshmfUwYgXWXFaF6c6QIMrlNFvvuqh8B"/>
+</div>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-primary font-bold hover:bg-on-primary/10 transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="hidden md:flex text-on-primary font-label-sm text-label-sm items-center gap-1 hover:bg-on-primary/10 px-3 py-1 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                Alerts
+            </button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-md md:px-xl max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="mb-lg rounded-xl overflow-hidden hero-gradient p-md md:p-lg text-on-primary relative">
+<div class="relative z-10 max-w-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed mb-base block">Welcome to the Hub</span>
+<h2 class="font-h1 text-h1 mb-md">Connecting Zimbabwe's Commerce.</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-lg">A professional sanctuary for artisans, farmers, and buyers to share, request, and thrive together.</p>
+<div class="flex gap-md">
+<button class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-lg py-base rounded-lg shadow-sm hover:brightness-110 active:scale-95 transition-all">
+                        Post Request
+                    </button>
+<button class="border border-on-primary/30 text-on-primary font-label-sm text-label-sm px-lg py-base rounded-lg hover:bg-white/10 active:scale-95 transition-all">
+                        Explore Forums
+                    </button>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<img class="w-full h-full object-cover" data-alt="Close-up high-quality photo of vibrant traditional African woven textiles and textures with deep forest green and golden yellow threads. The lighting is soft and cinematic, emphasizing the intricate craftsmanship and heritage aesthetic of Zimbabwe. The overall mood is sophisticated and culturally rich, blending legacy with modern presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFk6vNHHzvTn0JuV4fSkSIKmfaOhUN2uPGlc4QlySXLEuEhwwYeg9IvahF-LHEh-WmhtBdueDUnjTbFlj0KPFV6aUasWnzJd0JtJxjYpZBCxPdqXKYJADiGa-7hb1tMP03yp73i34p6Soot997bXj8iCXr_fyTf6LFIeUvq4N53oUkeMsRovs1bLSihu0egdvoGXZAHnFoUdwQVbRmRyxUgNgdtWhkuUHQ3bOZnpuqnpCoFzHmEeJFic2L8rvxjeMkmcWMVSDHe9wn"/>
+</div>
+</section>
+<div class="bento-grid">
+<!-- Regional Hubs (Asymmetric Side) -->
+<aside class="col-span-12 md:col-span-4 space-y-md">
+<div class="bg-surface-container-lowest border border-outline-variant/20 p-md rounded-xl shadow-[0_2px_10px_rgba(6,78,59,0.04)]">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-h3 text-h3 text-primary">Regional Hubs</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="map">map</span>
+</div>
+<div class="space-y-base">
+<a class="flex items-center justify-between p-base bg-surface-container-low rounded-lg hover:bg-secondary-fixed/20 transition-colors group" href="#">
+<span class="font-body-md">Harare Metro</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-base bg-surface-container-low rounded-lg hover:bg-secondary-fixed/20 transition-colors group" href="#">
+<span class="font-body-md">Bulawayo Central</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-base bg-surface-container-low rounded-lg hover:bg-secondary-fixed/20 transition-colors group" href="#">
+<span class="font-body-md">Manicaland Highlands</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-base bg-surface-container-low rounded-lg hover:bg-secondary-fixed/20 transition-colors group" href="#">
+<span class="font-body-md">Midlands Industrial</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<button class="w-full mt-md py-base border border-primary/20 text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary/5 transition-colors">
+                        View All Provinces
+                    </button>
+</div>
+<div class="bg-primary text-on-primary p-md rounded-xl shadow-lg">
+<h3 class="font-h3 text-h3 mb-sm">Sellers Corner</h3>
+<p class="font-body-md text-on-primary-container mb-md">Exclusive updates for certified Zimbabwe merchants.</p>
+<div class="space-y-sm">
+<div class="border-l-2 border-secondary-fixed pl-sm py-1">
+<p class="font-label-sm text-label-sm text-secondary-fixed">NEW POLICY</p>
+<p class="text-on-primary">Export regulations for organic honey updated for Q3.</p>
+</div>
+<div class="border-l-2 border-secondary-fixed pl-sm py-1">
+<p class="font-label-sm text-label-sm text-secondary-fixed">TIPS</p>
+<p class="text-on-primary">How to package perishables for long-haul logistics.</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="col-span-12 md:col-span-8 space-y-md">
+<!-- Buyer Requests Board -->
+<section class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant/10 flex justify-between items-center bg-surface-bright">
+<h3 class="font-h2 text-h2 text-primary">Buyer Requests</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">24 New Today</span>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<div class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex justify-between mb-xs">
+<h4 class="font-body-lg font-semibold group-hover:text-primary transition-colors">Looking for 500kg of organic honey</h4>
+<span class="text-label-sm text-outline">2h ago</span>
+</div>
+<p class="text-on-surface-variant line-clamp-2 mb-sm">Seeking certified organic honey producers for a long-term supply contract in the Harare region. Must have export-grade packaging.</p>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-1 text-label-sm text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+                                    Harare
+                                </div>
+<div class="flex items-center gap-1 text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="category">category</span>
+                                    Agriculture
+                                </div>
+</div>
+</div>
+<div class="p-md hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex justify-between mb-xs">
+<h4 class="font-body-lg font-semibold group-hover:text-primary transition-colors">Artisan woodworkers needed for resort furniture</h4>
+<span class="text-label-sm text-outline">5h ago</span>
+</div>
+<p class="text-on-surface-variant line-clamp-2 mb-sm">Seeking skilled carpenters specializing in Teak and Mahogany for a 50-room boutique lodge project near Victoria Falls.</p>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-1 text-label-sm text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+                                    Matabeleland North
+                                </div>
+<div class="flex items-center gap-1 text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="palette">palette</span>
+                                    Handicrafts
+                                </div>
+</div>
+</div>
+</div>
+<div class="p-sm text-center bg-surface-container-low">
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All Requests</button>
+</div>
+</section>
+<!-- Market Moments Feed -->
+<section>
+<h3 class="font-h2 text-h2 text-primary mb-md">Market Moments</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Post 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="A brightly lit, bustling open-air Zimbabwean market stall filled with stacks of fresh colorful vegetables and traditional ceramic pottery. The morning sun casts warm golden light across the scene, creating a vibrant and welcoming atmosphere. The style is professional documentary photography with high contrast and saturated earthy tones that reflect national vitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF5A0u42Y1qa5o0FJakzAI087_fNAK1a89T3JI4xvIKJPrpP4LRVINI4Hotrf1oO2OTVAK4B4oexHfoO6aXHwxIPSKHia9YRIlovuYGa1s4FuFixB8_uR0Qb90Gfx-V-0j3BASFQZ64TPvc-u0zGjoUU_AUXRlJX9xZM5fd9zVF0VvpufEqz06iAANjAG2gCuUQQjHYUc8_wPeRAooX3jMd44fC0wFBdRUrfR3gCMrleA4mF3gWlkEiPXJVTZvgrflSNefz-gAuxWz"/>
+<div class="p-md">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm leading-none">Chipo M.</p>
+<p class="text-[12px] text-outline">Verified Farmer</p>
+</div>
+</div>
+<p class="font-body-md mb-sm text-on-surface">Successfully delivered 2 tons of Grade A Maize to the Gweru Hub today! Grateful for the Zim-Connect logistics network.</p>
+<div class="flex items-center gap-md border-t border-outline-variant/10 pt-sm">
+<button class="flex items-center gap-1 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="thumb_up">thumb_up</span>
+<span class="text-label-sm">128</span>
+</button>
+<button class="flex items-center gap-1 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-sm">14</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="Modern high-resolution photo of a professional workshop in Bulawayo where traditional basket weaving is being modernized with sleek contemporary designs. The workshop is clean and filled with natural light, showing artisans working with sustainable materials. The color palette features warm beiges, deep greens, and hints of clay red, reflecting a perfect balance of heritage and future vitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10kpCdM82p68nnMFkUxBNP-26iUJKff6dTSUnvqnDbzjLbidNd2te2jM9PmVmxMJ-7XTR4QZsFYF8iiZxrqe-i1MYkrkMSqJ5kPfO6AsGzRoDLyH3a6CGBaFuSmUmDxwqwEgs3cAnQkEexXVftaBCnOuiuiNfDQvj3N8qJBpm1xp8SbQSq_VMGGMCuMu74hIetlqLOI-ExNmAx_zhlRbpc4lDykaBMRrQTeD003NaQKuw76xXCxhBSbsEGO1lxMT01sYkZRZXv9KD"/>
+<div class="p-md">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="storefront">storefront</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm leading-none">Heritage Weaves</p>
+<p class="text-[12px] text-outline">Premium Artisan</p>
+</div>
+</div>
+<p class="font-body-md mb-sm text-on-surface">Our new collection of contemporary baskets is finally ready. Proudly handcrafted in Bulawayo.</p>
+<div class="flex items-center gap-md border-t border-outline-variant/10 pt-sm">
+<button class="flex items-center gap-1 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="thumb_up">thumb_up</span>
+<span class="text-label-sm">342</span>
+</button>
+<button class="flex items-center gap-1 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-sm">56</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant/10 shadow-[0_-2px_10px_rgba(6,78,59,0.08)] flex justify-around items-center px-4 py-2 pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-label-sm text-label-sm">Hubs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</a>
+</nav>
+</body></html>

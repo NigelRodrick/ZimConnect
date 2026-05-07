@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#b0f0d6",
+                    "on-primary-fixed": "#002117",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "primary-container": "#064e3b",
+                    "on-secondary-container": "#6f5100",
+                    "surface-tint": "#2b6954",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#b4ab84",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#795900",
+                    "surface-dim": "#d3daef",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#261a00",
+                    "background": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#4d4727",
+                    "surface-container-low": "#f1f3ff",
+                    "secondary-fixed": "#ffdf9f",
+                    "primary-fixed-dim": "#95d3ba",
+                    "surface-container-high": "#e1e8fd",
+                    "outline-variant": "#bfc9c3",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#453f20",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "tertiary-fixed": "#ede3b8",
+                    "tertiary-fixed-dim": "#d1c79d",
+                    "primary": "#003527",
+                    "surface": "#f9f9ff",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-surface-variant": "#404944",
+                    "secondary-fixed-dim": "#f9bd22",
+                    "surface-variant": "#dce2f7",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#665f3d",
+                    "on-surface": "#141b2b",
+                    "on-background": "#141b2b",
+                    "inverse-surface": "#293040",
+                    "inverse-primary": "#95d3ba",
+                    "outline": "#707974",
+                    "on-tertiary-fixed": "#201c02",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#dce2f7",
+                    "secondary-container": "#ffc329",
+                    "surface-container": "#e9edff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "xl": "80px",
+                    "container-max": "1280px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "gutter": "20px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "h1": ["Newsreader"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "h2": ["Newsreader"],
+                    "h3": ["Newsreader"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar from JSON -->
+<header class="docked full-width top-0 z-50 bg-primary flex justify-between items-center w-full px-md h-16 sticky">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-on-primary" data-icon="menu">menu</span>
+<h1 class="font-h3 text-h3 font-bold text-on-primary">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-primary hover:bg-on-primary/10 transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform duration-200" data-icon="notifications">notifications</span>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md md:px-xl py-md mb-24">
+<!-- Search Section -->
+<section class="mb-lg">
+<div class="relative w-full max-w-2xl mx-auto">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container border-b-2 border-primary/20 focus:border-primary px-12 py-4 rounded-xl font-body-md outline-none transition-all" placeholder="Search national news, events, or local updates..." type="text"/>
+<div class="absolute inset-y-0 right-4 flex items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="tune">tune</span>
+</div>
+</div>
+</section>
+<!-- Breaking News Hero -->
+<section class="mb-lg">
+<div class="relative w-full h-[450px] rounded-xl overflow-hidden shadow-sm group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A wide panoramic aerial view of Bulawayo city center at sunrise, showing the iconic wide streets and historical colonial-era architecture blending with modern buildings. The sky is a gradient of soft gold and deep teal, reflecting the Zimbabwe flag's warmth. The lighting is crisp and editorial, evoking a sense of national pride and stable future vitality. The overall aesthetic is professional, clear, and high-quality, fitting for a premier news outlet." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAf4VnHO93m8YL7R5CzWFMSDEjJj3xCPkwH18vEiKlWIXJdSG4G-DTV9GQBEQv12bg02NRF8CAxymyKsZf2NORqLMmnkH4_6NKpeu-JkBbjzyzNNhvc_wOB1F_Cro3TTffZipqaMdShuuak0Bfbc0qIE9-7bABNIXlVJ5ZAoEIX1_ZVsC8jzBJnj8B1_qOtXm5ahHDqnAeRV_kdLPHKa8DpePGGxFqiGrlZFVo-_jtkKUrxaibiO9eoMe7gf4y98FvhPDADvs449fNr')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full md:w-2/3">
+<div class="inline-flex items-center gap-xs px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm mb-base">
+<span class="material-symbols-outlined text-[16px]" data-icon="emergency" data-weight="fill">emergency</span>
+                        BREAKING NEWS
+                    </div>
+<h2 class="font-h1 text-h1 text-white mb-base leading-tight">Bulawayo’s Digital Transformation: New Tech Hub Inaugurated in the City of Kings</h2>
+<p class="text-on-primary-fixed font-body-lg mb-md opacity-90">The historic city sets the pace for the nation's digital future with a multi-million dollar investment in innovation and youth skill development.</p>
+<button class="bg-secondary-container text-on-secondary-container px-lg py-sm rounded-lg font-label-sm hover:bg-secondary-fixed transition-all flex items-center gap-base">
+                        READ FULL STORY
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Local Feed Section -->
+<section>
+<div class="flex items-center justify-between mb-md border-b border-primary/10 pb-base">
+<h3 class="font-h2 text-h2 text-primary">Local Headlines</h3>
+<div class="flex gap-sm">
+<span class="text-label-sm font-medium text-primary bg-primary-fixed px-3 py-1 rounded-full cursor-pointer">ALL</span>
+<span class="text-label-sm font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer">HARARE</span>
+<span class="text-label-sm font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer">GWERU</span>
+<span class="text-label-sm font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer">MUTARE</span>
+</div>
+</div>
+<!-- Bento-style Grid for Headlines -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Card -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-primary/5 rounded-xl p-md flex flex-col md:flex-row gap-md hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-full md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A detailed close-up of Zimbabwean agricultural workers harvesting maize in a sun-drenched field under a clear blue sky. The scene is illuminated by warm, natural light that highlights the vibrant greens of the crops and the golden hues of the harvest. The composition is dynamic and celebratory, illustrating national food security and economic stability. The visual style is premium and editorial with a soft, heritage-inspired color grade." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHIuBHlQQz0ncmXfk9XXsC_R8lVANB1nVtAYQJNRN6cSZHLBpcTAzZ93qiGhKFNlFkLv07BujmYj7X922mNilMNQdOaQoSj3xpQp1Kht5K5SaIAy79iyRktthfPOyETRPaXjhxcMu0ooeil_8yRa317MOnGHRVafL9659Le8V-cvrxRvjJPeXREbmxLNRl_9LZeiMwzZd2Pa20sNm7RFCoTuPojREXOYFfc__kKCWAq6GuVB8dfpKbsBTlVo7gH2_7h24mKb_yE_9V"/>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-base mb-xs">
+<span class="text-label-sm font-bold text-secondary uppercase">Agriculture</span>
+<span class="text-label-sm text-on-surface-variant opacity-60">• 2 hours ago</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-base leading-tight">National Wheat Harvest Hits Record High as Irrigation Schemes Expand</h4>
+<p class="text-on-surface-variant font-body-md line-clamp-2">Government-backed initiatives across the Mashonaland provinces report a 15% increase in yield, securing national reserves for the upcoming season.</p>
+</div>
+<div class="flex items-center justify-between mt-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="source">source</span>
+<span class="text-label-sm font-medium text-primary">Herald Zim</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</div>
+<!-- Side Small Card 1 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-primary/5 rounded-xl p-md hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-base mb-xs">
+<span class="text-label-sm font-bold text-primary uppercase">Business</span>
+<span class="text-label-sm text-on-surface-variant opacity-60">• 4h</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-md leading-snug">ZSE Sees Surge in Mining Stocks as New Policy Takes Effect</h4>
+<div class="w-full h-32 rounded-lg bg-surface-container mb-md flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist stock market interface showing green growth arrows and upward trending charts against a white background. The lighting is high-key and corporate, with accents of Forest Green and Golden Yellow from the Zimbabwe national brand palette. The image conveys financial optimism, stability, and future digital prosperity in a modern institutional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqsLf2qYoQbntO6Fo5WXH_xpLUKnH6SAcjLHHBxg9cRQ5iYFd_dfmOOwuulxZRrEgNCVF-PdB6OcUaiKHszHLbykKBk1XpOCBUaTfgTHn9eu69mjqssvNvAXDEXLiQ4mxlN56MGe5Ljht6gLLAiUjsvk2Q0TtBUDCNg7ovACSWZBdFqwvK5MffU3WDthDkaQR3yU9b1t3WmW33xnKgg1FPTw1LOEQovFwaTAP3l9vFrP56OSHJjTtCqfMQ-3PEmBiEAwpZfigk4yVK"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-primary font-medium">Financial Times Zim</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="share">share</span>
+</div>
+</div>
+<!-- Small Grid Items -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-primary/5 rounded-xl p-md hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-base mb-xs">
+<span class="text-label-sm font-bold text-tertiary uppercase">Culture</span>
+<span class="text-label-sm text-on-surface-variant opacity-60">• 6h</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-md">Great Zimbabwe Museum Set for Modern Digital Overhaul</h4>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-primary font-medium">Kwayedza News</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest border border-primary/5 rounded-xl p-md hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-base mb-xs">
+<span class="text-label-sm font-bold text-secondary uppercase">Sports</span>
+<span class="text-label-sm text-on-surface-variant opacity-60">• 8h</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-md">Chevrons Prepare for Tri-Series in India with New Squad</h4>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-primary font-medium">ZimSport Daily</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest border border-primary/5 rounded-xl p-md hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-base mb-xs">
+<span class="text-label-sm font-bold text-error uppercase">Urgent</span>
+<span class="text-label-sm text-on-surface-variant opacity-60">• 1h</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface mb-md">Weather Alert: Heavy Rain Expected in Eastern Highlands</h4>
+<div class="flex items-center justify-between">
+<span class="text-label-sm text-primary font-medium">Zim-Met Service</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-primary/10 bg-surface shadow-[0_-1px_3px_0_rgba(6,78,59,0.08)] flex justify-around items-center py-2 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all px-5 py-1.5 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all px-5 py-1.5 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-sm text-label-sm font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all px-5 py-1.5 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm font-medium">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all px-5 py-1.5 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-sm text-label-sm font-medium">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all px-5 py-1.5 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-label-sm font-medium">Transport</span>
+</a>
+</nav>
+<!-- Contextual FAB for Zim-News (Primary Action: Report/Post) -->
+<button class="fixed bottom-24 right-6 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container transition-transform active:scale-90 z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZimMarket - Property Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#707974",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdf9f",
+                    "on-surface-variant": "#404944",
+                    "on-secondary-fixed": "#261a00",
+                    "on-primary-container": "#80bea6",
+                    "tertiary-fixed": "#ede3b8",
+                    "surface-variant": "#dce2f7",
+                    "on-background": "#141b2b",
+                    "inverse-primary": "#95d3ba",
+                    "on-primary-fixed": "#002117",
+                    "surface": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "background": "#f9f9ff",
+                    "secondary-fixed-dim": "#f9bd22",
+                    "secondary": "#795900",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-tertiary-fixed": "#201c02",
+                    "surface-container": "#e9edff",
+                    "on-error": "#ffffff",
+                    "primary": "#003527",
+                    "primary-fixed-dim": "#95d3ba",
+                    "tertiary-fixed-dim": "#d1c79d",
+                    "primary-container": "#064e3b",
+                    "on-secondary-container": "#6f5100",
+                    "tertiary": "#665f3d",
+                    "surface-container-low": "#f1f3ff",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "primary-fixed": "#b0f0d6",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#2b6954",
+                    "on-surface": "#141b2b",
+                    "inverse-surface": "#293040",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "surface-container-high": "#e1e8fd",
+                    "on-tertiary-fixed-variant": "#4d4727",
+                    "secondary-container": "#ffc329",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-container": "#453f20",
+                    "surface-container-highest": "#dce2f7",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d3daef",
+                    "tertiary": "#665f3d",
+                    "tertiary-container": "#b4ab84"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "container-max": "1280px",
+                    "xl": "80px",
+                    "gutter": "20px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "h3": ["Newsreader"],
+                    "h1": ["Newsreader"],
+                    "label-sm": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "h2": ["Newsreader"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm flex items-center justify-between px-md py-base w-full fixed top-0 z-50">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined hover:bg-on-primary/10 transition-colors p-2 rounded-full cursor-pointer">menu</span>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden md:flex gap-md mr-lg">
+<span class="text-on-primary font-bold font-label-sm text-label-sm cursor-pointer">Hubs</span>
+<span class="text-on-primary-container/70 dark:text-outline-variant font-label-sm text-label-sm cursor-pointer hover:bg-on-primary/10 transition-colors px-2 py-1 rounded-lg">Marketplace</span>
+<span class="text-on-primary-container/70 dark:text-outline-variant font-label-sm text-label-sm cursor-pointer hover:bg-on-primary/10 transition-colors px-2 py-1 rounded-lg">Directory</span>
+</div>
+<span class="material-symbols-outlined hover:bg-on-primary/10 transition-colors p-2 rounded-full cursor-pointer">search</span>
+<div class="w-10 h-10 rounded-full border-2 border-on-primary/20 overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a confident business executive in a tailored charcoal suit against a soft-focus corporate office background. The lighting is warm and cinematic, emphasizing authority and trust. The overall aesthetic is clean and high-end, matching the corporate modern style of a national super-app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-h9cuXErNx19f-Z8aaMfW1X5bvjyyPw8EmZuWuc27tvKfeRl5MG5k7a9o_jS8Yd_OgTuqNQQil3L6ilIANkmRqh32FQoqYH6BzY25dFJf-ty7QCqS0eKV-Hjh6AyeDzhoZ6LdZMWdaKTRyus9r1Nvcrz8JF4K8MkFrwVfIo2qk8ALe0-p0cPO7wK72MsLtPNOkf-8hrJK1wIAeDLQIOS-gB0ZpKp2C8ArhUOlwTBwKPNv6cHVw60T4nNNwi-zxt_kbRgy4ZeUlvkp"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-24 md:pb-12 px-md lg:px-xl max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<p class="font-label-sm text-label-sm text-primary mb-xs uppercase tracking-widest">Management Suite</p>
+<h2 class="font-h1 text-h1 text-primary">Accommodation Hub</h2>
+</div>
+<!-- Verified Host Panel -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-md flex items-center gap-md shadow-sm">
+<div class="bg-primary/5 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface font-bold">Verified Host Status</h4>
+<p class="text-[12px] text-on-surface-variant">Tier: National Partner • 98% Rating</p>
+</div>
+<div class="ml-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[10px] px-2 py-1 rounded-full uppercase">Active</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Inquiry Inbox (4 Columns) -->
+<section class="md:col-span-4 flex flex-col gap-base">
+<div class="flex items-center justify-between px-xs">
+<h3 class="font-h3 text-h3 text-primary">Inquiry Inbox</h3>
+<span class="bg-secondary-container text-on-secondary-container text-[11px] font-bold px-2 py-0.5 rounded-full">3 NEW</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden divide-y divide-outline-variant/10">
+<!-- Message Item 1 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-sm text-label-sm font-bold text-primary">Tatenda M.</span>
+<span class="text-[11px] text-outline">14:20</span>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-1">Interested in the Victoria Falls Villa for Sept...</p>
+<div class="mt-base flex gap-xs">
+<span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded">Urgent</span>
+</div>
+</div>
+<!-- Message Item 2 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Sarah J.</span>
+<span class="text-[11px] text-outline">Yesterday</span>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-1">Can we arrange a viewing for the Harare...</p>
+</div>
+<!-- Message Item 3 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Brighton K.</span>
+<span class="text-[11px] text-outline">Jul 12</span>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-1">Payment confirmation for the Bulawayo Loft...</p>
+</div>
+</div>
+<button class="w-full py-base font-label-sm text-label-sm text-primary hover:bg-primary/5 transition-colors rounded-lg border border-primary/10 mt-xs">
+                    View All Messages
+                </button>
+</section>
+<!-- Active Listings (8 Columns) -->
+<section class="md:col-span-8 flex flex-col gap-base">
+<div class="flex items-center justify-between px-xs">
+<h3 class="font-h3 text-h3 text-primary">Active Listings</h3>
+<div class="flex gap-base">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">filter_list</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">sort</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<!-- Property Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300">
+<div class="h-48 w-full relative">
+<img alt="Victoria Falls Villa" class="w-full h-full object-cover" data-alt="A luxury modern villa in Zimbabwe featuring sleek architectural lines, large glass windows, and a pristine infinity pool reflecting a golden sunset. The surrounding landscape is lush and manicured, evoking a premium and secure residential atmosphere. The lighting is warm and evocative of a high-end editorial property feature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcOPoWg2PmRmnljyme_MKJxx6vMBYbG2INvjlxIhSNzISBnNYivJ260NrtMHC1m4qSKKe3fs_kgMXYrn1Gwn8gepSSBzs5GbNfXj-P8frzCHA58GBaYBzZAnypWQXE_6ULnGOc69D1K03Df7SgbiY0wVEqxt1NIS1sn7BPxgOSam4FqKp0ZehkyqISZKf-oeYTKSKWhPTui0E-N_LcbGndF03U2yOuocfaOMUgI5n9tnah-wvx_J06RHMKB7J_HlhntpK2ZGyNV5R-"/>
+<div class="absolute top-4 right-4 bg-primary-container/90 text-on-primary-container px-3 py-1 rounded-full text-[12px] font-bold">
+                                Premium
+                            </div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h4 class="font-h3 text-[20px] text-primary">The Falls Sanctuary</h4>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-md">Victoria Falls, Matabeleland North</p>
+<!-- Stats Row -->
+<div class="grid grid-cols-2 gap-md border-t border-outline-variant/20 pt-md">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility</span>
+<div>
+<p class="text-[14px] font-bold text-on-surface leading-tight">1,240</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Views</p>
+</div>
+</div>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary text-[20px]">bookmark</span>
+<div>
+<p class="text-[14px] font-bold text-on-surface leading-tight">85</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Saves</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300">
+<div class="h-48 w-full relative">
+<img alt="Harare City Loft" class="w-full h-full object-cover" data-alt="A contemporary urban loft apartment in downtown Harare featuring high ceilings, industrial windows, and warm wooden flooring. The interior is professionally staged with modern furniture in cream and forest green tones. Natural morning light fills the space, creating a bright and welcoming high-density living environment for young professionals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbFOXmu-VclgiGr5UPcrAeEgOitJrbMVg6Xz1qcCuoavNGXbKitIG3ISO6yirCLNxp_R_gYUyNOZAyi_pIQa9wlgpzCpzKnyNtLgOkHCL_nrT1wTPDOSjuF6PbOGG_sN9heyeOEs5EFPJKOFnsT-cIWUCgS8qpOET3-6j-1yv_xfS9YwINO9mdq8xmgxiyzWidUrkV0t1-tLNIxpQaffgVpaGkYzgzsjEBDEBn--w2AwitgCacmZjUSGqDdJIK5Mn-eeyO6fkeOqRV"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h4 class="font-h3 text-[20px] text-primary">Heritage Loft</h4>
+<span class="material-symbols-outlined text-outline">edit</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-md">CBD, Harare Province</p>
+<!-- Stats Row -->
+<div class="grid grid-cols-2 gap-md border-t border-outline-variant/20 pt-md">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility</span>
+<div>
+<p class="text-[14px] font-bold text-on-surface leading-tight">850</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Views</p>
+</div>
+</div>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary text-[20px]">bookmark</span>
+<div>
+<p class="text-[14px] font-bold text-on-surface leading-tight">42</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Saves</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Performance Summary Banner -->
+<section class="mt-lg bg-primary text-on-primary rounded-2xl p-lg flex flex-col md:flex-row items-center justify-between gap-lg overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-h2 text-h2 mb-base">Hub Performance Overview</h3>
+<p class="text-on-primary-container/80 max-w-md">Your listings are performing 15% better than the regional average this month. Keep your response time under 2 hours to maintain your status.</p>
+</div>
+<div class="flex gap-lg relative z-10">
+<div class="text-center">
+<p class="text-h1 font-h1 leading-none">2.4k</p>
+<p class="text-[12px] uppercase tracking-widest text-on-primary-container">Total Clicks</p>
+</div>
+<div class="text-center border-l border-on-primary/20 pl-lg">
+<p class="text-h1 font-h1 leading-none">$12k</p>
+<p class="text-[12px] uppercase tracking-widest text-on-primary-container">Est. Revenue</p>
+</div>
+</div>
+<!-- Decorative abstract shape -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-on-primary/5 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- FAB: Add New Property -->
+<button class="fixed bottom-24 md:bottom-12 right-6 md:right-12 z-50 bg-secondary-container text-on-secondary-container shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3 px-6 py-4 rounded-full font-label-sm text-label-sm group">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'wght' 700;">add</span>
+<span class="hidden md:inline">Add New Property</span>
+</button>
+<!-- BottomNavBar Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest border-t border-outline-variant/10 shadow-[0_-2px_10px_rgba(6,78,59,0.08)] flex justify-around items-center px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px] mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-[10px] mt-1">Directory</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-sm text-[10px] mt-1">Hubs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-[10px] mt-1">Forum</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px] mt-1">Account</span>
+</div>
+</nav>
+</body></html>

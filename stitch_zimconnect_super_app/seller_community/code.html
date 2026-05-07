@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface from Style Guidance */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#80bea6",
+                      "on-secondary-fixed": "#261a00",
+                      "on-primary-fixed": "#002117",
+                      "tertiary-fixed": "#ede3b8",
+                      "surface-variant": "#dce2f7",
+                      "on-background": "#141b2b",
+                      "inverse-primary": "#95d3ba",
+                      "error-container": "#ffdad6",
+                      "outline": "#707974",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#ffdf9f",
+                      "on-surface-variant": "#404944",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e9edff",
+                      "primary-fixed-dim": "#95d3ba",
+                      "primary": "#003527",
+                      "background": "#f9f9ff",
+                      "error": "#ba1a1a",
+                      "surface": "#f9f9ff",
+                      "on-tertiary-fixed": "#201c02",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "secondary": "#795900",
+                      "secondary-fixed-dim": "#f9bd22",
+                      "inverse-surface": "#293040",
+                      "inverse-on-surface": "#edf0ff",
+                      "surface-tint": "#2b6954",
+                      "on-surface": "#141b2b",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#b0f0d6",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f1f3ff",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "tertiary": "#665f3d",
+                      "tertiary-fixed-dim": "#d1c79d",
+                      "primary-container": "#064e3b",
+                      "on-secondary-container": "#6f5100",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#dce2f7",
+                      "surface-bright": "#f9f9ff",
+                      "on-tertiary-container": "#453f20",
+                      "tertiary-container": "#b4ab84",
+                      "surface-dim": "#d3daef",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#ffc329",
+                      "surface-container-high": "#e1e8fd",
+                      "on-tertiary-fixed-variant": "#4d4727",
+                      "outline-variant": "#bfc9c3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "gutter": "20px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "sm": "12px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Work Sans"],
+                      "h3": ["Newsreader"],
+                      "h1": ["Newsreader"],
+                      "h2": ["Newsreader"],
+                      "body-md": ["Work Sans"],
+                      "body-lg": ["Work Sans"]
+              },
+              "fontSize": {
+                      "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked full-width top-0 z-50 shadow-sm flex items-center justify-between px-md py-base w-full">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-on-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a Zimbabwean entrepreneur in a bright, modern office setting. The lighting is soft and natural, emphasizing a look of confidence and reliability. The background features subtle textures of a contemporary workspace with deep green accents to match the national super-app brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpO7OEuJ8cFKjFeCEHWaNg2VJaLIOibd_atCfOY1llBQ3sUOHOW7WtK_ZKzxLg7oMwL0rVtxJ_IqTJQJl5qVlRP5ifF7Yho6VmPbLMJQEGtR7OyUoDS8PcKNLAhp5iQRqlzeG5kZ1L9JUNkv7hiPfVQqbwf6bsB_81gyAk_syAaHK9WmDCpQf3c3qDlyeJsGXc4Oy_9t546wn3r-crupa4nZat4QIP2dW2yVJKhKfrz-rj71Uosh_ZpqMfVHgMuGKZWPnMBcCLzj9"/>
+</div>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="flex items-center gap-base">
+<button class="p-2 hover:bg-on-primary/10 transition-colors rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-on-primary/10 transition-colors rounded-full active:scale-95 transition-transform md:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md md:px-xl py-lg pb-32">
+<!-- Hero Section / Forum Welcome -->
+<section class="mb-lg">
+<div class="bg-primary-container rounded-xl p-lg relative overflow-hidden text-on-primary-container">
+<div class="relative z-10">
+<h2 class="font-h1 text-h1 text-on-primary mb-sm">Seller Community</h2>
+<p class="font-body-lg text-primary-fixed max-w-2xl">The official forum for Zimbabwe's merchant network. Share stories, track policy, and grow your digital business together.</p>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined !text-[160px]" data-icon="hub">hub</span>
+</div>
+</div>
+</section>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Sidebar: Forum Categories -->
+<aside class="lg:col-span-3 space-y-md">
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/10">
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-base">Knowledge Channels</h3>
+<nav class="space-y-xs">
+<a class="flex items-center gap-sm p-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Forum Home</span>
+</a>
+<a class="flex items-center gap-sm p-3 hover:bg-surface-container-high transition-colors rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+<span>Vendor Success Stories</span>
+</a>
+<a class="flex items-center gap-sm p-3 hover:bg-surface-container-high transition-colors rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Policy Updates (ZIMRA)</span>
+</a>
+<a class="flex items-center gap-sm p-3 hover:bg-surface-container-high transition-colors rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>Logistics &amp; Shipping Tips</span>
+</a>
+<a class="flex items-center gap-sm p-3 hover:bg-surface-container-high transition-colors rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Marketplace Trends</span>
+</a>
+</nav>
+</div>
+<div class="bg-tertiary-fixed rounded-xl p-md">
+<h3 class="font-h3 text-h3 text-on-tertiary-fixed mb-xs">Top Contributors</h3>
+<div class="space-y-sm mt-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed"></div>
+<span class="font-label-sm text-on-tertiary-fixed">Tatenda M. <span class="bg-primary text-on-primary px-1.5 py-0.5 rounded text-[10px]">GOLD SELLER</span></span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed"></div>
+<span class="font-label-sm text-on-tertiary-fixed">Kudzai N. <span class="bg-primary text-on-primary px-1.5 py-0.5 rounded text-[10px]">VERIFIED</span></span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Content: Thread List -->
+<section class="lg:col-span-6 space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-h2 text-h2">Recent Discussions</h2>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                        New Topic
+                    </button>
+</div>
+<!-- Discussion Cards -->
+<div class="space-y-sm">
+<!-- Policy Update Card -->
+<article class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="flex flex-col items-center gap-xs">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="expand_less">expand_less</span></button>
+<span class="font-bold text-on-surface">142</span>
+<button class="text-outline hover:text-error"><span class="material-symbols-outlined" data-icon="expand_more">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold">POLICY</span>
+<span class="text-outline text-xs">Posted 2h ago by <span class="text-primary font-semibold">ZimMarket Official</span></span>
+</div>
+<h3 class="font-h3 text-h3 mb-xs leading-snug">New VAT Regulations for Cross-Border E-commerce Vendors</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-md">ZIMRA has released updated guidelines regarding the collection of VAT for digital services and goods traded via international corridors. All merchants must register by...</p>
+<div class="flex items-center gap-md text-outline text-sm">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span> 24 comments</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span> 1.2k views</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Success Story Card -->
+<article class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="flex flex-col items-center gap-xs">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="expand_less">expand_less</span></button>
+<span class="font-bold text-on-surface">89</span>
+<button class="text-outline hover:text-error"><span class="material-symbols-outlined" data-icon="expand_more">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">SUCCESS STORY</span>
+<span class="text-outline text-xs">Posted 5h ago by <span class="text-primary font-semibold">Nyasha_Artisan</span></span>
+</div>
+<h3 class="font-h3 text-h3 mb-xs leading-snug">How I tripled my pottery sales using the Hub logistics network</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-md">I started small in Mutare, but joining the Bulawayo Hub changed everything. Here's my step-by-step process for optimizing inventory and shipping costs...</p>
+<div class="flex items-center gap-md text-outline text-sm">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span> 56 comments</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]" data-icon="volunteer_activism">volunteer_activism</span> 12 badges awarded</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Logistics Card -->
+<article class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+<div class="flex gap-md">
+<div class="flex flex-col items-center gap-xs">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="expand_less">expand_less</span></button>
+<span class="font-bold text-on-surface">31</span>
+<button class="text-outline hover:text-error"><span class="material-symbols-outlined" data-icon="expand_more">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-primary-container text-on-primary-container text-[10px] px-2 py-0.5 rounded-full font-bold">LOGISTICS</span>
+<span class="text-outline text-xs">Posted 8h ago by <span class="text-primary font-semibold">EcoShip_Admin</span></span>
+</div>
+<h3 class="font-h3 text-h3 mb-xs leading-snug">Optimizing Last-Mile Delivery in Harare Central</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-md">We've identified several bottlenecks in the CBD route. Here are the new drop-off points designed to save you at least 20 minutes per delivery cycle...</p>
+<div class="flex items-center gap-md text-outline text-sm">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span> 12 comments</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Sidebar: Trends & Widgets -->
+<aside class="lg:col-span-3 space-y-md">
+<!-- Marketplace Trends Widget -->
+<div class="bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant/10">
+<div class="p-md bg-primary-container text-on-primary-container">
+<h3 class="font-label-sm text-label-sm uppercase tracking-wider">Marketplace Trends</h3>
+</div>
+<div class="p-md space-y-md">
+<div class="flex justify-between items-end border-b border-outline-variant pb-base">
+<div>
+<p class="text-xs text-outline">Trending Category</p>
+<p class="font-bold text-on-surface">Handcrafted Leather</p>
+</div>
+<span class="text-primary font-bold">+14%</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant pb-base">
+<div>
+<p class="text-xs text-outline">Top Region</p>
+<p class="font-bold text-on-surface">Manicaland</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-outline">Demand Spike</p>
+<p class="font-bold text-on-surface">Organic Staples</p>
+</div>
+<span class="text-primary font-bold">+28%</span>
+</div>
+</div>
+</div>
+<!-- Community Rules Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/10">
+<h3 class="font-label-sm text-label-sm text-primary mb-sm">Community Guidelines</h3>
+<ul class="text-xs space-y-sm text-on-surface-variant">
+<li class="flex gap-xs"><span class="material-symbols-outlined text-primary text-[14px]" data-icon="verified_user">verified_user</span> Be respectful to fellow merchants.</li>
+<li class="flex gap-xs"><span class="material-symbols-outlined text-primary text-[14px]" data-icon="verified_user">verified_user</span> No unauthorized self-promotion.</li>
+<li class="flex gap-xs"><span class="material-symbols-outlined text-primary text-[14px]" data-icon="verified_user">verified_user</span> Keep policy discussions objective.</li>
+</ul>
+</div>
+<!-- Ad/Promotion Card -->
+<div class="bg-secondary-fixed rounded-xl p-md relative overflow-hidden group">
+<h4 class="font-h3 text-h3 text-on-secondary-fixed relative z-10">Export Ready?</h4>
+<p class="text-xs text-on-secondary-fixed-variant mb-md relative z-10">Get the 'Export Certificate' badge and unlock regional shipping hubs.</p>
+<button class="bg-on-secondary-fixed text-secondary-fixed px-3 py-1.5 rounded-full text-[10px] font-bold relative z-10 hover:opacity-90">APPLY NOW</button>
+<span class="material-symbols-outlined absolute -right-2 -bottom-2 text-on-secondary-fixed/5 !text-6xl group-hover:scale-110 transition-transform" data-icon="public">public</span>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-dim text-primary dark:text-primary-fixed-dim fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-2px_10px_rgba(6,78,59,0.08)] border-t border-outline-variant/10 flex justify-around items-center px-4 py-2 pb-safe">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-label-sm text-label-sm">Hubs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</button>
+</nav>
+</body></html>

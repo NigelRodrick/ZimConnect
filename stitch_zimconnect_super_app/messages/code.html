@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#d8dadc",
+                      "primary": "#003527",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed-dim": "#bdc7db",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "outline-variant": "#bfc9c3",
+                      "surface-container": "#eceef0",
+                      "on-secondary-container": "#684000",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed": "#2a1700",
+                      "on-background": "#191c1e",
+                      "inverse-on-surface": "#eff1f3",
+                      "outline": "#707974",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#95d3ba",
+                      "on-tertiary-fixed": "#121c2a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "on-primary-fixed": "#002117",
+                      "secondary": "#855300",
+                      "on-primary": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-primary-container": "#80bea6",
+                      "primary-fixed": "#b0f0d6",
+                      "inverse-primary": "#95d3ba",
+                      "tertiary-container": "#3b4555",
+                      "tertiary": "#252f3e",
+                      "surface-tint": "#2b6954",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-container": "#fea619",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#404944",
+                      "tertiary-fixed": "#d9e3f7",
+                      "on-tertiary-fixed-variant": "#3d4757",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "on-tertiary-container": "#a8b2c6",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "surface-container-high": "#e6e8ea",
+                      "inverse-surface": "#2d3133",
+                      "error": "#ba1a1a",
+                      "primary-container": "#064e3b",
+                      "secondary-fixed": "#ffddb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "xs": "8px",
+                      "xl": "48px",
+                      "margin": "20px",
+                      "sm": "16px",
+                      "md": "24px",
+                      "lg": "32px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "label-md": ["Public Sans"],
+                      "headline-lg": ["Newsreader"],
+                      "display": ["Newsreader"],
+                      "headline-md": ["Newsreader"],
+                      "body-lg": ["Public Sans"],
+                      "label-sm": ["Public Sans"],
+                      "body-md": ["Public Sans"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface-container dark:bg-surface-container-high fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline flex items-center justify-between px-margin h-16 w-full">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center">
+<img alt="Tatenda Moyo" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young Zimbabwean man with a friendly expression. He is wearing a clean, modern white shirt against a soft, blurred corporate background. The lighting is natural and bright, conveying a sense of trustworthiness and professional service. The visual style is crisp and high-definition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnOc-KJOzivOV3t_4wZdBw46HCtIFuYSDHyxYe76Zvng5M6WWTG9MBry_6pWcvrLxmzmApsCsvWV8HI2GPkM0ru7AE9kstBpH4orZxBDVkbLHxDT9-37B9A43NdtyjlG_dOqWBcVnkhStS9MJL5QMilWomp_B8uvObf6DuNgZaxuQG-SYq9_vP4spgMLDrSQOtrM8QGQTkQ_8byPGCbMxHEbnLHJbEc0rw6Q-C1jDxZ5IUOGEIdOIyXc__zkrO0inpzYtV5qSBMgOW"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Messages</h1>
+</div>
+<div class="flex items-center gap-xs">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="add">add</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-16 pb-20">
+<!-- Tab Navigation -->
+<div class="bg-surface-container sticky top-16 z-40 border-b border-outline-variant px-margin">
+<div class="flex">
+<button class="flex-1 py-md border-b-2 border-primary text-primary font-label-md text-label-md transition-colors">
+                    Friends
+                </button>
+<button class="flex-1 py-md text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors">
+                    Official Accounts
+                </button>
+</div>
+</div>
+<!-- Chat List Section -->
+<div class="px-margin py-sm space-y-base">
+<!-- Personal Chat Row -->
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 active:scale-95 transition-transform duration-150 cursor-pointer">
+<div class="relative">
+<img alt="Tatenda M." class="w-14 h-14 rounded-full object-cover" data-alt="A focused headshot of a Zimbabwean man with a kind face, set against a warm, sunlit outdoor background. The lighting is golden and soft, emphasizing a friendly and personal connection. The composition is modern and minimalist, maintaining a high-utility aesthetic for a mobile interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZA9XVxXkX8HGIYKwjs8o8jntyyd-LlnLZrfr2gCtcCM6qsMZI8JrwAgNxMplGedZBYP4Z1de9Jk0M8BvQ9nqdehrmi7HBxYtKMrkiFaCO33bnhBZTEqvAIoqTGFYiWkmOXOTRfeIAlKi_UKlZXagGKH1-GV78bQOMEfYH6zmRbjsJuDBQ0WbCp5CrbF-g4LeMbQWndzuUiuLvUOq2G2Upc--6h4nrHZYxczA-3kLxWsS5_Lz1Psh558yQZcdWCg-DFwrGfOm57JGT"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-secondary rounded-full border-2 border-surface-container-lowest"></div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-base">
+<span class="font-label-md text-label-md text-on-surface">Tatenda M.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:45 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Did you see the new housing listings?</p>
+</div>
+</div>
+<!-- Official Chat Row 1 -->
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 active:scale-95 transition-transform duration-150 cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img alt="Mukuvisi Bee Farms" class="w-full h-full object-cover" data-alt="A professional corporate logo-style image of a honeycomb pattern in deep forest green and gold. The style is clean and graphic, representing an agricultural enterprise with authority and precision. The lighting is studio-perfect, reflecting a high-end corporate brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwLQHew_nb2KH1h53wkY5hP_CI3acHDfi7IqAEAL8Zx7DbFg2hHsOi9Ksl8AHgBhPNqSn-JgvzlcxJ7PQMl5AsQzejwj2FVywybopG31Gc0vbqHRtskAV0Wu9SrYsDvXtjdUZyyyVvQ1Gs2gcekH3sQULj6K_tyzXHYk9uhXKRfdOSKglika-SKrBZ03VsKyH861bbEdmBu8RayY35MRqRBp8UbDrNWdcWzrKUSAQB9R0jirw0NOJqMD9u1LzlI4CIO7Wg3bQ6zWmO"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-base">
+<div class="flex items-center gap-base">
+<span class="font-label-md text-label-md text-on-surface">Mukuvisi Bee Farms</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">9:12 AM</span>
+</div>
+<p class="font-body-md text-body-md text-primary font-bold truncate">Your bid has been accepted!</p>
+</div>
+</div>
+<!-- Notification Chat Row -->
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 active:scale-95 transition-transform duration-150 cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[28px]" data-icon="notifications">notifications</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-base">
+<span class="font-label-md text-label-md text-on-surface">Zim-Connect Notifications</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Your rent payment of $350 was successful.</p>
+</div>
+</div>
+<!-- Official Chat Row 2 -->
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 active:scale-95 transition-transform duration-150 cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-tertiary flex items-center justify-center overflow-hidden">
+<img alt="Savanna Logistics" class="w-full h-full object-cover" data-alt="A professional vector-style graphic of a logistics truck moving through a stylized savannah landscape. The color palette uses deep charcoal and earthy tones, maintaining a professional and institutional vibe. The composition is clean, centered, and optimized for a small circular avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJyJqzyMb_3QjOtAcs1AUGMX-3KZ5YOv5GD49-6QW_jCtNwRChGQ_9B93Ca18ztThggzGthQHvczoGiyds_A61aMY0gkMOZaD3HT2J2KP8ku9_pAMKA9eQ_cVEXXNRMhC2Yy5_AQyqtT8uAXEOrutOnsh2YCqPLgHnhAuEd87Fqi5kGhrdO2WXI8uJK8KngXGqPStkrxKWdAsQHmJf37v9uGbvMRrC3fSEUQCAB1CosrIVFaFfxmChAiqz8Cyl6L4ju8x7fQA6ycrp"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-base">
+<div class="flex items-center gap-base">
+<span class="font-label-md text-label-md text-on-surface">Savanna Logistics</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate">Driver is 5 mins away.</p>
+</div>
+</div>
+<!-- Placeholder for low-data pattern -->
+<div class="p-md bg-surface-variant/30 border border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-outline" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Load older messages</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-container-lowest fixed bottom-0 w-full z-50 border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 pb-safe px-gutter">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-label-sm text-label-sm mt-1">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Mall</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Services</span>
+</button>
+</nav>
+</body></html>

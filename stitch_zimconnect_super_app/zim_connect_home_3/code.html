@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&amp;family=Newsreader:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#d8dadc",
+                      "primary": "#003527",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed-dim": "#bdc7db",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "outline-variant": "#bfc9c3",
+                      "surface-container": "#eceef0",
+                      "on-secondary-container": "#684000",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed": "#2a1700",
+                      "on-background": "#191c1e",
+                      "inverse-on-surface": "#eff1f3",
+                      "outline": "#707974",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#95d3ba",
+                      "on-tertiary-fixed": "#121c2a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "on-primary-fixed": "#002117",
+                      "secondary": "#855300",
+                      "on-primary": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-primary-container": "#80bea6",
+                      "primary-fixed": "#b0f0d6",
+                      "inverse-primary": "#95d3ba",
+                      "tertiary-container": "#3b4555",
+                      "tertiary": "#252f3e",
+                      "surface-tint": "#2b6954",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-container": "#fea619",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#404944",
+                      "tertiary-fixed": "#d9e3f7",
+                      "on-tertiary-fixed-variant": "#3d4757",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "on-tertiary-container": "#a8b2c6",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "surface-container-high": "#e6e8ea",
+                      "inverse-surface": "#2d3133",
+                      "error": "#ba1a1a",
+                      "primary-container": "#064e3b",
+                      "secondary-fixed": "#ffddb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "xs": "8px",
+                      "xl": "48px",
+                      "margin": "20px",
+                      "sm": "16px",
+                      "md": "24px",
+                      "lg": "32px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "label-md": ["Public Sans"],
+                      "headline-lg": ["Newsreader"],
+                      "display": ["Newsreader"],
+                      "headline-md": ["Newsreader"],
+                      "body-lg": ["Public Sans"],
+                      "label-sm": ["Public Sans"],
+                      "body-md": ["Public Sans"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container dark:bg-surface-container-high border-b border-outline-variant dark:border-outline flex items-center justify-between px-margin h-16 w-full">
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant active:opacity-80 transition-opacity">
+<img alt="Tatenda Moyo" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a Zimbabwean man with a warm, friendly expression, set against a blurred urban background of Harare. The lighting is soft and natural, emphasizing a trustworthy and professional character. The color palette is warm with subtle deep emerald green tones in his attire, reflecting the Zim-Connect brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfym4TOMeKnnHKeFadioC10RNJZaStbEtNKjTJzLsDs8XWJ22B9olKoiwGJovLEjmNWYWnXWu2FssYLn6yYL6VJFVji57O9ATDys1EYF-gx0w5kSl2aUcGd42lLnbsJJ02KfqpKoOBP33z4IeqP7PRS2oTJKwFGBpEcHBKayoBwfJT33hU__pHOELgiEadgHaHaS0odjj6nj-LcHtAwnCtD47IqTIQijZk303Q_u8EYv3_5j39JYvwN2iUWw7ML_LdE5ypsqpnOR9v"/>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed leading-tight">Zim-Connect</h1>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-xs rounded-full hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-16 px-margin pt-md space-y-lg">
+<!-- Personalized Greeting -->
+<section class="space-y-base">
+<div class="flex items-baseline gap-xs">
+<p class="font-body-md text-body-md text-on-surface-variant">Good Morning,</p>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Tatenda</h2>
+</div>
+<div class="flex items-center text-on-surface-variant gap-base">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm">Harare, Zimbabwe</span>
+</div>
+</section>
+<!-- Search Bar -->
+<section>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full h-14 pl-xl pr-md bg-white border border-outline rounded-xl font-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Find services, contacts, or products..." type="text"/>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="grid grid-cols-4 gap-sm">
+<div class="flex flex-col items-center gap-xs group cursor-pointer">
+<div class="w-14 h-14 rounded-xl bg-primary text-white flex items-center justify-center border-2 border-transparent active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Scan Pay</span>
+</div>
+<div class="flex flex-col items-center gap-xs group cursor-pointer">
+<div class="w-14 h-14 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-xs group cursor-pointer">
+<div class="w-14 h-14 rounded-xl bg-surface-variant text-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">storefront</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Mall</span>
+</div>
+<div class="flex flex-col items-center gap-xs group cursor-pointer">
+<div class="w-14 h-14 rounded-xl bg-surface-variant text-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">directions_bus</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Transport</span>
+</div>
+</section>
+<!-- Service Grid (Bento Style) -->
+<section>
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-headline-md text-headline-md text-primary">Core Services</h3>
+<span class="font-label-md text-label-md text-secondary cursor-pointer">View All</span>
+</div>
+<div class="grid grid-cols-4 gap-sm">
+<!-- Housing -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">home_work</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Housing</span>
+</div>
+<!-- News -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">newspaper</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">News</span>
+</div>
+<!-- Education -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">school</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Education</span>
+</div>
+<!-- Tourism -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">explore</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tourism</span>
+</div>
+<!-- Groceries -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">shopping_cart</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Groceries</span>
+</div>
+<!-- Business Hub -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">business_center</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Business</span>
+</div>
+<!-- Services -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">grid_view</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Services</span>
+</div>
+<!-- Utilities -->
+<div class="flex flex-col items-center gap-xs cursor-pointer active:opacity-70 transition-opacity">
+<div class="w-full aspect-square rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">bolt</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Utilities</span>
+</div>
+</div>
+</section>
+<!-- Banner Ad / Featured -->
+<section class="relative h-32 rounded-xl overflow-hidden bg-primary shadow-sm border border-outline-variant">
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent z-10 p-md flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-secondary-container uppercase tracking-wider mb-base">Promoted</p>
+<h4 class="font-headline-md text-white text-body-lg font-bold">Invest in Zim-Bonds</h4>
+<p class="font-body-md text-label-sm text-primary-fixed-dim">Start today with as little as $10.</p>
+</div>
+<img alt="Investment Growth" class="absolute inset-0 w-full h-full object-cover opacity-40" data-alt="A high-contrast, modern photographic composition representing financial growth in Zimbabwe. The image features a macro shot of lush green vegetation transitioning into a sleek, dark technological surface with gold accents. The lighting is dramatic and focused, evoking a sense of stability, prosperity, and premium investment opportunities within the Zim-Connect ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnNVkWz9aiGpJZFvQAF9ar75dpkjYQ0vgys9tcxWlcTgDt_tnJAHYCKhgDbuLJDvBBCb6JkGRT5QlvpyUT7X2sO5qkhLV7mRDxHag0VSF2iBt8NScN6AxUAAYEYyCQqICUU3Y08KmC3OOLut37_BEIdmFRovdZAPEn2K-dfZDIHvtZ0M9i5At9FMeGahCuMN2MqNWjtHeEIQexv3y4H8H6dN7lcidAP9iLuTIJvorF0CsnHZahNZ_8R0Fn6IWbRtHULl96orXID_HV"/>
+</section>
+<!-- Activity Feed -->
+<section class="space-y-sm pb-xl">
+<h3 class="font-headline-md text-headline-md text-primary">Recent Updates</h3>
+<div class="space-y-xs">
+<!-- Update Item 1 -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant flex gap-md items-start active:bg-surface-variant transition-colors cursor-pointer">
+<div class="mt-base">
+<span class="material-symbols-outlined text-secondary">event_note</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-semibold">Next Semester Rent due in 5 days</p>
+<p class="font-body-md text-label-sm text-on-surface-variant">Student Housing • University of Zimbabwe</p>
+</div>
+</div>
+<!-- Update Item 2 -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant flex gap-md items-start active:bg-surface-variant transition-colors cursor-pointer">
+<div class="mt-base">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-semibold">Your honey order is out for delivery</p>
+<p class="font-body-md text-label-sm text-on-surface-variant">Expected between 2:00 PM - 4:00 PM</p>
+</div>
+</div>
+<!-- Update Item 3 -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant flex gap-md items-start active:bg-surface-variant transition-colors cursor-pointer">
+<div class="mt-base">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-semibold">New message from Savanna Logistics</p>
+<p class="font-body-md text-label-sm text-on-surface-variant">"Your shipment #ZIM-992 has cleared customs..."</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 pb-safe px-gutter">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Chat -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150 rounded-lg p-base" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</a>
+<!-- Wallet -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150 rounded-lg p-base" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<!-- Mall -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150 rounded-lg p-base" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Mall</span>
+</a>
+<!-- Services -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container active:scale-95 transition-transform duration-150 rounded-lg p-base" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Services</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Home) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-secondary shadow-lg rounded-full flex items-center justify-center text-white active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</body></html>

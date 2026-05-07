@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZimMarket - Premium Residential Listing</title>
+<!-- Font Imports -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6-72,400;6-72,500;6-72,600;6-72,700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#707974",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdf9f",
+            "on-surface-variant": "#404944",
+            "on-secondary-fixed": "#261a00",
+            "on-primary-container": "#80bea6",
+            "tertiary-fixed": "#ede3b8",
+            "surface-variant": "#dce2f7",
+            "on-background": "#141b2b",
+            "inverse-primary": "#95d3ba",
+            "on-primary-fixed": "#002117",
+            "surface": "#f9f9ff",
+            "error": "#ba1a1a",
+            "background": "#f9f9ff",
+            "secondary-fixed-dim": "#f9bd22",
+            "secondary": "#795900",
+            "on-primary-fixed-variant": "#0b513d",
+            "on-tertiary-fixed": "#201c02",
+            "surface-container": "#e9edff",
+            "on-error": "#ffffff",
+            "primary": "#003527",
+            "primary-fixed-dim": "#95d3ba",
+            "tertiary-fixed-dim": "#d1c79d",
+            "primary-container": "#064e3b",
+            "on-secondary-container": "#6f5100",
+            "tertiary": "#665f3d",
+            "surface-container-low": "#f1f3ff",
+            "on-secondary-fixed-variant": "#5c4300",
+            "primary-fixed": "#b0f0d6",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#2b6954",
+            "on-surface": "#141b2b",
+            "inverse-surface": "#293040",
+            "inverse-on-surface": "#edf0ff",
+            "on-primary": "#ffffff",
+            "outline-variant": "#bfc9c3",
+            "surface-container-high": "#e1e8fd",
+            "on-tertiary-fixed-variant": "#4d4727",
+            "secondary-container": "#ffc329",
+            "surface-bright": "#f9f9ff",
+            "on-tertiary-container": "#453f20",
+            "surface-container-highest": "#dce2f7",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d3daef",
+            "tertiary-container": "#b4ab84"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "md": "24px",
+            "container-max": "1280px",
+            "xl": "80px",
+            "gutter": "20px",
+            "xs": "4px",
+            "lg": "48px",
+            "sm": "12px",
+            "base": "8px"
+          },
+          "fontFamily": {
+            "h3": ["Newsreader"],
+            "h1": ["Newsreader"],
+            "label-sm": ["Work Sans"],
+            "body-lg": ["Work Sans"],
+            "h2": ["Newsreader"],
+            "body-md": ["Work Sans"]
+          },
+          "fontSize": {
+            "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+            "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #fdfcf7; /* Heritage cream surface */
+    }
+    .hero-mask {
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    }
+    .custom-shadow {
+      box-shadow: 0 4px 20px rgba(6, 78, 59, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar Component -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm docked full-width top-0 z-50 flex items-center justify-between px-md py-base w-full fixed">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border-2 border-primary-fixed">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD85duHNgd0CI7irBLYG_O73m12vbFsTUBo5AD1L75CwklD_wAFP_H95cdbOL1CdqMAudq-boSvNHE-1BXgmJAIHMuF7pvOh1BqMgs76r9bpMaNySLzNvMg-VAGhg23-4pjKiUWVRoYpXF-ZDpmFWNAHT27mRhtpD3sROjeAfTi-7e_WS7n89KW6CGNQclPV3fJ2wXdYenzH4bJ6ufo5hLGCB3ISxr9rh0ZIUgtA-zd4sONcTBxrhHI80mVsQ2PKQQWbzYDEwJ6TR6l"/>
+</div>
+<span class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-on-primary font-bold hover:bg-on-primary/10 transition-colors px-4 py-2 rounded-lg" href="#">Home</a>
+<a class="text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors px-4 py-2 rounded-lg" href="#">Directory</a>
+<a class="text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors px-4 py-2 rounded-lg" href="#">Forum</a>
+<a class="text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors px-4 py-2 rounded-lg" href="#">Hubs</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined p-2 hover:bg-on-primary/10 transition-colors rounded-full" data-icon="search">search</button>
+<button class="md:hidden material-symbols-outlined p-2" data-icon="menu">menu</button>
+</div>
+</header>
+<main class="pt-20 pb-32">
+<!-- Image Gallery Bento Grid -->
+<section class="max-w-container-max mx-auto px-md lg:px-xl py-base">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[500px] md:h-[650px]">
+<div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A grand, modern residential villa in Harare, Zimbabwe, featuring expansive glass windows and a clean white facade. The golden hour sunlight casts a warm, prestigious glow over the lush green manicured lawn. The architectural style is contemporary yet rooted in luxury, reflecting a sense of national prosperity and modern elegance under a clear blue African sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbECLXHoPbOE5HLWNBHABjo360cOcBTH8CQOuJMRfsloHXwbz4Dl1S4olv0OY2hyBPN8Rg_J4JA4isa8g-o-3ZTLOGVwACjJDlySSkcI5fGrtaLsPy0UShCWl98O8UfxQI05-y5SDhL_RNbYdJ7pY8AByAUABIYXim-eF-zYbwPuQtnXppBk3_fUMfLsOsO-0luve-rn9RFGOCoC-bNYcU3SHRszGNogOC_rbyXkcRY04zy7ZtnxK1UNCLULWLa1lETqja-uTtQw0J"/>
+<div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm font-label-sm">Primary View</div>
+</div>
+<div class="md:col-span-2 relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="The interior of a high-end Zimbabwean living room, showcasing a sophisticated blend of modern minimalist furniture and traditional African art pieces. The room is flooded with soft, natural morning light through floor-to-ceiling windows, highlighting a palette of warm cream, deep forest green, and golden yellow accents. The atmosphere is serene, airy, and unmistakably premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrD3SEIcxZ6U67QkYQGYj3OzuaxcPbUed9gucYluEiE8a_rudyjF7h6WdjAu06-xkeJZKc8wyukyIvCQ2dDseI-Bpf9oazD-MIbuefvMFS9NF5jb9zheVky28DBWxGDcYmm4Jf8WY99JBSKfkklqxSdJTVtKUzKYNhZ6kQvkJ5CCfbJRbSbEZ16MiRQNiG04WT8wD-LHb49KX6XiOiQm3w8zYsQGvqLinuPP4u6TmgA2dJkDh9y2i-EpNuiYwH2idFo0WKKiFI3W-J"/>
+</div>
+<div class="relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious bathroom in a modern Harare estate, featuring high-quality marble surfaces and matte forest green fixtures. The lighting is soft and ambient, creating a spa-like retreat. Large textured cream towels and elegant glass partitions reinforce the high-fidelity corporate modern aesthetic. The scene communicates cleanliness, reliability, and modern Zimbabwean luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzA81uqM7ZlHirATXFvLcJfKbYYD1qt6ePEokgBys5T9J4YL0jPd9gSfpAzBMXXSB4HoSGchAi-7aI-xF9A9E4S0xhiOzDbTQh-xTiHw-lb9bNL_qDqGYoYHZGxiXnDe0ZHr9V262tziRUDOhHPLGf3LdQ_1OrtWK2Wk0ra5__zmHrE5Z-KCXF_LDkbJ16oqcktm_rHDn7GoaHc53-QZmlFTt9np1DBXmt23FtwNBlRxaR6jcS6HkRlJy_3MqDDRQWFq-y_imwFCLr"/>
+</div>
+<div class="relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A state-of-the-art kitchen within a premium residential property, highlighting sleek dark-toned cabinetry and high-performance solar-powered appliances. The design is functional and high-density, utilizing a refined palette of blacks and whites with polished gold hardware. The mood is efficient and technologically advanced, perfectly suited for a modern professional household in a growing digital economy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_quNHhWSJIZGtXe4L1MFWRkY86gQrq9bhT1LGX66XJlFRsCryFaFSWU0-NvY8NuHM3LGsufhoXIRViv2esIK5bo0J2bPAVFHvXsM5fwe6xBpH6QpMqzBLtdwucFqXlpEjMbhNENDm8KmRiTFwhE4Bx77VaHFhBdjSKHvycHlhd5nIUVgKHmCcnSpY0RG-SKmVuLcwVPgGbFlbvoKvOTx_INjjf0NvRMPloO3w8e6GlsBf9edUmXa43kDSOsKT_PZnWdc-zQS6sDEK"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-white font-bold">+12 More Photos</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Property Details Section -->
+<section class="max-w-container-max mx-auto px-md lg:px-xl mt-lg grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left Column: Content -->
+<div class="lg:col-span-2 space-y-lg">
+<div>
+<div class="flex flex-wrap items-center gap-sm mb-base">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Premium Listing</span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Harare North</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary mb-2">Highland Gate Executive Estate</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">location_on</span>
+            Borrowdale Brooke Road, Harare, Zimbabwe
+          </p>
+</div>
+<!-- Key Features Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md bg-surface-container-low p-md rounded-xl border border-outline-variant/20">
+<div class="flex flex-col items-center text-center gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">bed</span>
+<span class="font-h3 text-h3">4</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Bedrooms</span>
+</div>
+<div class="flex flex-col items-center text-center gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">solar_power</span>
+<span class="font-h3 text-h3">8kVA</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Solar Power</span>
+</div>
+<div class="flex flex-col items-center text-center gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
+<span class="font-h3 text-h3">Active</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Borehole</span>
+</div>
+<div class="flex flex-col items-center text-center gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">security</span>
+<span class="font-h3 text-h3">24/7</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Gated Security</span>
+</div>
+</div>
+<!-- Description text -->
+<div class="space-y-md">
+<h2 class="font-h2 text-h2 text-primary">$3,850 USD</h2>
+<p class="font-body-md text-body-md leading-relaxed text-on-surface-variant">
+            Experience the pinnacle of Zimbabwean luxury in this meticulously designed 4-bedroom executive estate. Situated in the prestigious Harare North area, this home is built for modern reliability. It features a fully integrated 8kVA solar system with lithium battery storage and a high-yield borehole with a 10,000L tank capacity, ensuring total utility independence—a critical luxury in the national context.
+          </p>
+<p class="font-body-md text-body-md leading-relaxed text-on-surface-variant">
+            The open-plan design flows seamlessly from the gourmet kitchen to the expansive veranda, perfect for year-round entertaining. Every detail, from the imported stone finishes to the indigenous landscaping, speaks to a heritage-inspired future vitality.
+          </p>
+</div>
+<!-- Amenities Chips -->
+<div class="space-y-md">
+<h3 class="font-h3 text-h3 text-primary">Essential Amenities</h3>
+<div class="flex flex-wrap gap-sm">
+<div class="flex items-center gap-xs px-4 py-2 bg-white border border-outline-variant/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary">wifi</span>
+<span class="font-label-sm text-label-sm">Fiber Internet Ready</span>
+</div>
+<div class="flex items-center gap-xs px-4 py-2 bg-white border border-outline-variant/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary">garage</span>
+<span class="font-label-sm text-label-sm">Triple Garage</span>
+</div>
+<div class="flex items-center gap-xs px-4 py-2 bg-white border border-outline-variant/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary">pool</span>
+<span class="font-label-sm text-label-sm">Infinity Pool</span>
+</div>
+<div class="flex items-center gap-xs px-4 py-2 bg-white border border-outline-variant/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary">fence</span>
+<span class="font-label-sm text-label-sm">Electric Fence</span>
+</div>
+</div>
+</div>
+<!-- Neighborhood Map -->
+<div class="space-y-md">
+<h3 class="font-h3 text-h3 text-primary">The Neighborhood</h3>
+<div class="w-full h-80 rounded-xl overflow-hidden custom-shadow border border-outline-variant/20 relative">
+<img class="w-full h-full object-cover" data-alt="A clean, stylized satellite map view of the Borrowdale suburb in Harare, Zimbabwe. The map features clear markers for premium residential estates, lush green belts, and modern commercial hubs like Sam Levy's Village. The visual style is monochromatic forest green and cream, maintaining the national super-app brand identity with high legibility and authoritative clarity." data-location="Harare" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDiSBL9X6qsQn0Hd_giJ2SmMu8V6G9W18ACrqfaDiKr19eZ__CkgNYF12qQb35LS8B39gHrqEUnQ02HFiImeXtIWblfndYXpYJP48GcLas43UDANa6gEQRIpGGlFyqoVlU4irRP2Tj2hSAGiPmTVHNx0rRnfBXuXGcqBBoafyeEKRyX_ejkmE4XN0Gf5sen8vGX7lT3uNbs5gS325um6w4WSIBlKL5CE-8IfpDv7qxOj43ojGGbHAFKlxHA4U-lX6Z267UDJoXuvhw"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-lg flex flex-col gap-1">
+<button class="bg-surface p-1 rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">add</span></button>
+<button class="bg-surface p-1 rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">remove</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Sidebar Card -->
+<div class="relative">
+<div class="sticky top-24 space-y-md">
+<!-- Pricing & CTAs Card -->
+<div class="bg-white p-md rounded-xl border border-outline-variant/30 custom-shadow">
+<div class="mb-lg">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Monthly Rent</span>
+<div class="flex items-baseline gap-xs mt-1">
+<span class="text-h2 font-h2 text-primary">$3,850 USD</span>
+<span class="text-on-surface-variant font-body-md text-body-md">/month</span>
+</div>
+</div>
+<div class="space-y-sm">
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-label-sm text-label-sm font-bold uppercase tracking-widest hover:bg-primary-container transition-colors active:scale-95 duration-200">
+                Apply to Rent
+              </button>
+<button class="w-full bg-white text-primary border border-primary py-4 rounded-lg font-label-sm text-label-sm font-bold uppercase tracking-widest hover:bg-primary/5 transition-colors active:scale-95 duration-200">
+                Schedule Viewing
+              </button>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Verified Property</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">share</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Share</span>
+</div>
+</div>
+</div>
+<!-- Manager Trust Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30 custom-shadow">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-md">Property Manager</h4>
+<div class="flex items-center gap-md mb-md">
+<div class="w-14 h-14 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Merchant Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALOTQIorzTGfu1UH-X3s888fkDvpNXr1HCHpDqWtpNLLYkWKs2GONjfRtpOANO8muIvGUkrI69QkaCWV3LQiNEA2J7IbrYp01seF9s76vye7-X-lfYEeFhE-o-od4EwQlBdEZuzkjABi8PRGiC2bfXSph_oaBO1a9qfF4B_7QOZb3udIygiqsE_2rsWiykCMfnviCv8uhIyQzfhFUOJQVh6NvFHPGaWdUzZJ3ZUyL8clxXYxehbu58KQUwTVn_kkYlqpVzzv_BEXJw"/>
+</div>
+<div>
+<div class="font-h3 text-h3 text-primary">Tinashe M.</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Verified Agent since 2018</div>
+</div>
+</div>
+<!-- Trust Score Meter -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trust Score</span>
+<span class="font-bold text-primary">98/100</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[98%]"></div>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-tight">
+                Highly reliable. Based on 42 successfully managed rentals and background verification.
+              </p>
+</div>
+<button class="w-full mt-md flex items-center justify-center gap-base text-primary font-bold hover:underline transition-all">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-label-sm font-label-sm">Message Agent</span>
+</button>
+</div>
+<!-- Security Notice -->
+<div class="p-sm bg-error-container/20 rounded-lg border border-error/10 flex gap-sm">
+<span class="material-symbols-outlined text-error">info</span>
+<p class="text-[12px] text-on-error-container/80">
+              Never pay deposit fees outside of the ZimMarket Secure Hub to ensure your funds are protected.
+            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer (Mobile Sidebar Mockup) -->
+<aside class="fixed left-0 top-0 h-full w-80 z-[60] bg-surface dark:bg-background shadow-xl hidden lg:hidden">
+<div class="flex flex-col h-full py-lg">
+<div class="px-md mb-lg">
+<h2 class="font-h2 text-h2 font-bold text-primary">$3,850 USD</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Zimbabwe National Super-App</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-4 bg-primary-fixed text-on-primary-fixed-variant font-bold rounded-r-full" href="#">
+<span class="material-symbols-outlined">agriculture</span> Local Farmers
+        </a>
+<a class="flex items-center gap-md px-md py-4 text-on-surface-variant hover:bg-surface-container-high rounded-r-full" href="#">
+<span class="material-symbols-outlined">palette</span> Artisans
+        </a>
+<a class="flex items-center gap-md px-md py-4 text-on-surface-variant hover:bg-surface-container-high rounded-r-full" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Wholesalers
+        </a>
+<a class="flex items-center gap-md px-md py-4 text-on-surface-variant hover:bg-surface-container-high rounded-r-full" href="#">
+<span class="material-symbols-outlined">support_agent</span> Help Center
+        </a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant/10 text-xs text-on-surface-variant/50">
+        v1.2.0 • Connecting the Nation
+      </div>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile Only) -->
+<footer class="md:hidden bg-surface-container-lowest dark:bg-surface-dim fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-2px_10px_rgba(6,78,59,0.08)] border-t border-outline-variant/10">
+<div class="flex justify-around items-center px-4 py-2 pb-safe w-full">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-sm text-label-sm">Hubs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#002117",
+                      "primary-container": "#064e3b",
+                      "surface": "#f9f9ff",
+                      "secondary-fixed": "#ffdf9f",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#ffc329",
+                      "on-primary-container": "#80bea6",
+                      "inverse-on-surface": "#edf0ff",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#d3daef",
+                      "surface-container-highest": "#dce2f7",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e1e8fd",
+                      "on-tertiary-fixed": "#201c02",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "on-secondary-fixed": "#261a00",
+                      "on-secondary-container": "#6f5100",
+                      "on-surface-variant": "#404944",
+                      "surface-container": "#e9edff",
+                      "primary-fixed-dim": "#95d3ba",
+                      "primary-fixed": "#b0f0d6",
+                      "outline-variant": "#bfc9c3",
+                      "tertiary-fixed-dim": "#d1c79d",
+                      "on-tertiary-container": "#453f20",
+                      "secondary": "#795900",
+                      "background": "#f9f9ff",
+                      "surface-bright": "#f9f9ff",
+                      "tertiary-fixed": "#ede3b8",
+                      "inverse-surface": "#293040",
+                      "surface-variant": "#dce2f7",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#95d3ba",
+                      "secondary-fixed-dim": "#f9bd22",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#141b2b",
+                      "tertiary-container": "#b4ab84",
+                      "outline": "#707974",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#003527",
+                      "tertiary": "#665f3d",
+                      "surface-container-low": "#f1f3ff",
+                      "on-background": "#141b2b",
+                      "on-tertiary-fixed-variant": "#4d4727",
+                      "surface-tint": "#2b6954"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "xl": "80px",
+                      "gutter": "20px"
+              },
+              "fontFamily": {
+                      "h3": ["Newsreader"],
+                      "label-sm": ["Work Sans"],
+                      "body-lg": ["Work Sans"],
+                      "h1": ["Newsreader"],
+                      "h2": ["Newsreader"],
+                      "body-md": ["Work Sans"]
+              },
+              "fontSize": {
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top AppBar (Internal Navigation for Mini-Program) -->
+<nav class="fixed top-0 w-full z-50 bg-primary shadow-sm flex justify-between items-center px-md h-16 w-full">
+<div class="flex items-center gap-sm">
+<button class="text-on-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h2 class="font-h2 text-h2 font-semibold text-on-primary">ZESA Prepaid Tokens</h2>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary" data-icon="help_outline">help_outline</span>
+<span class="material-symbols-outlined text-on-primary" data-icon="notifications">notifications</span>
+</div>
+</nav>
+<main class="pt-20 pb-24 px-md max-w-container-max mx-auto">
+<!-- Hero Section: Identity & Balance -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md mb-lg">
+<div class="md:col-span-8">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-md text-on-primary-container h-full flex flex-col justify-between">
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm uppercase opacity-80 mb-xs">Zim-Wallet Balance</p>
+<h1 class="font-h1 text-h1 text-on-primary mb-sm">ZiG 2,450.00</h1>
+<div class="flex items-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Linked: Wallet ID 8820</span>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="bolt">bolt</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-secondary-container rounded-xl p-md flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-on-secondary-container mb-sm" data-icon="flash_on">flash_on</span>
+<p class="font-label-sm text-label-sm text-on-secondary-container mb-xs">Last Token Applied</p>
+<p class="font-h3 text-h3 text-on-secondary-container">145.2 kWh</p>
+<button class="mt-sm text-on-secondary-container font-label-sm text-label-sm underline decoration-2 underline-offset-4">View History</button>
+</div>
+</section>
+<!-- Transaction Canvas -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left: Input Controls -->
+<div class="lg:col-span-2 space-y-md">
+<div class="bg-surface-container-lowest rounded-xl p-md border border-primary/10 shadow-sm">
+<h3 class="font-h3 text-h3 mb-md text-primary">Purchase New Token</h3>
+<form class="space-y-md">
+<!-- Meter Input -->
+<div>
+<label class="font-label-sm text-label-sm text-outline block mb-xs">Meter Number</label>
+<div class="relative">
+<input class="w-full bg-surface-container border-b-2 border-outline-variant focus:border-primary px-sm py-md text-body-lg font-h3 outline-none transition-colors" placeholder="XXXX XXXX XXXX" type="text" value="4509 2210 0984"/>
+<div class="absolute right-sm top-1/2 -translate-y-1/2 flex gap-xs">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="contact_page">contact_page</span>
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+</div>
+<p class="text-[12px] mt-xs text-primary/60">Registered to: M. Sibanda - 24 Harare Dr.</p>
+</div>
+<!-- Amount Selection -->
+<div>
+<label class="font-label-sm text-label-sm text-outline block mb-sm">Select Amount (ZiG)</label>
+<div class="grid grid-cols-3 md:grid-cols-5 gap-sm">
+<button class="border border-outline-variant rounded-lg py-sm font-label-sm hover:border-primary active:scale-95 transition-all" type="button">50</button>
+<button class="border border-outline-variant rounded-lg py-sm font-label-sm hover:border-primary active:scale-95 transition-all" type="button">100</button>
+<button class="bg-primary-container text-on-primary-container border border-primary-container rounded-lg py-sm font-label-sm active:scale-95 transition-all" type="button">250</button>
+<button class="border border-outline-variant rounded-lg py-sm font-label-sm hover:border-primary active:scale-95 transition-all" type="button">500</button>
+<button class="border border-outline-variant rounded-lg py-sm font-label-sm hover:border-primary active:scale-95 transition-all" type="button">Custom</button>
+</div>
+</div>
+<!-- Payment Method -->
+<div class="pt-base">
+<label class="font-label-sm text-label-sm text-outline block mb-sm">Payment Method</label>
+<div class="flex items-center justify-between p-sm border border-primary rounded-xl bg-primary-fixed/20">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="wallet">wallet</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary">Zim-Wallet</p>
+<p class="text-[12px] text-primary/70">Verified &amp; Secure</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full bg-primary text-on-primary py-md rounded-xl font-h3 text-h3 shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-sm mt-md">
+                            Buy Token Now
+                            <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span>
+</button>
+</form>
+</div>
+<!-- Bento Style History (Small Screens) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md md:hidden">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-primary/5">
+<span class="material-symbols-outlined text-primary mb-xs" data-icon="receipt_long">receipt_long</span>
+<p class="font-label-sm text-label-sm">Last Token</p>
+<p class="font-h3 text-h3">#7782 1029</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-primary/5">
+<span class="material-symbols-outlined text-primary mb-xs" data-icon="event">event</span>
+<p class="font-label-sm text-label-sm">Purchased On</p>
+<p class="font-h3 text-h3">12 Oct 2023</p>
+</div>
+</div>
+</div>
+<!-- Right: Recent Activity / Information -->
+<div class="lg:col-span-1 space-y-md">
+<div class="bg-white rounded-xl border border-primary/10 overflow-hidden shadow-sm">
+<div class="bg-surface-container-high p-md">
+<h3 class="font-label-sm text-label-sm text-primary uppercase">Recent Tokens</h3>
+</div>
+<div class="divide-y divide-primary/5">
+<!-- History Item 1 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-h3 text-[18px]">ZiG 250.00</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded-full uppercase font-bold">145 kWh</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant mb-base">Token: 1882 9903 1120 4453</p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] text-outline">Oct 12, 2023 • 14:22</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-h3 text-[18px]">ZiG 100.00</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded-full uppercase font-bold">58 kWh</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant mb-base">Token: 0092 1128 5543 9081</p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] text-outline">Sep 28, 2023 • 09:15</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="p-md hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-h3 text-[18px]">ZiG 500.00</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded-full uppercase font-bold">290 kWh</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant mb-base">Token: 7721 3490 1200 4566</p>
+<div class="flex justify-between items-center">
+<span class="text-[12px] text-outline">Aug 15, 2023 • 18:40</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+</div>
+<button class="w-full py-md text-primary font-label-sm text-label-sm bg-surface-container-low hover:bg-surface-container-high transition-colors">
+                        VIEW FULL STATEMENT
+                    </button>
+</div>
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic night shot of a modern urban neighborhood in Harare with streetlights casting a warm golden glow over asphalt roads and manicured gardens. The atmosphere is peaceful and safe, reflecting the reliability of a national energy grid. The lighting is soft and ambient, with a high-key focus on the textures of the city under a clear starry sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnH9CAywLOCfm80S8tlceYCRq7P6smCCAZp4wEe_IqZTa75u1qIIFlSfp3SItAJaw1b31Em-BXQrtaEqML23gKHvlyWD4AaEZWM8qJTnNQ4Y5aMoJ4X7sqxeTe4SiipB-knzMoKynW-aFMXoK_GYgBJc0ESctJvY7pn0vrMnRxwnNzBe4YpEo6hFe_yObjYI6WltbttCkMRjnyBN33yUj5G2LWNJKzXR9IHQ6IFadmDzC0Vr83ejTGiboVnfJHGFQ3yUNggWMaLqDu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-md">
+<p class="text-on-primary font-h3 text-[18px]">Save 10% on energy</p>
+<p class="text-on-primary/80 text-[12px]">Read our latest guide on energy efficiency for Zimbabwean homes.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Navigation Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 pb-safe bg-surface-container-lowest shadow-[0_-2px_10px_rgba(6,78,59,0.08)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-sm text-label-sm mt-1">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1.5 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Mall</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-label-sm mt-1">Transport</span>
+</div>
+</nav>
+<!-- Floating Action Button (FAB) - For quick support -->
+<button class="fixed bottom-24 right-md w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</body></html>

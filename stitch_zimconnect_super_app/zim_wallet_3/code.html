@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wallet - Zim-Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&amp;family=Newsreader:wght@500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "primary": "#003527",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#bdc7db",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "outline-variant": "#bfc9c3",
+                        "surface-container": "#eceef0",
+                        "on-secondary-container": "#684000",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#707974",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-tertiary-fixed": "#121c2a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#002117",
+                        "secondary": "#855300",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#80bea6",
+                        "primary-fixed": "#b0f0d6",
+                        "inverse-primary": "#95d3ba",
+                        "tertiary-container": "#3b4555",
+                        "tertiary": "#252f3e",
+                        "surface-tint": "#2b6954",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-container": "#fea619",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#404944",
+                        "tertiary-fixed": "#d9e3f7",
+                        "on-tertiary-fixed-variant": "#3d4757",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-container": "#a8b2c6",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-surface": "#2d3133",
+                        "error": "#ba1a1a",
+                        "primary-container": "#064e3b",
+                        "secondary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "xl": "48px",
+                        "margin": "20px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Public Sans"],
+                        "headline-lg": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "body-lg": ["Public Sans"],
+                        "label-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container border-b border-outline-variant flex items-center justify-between px-margin h-16">
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed border border-primary/10">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz43pWCOjdbs4YZ4rCQZd1KeNRmFmYDPQdgPD6jNwTuWKUtdNRk27hKEOMuOg4Vx962Ig3vLN3LHmsstkv0wTlS6Ho8VUOajfbluLj2oDdqVtlEu8ulUrYq0csDFKklB2U_yFXayrGFpDjKiSPUGVxpqhAWTIb_t2AWqQrorRGpU2B7Fw4iXMyWYcqUmqt82yi63dDHr1gUJpKWXKcxwLzNq2rWuSq_6pVoeFy0_C3X4sy-eL6ShQY9sajsPGABrGAMW0y7ugUBND7"/>
+</div>
+<span class="font-display text-headline-md font-bold text-primary">Zim-Connect</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</button>
+</header>
+<main class="pt-20 pb-28 px-margin max-w-xl mx-auto">
+<!-- Balance Card -->
+<section class="mb-lg">
+<div class="bg-primary text-on-primary rounded-xl p-md shadow-sm relative overflow-hidden border border-primary-container">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-primary-fixed opacity-90">Total Balance</span>
+<div class="flex bg-primary-container rounded-full p-1 border border-primary-fixed-dim/20">
+<button class="px-3 py-1 bg-secondary text-on-secondary rounded-full font-label-sm">USD</button>
+<button class="px-3 py-1 font-label-sm text-primary-fixed-dim">ZiG</button>
+</div>
+</div>
+<div class="mb-xs">
+<h2 class="font-display text-display">$2,450.80</h2>
+</div>
+<div class="flex items-center gap-xs text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm">+2.4% from last month</span>
+</div>
+<!-- Subtle background texture -->
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[160px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="mb-lg">
+<div class="grid grid-cols-4 gap-xs">
+<div class="flex flex-col items-center gap-base active:scale-95 transition-transform duration-150">
+<div class="w-14 h-14 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="add_circle">add_circle</span>
+</div>
+<span class="font-label-sm text-on-surface">Add Funds</span>
+</div>
+<div class="flex flex-col items-center gap-base active:scale-95 transition-transform duration-150">
+<div class="w-14 h-14 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<span class="font-label-sm text-on-surface">Withdraw</span>
+</div>
+<div class="flex flex-col items-center gap-base active:scale-95 transition-transform duration-150">
+<div class="w-14 h-14 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="sync_alt">sync_alt</span>
+</div>
+<span class="font-label-sm text-on-surface">Transfer</span>
+</div>
+<div class="flex flex-col items-center gap-base active:scale-95 transition-transform duration-150">
+<div class="w-14 h-14 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<span class="font-label-sm text-on-surface">Scan</span>
+</div>
+</div>
+</section>
+<!-- Security Banner -->
+<section class="mb-lg">
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center gap-sm">
+<div class="w-10 h-10 bg-secondary-container/20 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-on-surface">Zim-Connect Buyer Protection</h4>
+<p class="font-label-sm text-on-surface-variant">Secure payments and 24/7 dispute support.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+<!-- Recent Transactions -->
+<section class="mb-md">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-headline-md text-on-surface">Recent Transactions</h3>
+<button class="font-label-md text-secondary">See All</button>
+</div>
+<div class="space-y-base">
+<!-- Transaction Item 1 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-lowest rounded-xl border border-outline-variant active:bg-surface-variant transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-error-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container" data-icon="home_work">home_work</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Rent Payment - Regent Courts</p>
+<p class="font-label-sm text-on-surface-variant">Today, 10:45 AM</p>
+</div>
+</div>
+<span class="font-body-md font-bold text-error">-$350.00</span>
+</div>
+<!-- Transaction Item 2 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-lowest rounded-xl border border-outline-variant active:bg-surface-variant transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Market Sale - Organic Honey</p>
+<p class="font-label-sm text-on-surface-variant">Yesterday, 4:20 PM</p>
+</div>
+</div>
+<span class="font-body-md font-bold text-primary-container">+$120.00</span>
+</div>
+<!-- Transaction Item 3 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-lowest rounded-xl border border-outline-variant active:bg-surface-variant transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="currency_exchange">currency_exchange</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Currency Exchange (ZiG to USD)</p>
+<p class="font-label-sm text-on-surface-variant">22 Oct, 09:15 AM</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant rounded-full">Success</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Anchor (Non-interactive data-heavy area) -->
+<section class="mt-xl pt-lg border-t border-outline-variant">
+<div class="bg-surface-container-high rounded-xl aspect-[16/9] flex items-center justify-center overflow-hidden">
+<img alt="Financial Analytics" class="w-full h-full object-cover" data-alt="A professional high-angle shot of a sleek modern workspace featuring a high-resolution tablet displaying vibrant, minimalist financial charts and data visualizations. The setting is clean and minimalist with soft natural morning light filtering through a window, creating a serene corporate aesthetic. The color palette emphasizes deep emerald greens and crisp whites with subtle gold accents, reflecting a premium and trustworthy financial environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1m__9VkFrRBtX1Q6qj-KdxfyAz26_8xZRTdQCKDYQKFjIDVJx4FbHMPnSmal83XjXDkguQ_mtduRpRqhPlHtEedrAGm6hzFeCL7pVZdMh2CG12foII_UKRw3dxaNiLV3fmYemb0n-0lbtZCWAifBao0Ir6hpSTXWJ8yMOA1dahbC7lf68xVRr7qInWH8ueaLHm4AxbgSlKxOP888tbdNL0VDlht3I4BbCCX23pxS1dRThC6nvUiAoa5Mn0IiXATgTCAk03mOLSj26"/>
+</div>
+<div class="mt-sm">
+<h4 class="font-headline-md text-on-surface">Savings Goals</h4>
+<p class="font-body-md text-on-surface-variant">You're 65% of the way to your 'New Business Fund' target.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-20 pb-safe px-gutter">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-sm">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary font-bold hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm">Mall</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm">Services</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zim-Connect | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#b0f0d6",
+                        "on-primary-fixed": "#002117",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary-container": "#064e3b",
+                        "on-secondary-container": "#6f5100",
+                        "surface-tint": "#2b6954",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#b4ab84",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#795900",
+                        "surface-dim": "#d3daef",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "surface-container-low": "#f1f3ff",
+                        "secondary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface-container-high": "#e1e8fd",
+                        "outline-variant": "#bfc9c3",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#453f20",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "tertiary-fixed": "#ede3b8",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "primary": "#003527",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#665f3d",
+                        "on-surface": "#141b2b",
+                        "on-background": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "inverse-primary": "#95d3ba",
+                        "outline": "#707974",
+                        "on-tertiary-fixed": "#201c02",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-container": "#ffc329",
+                        "surface-container": "#e9edff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "container-max": "1280px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Newsreader"],
+                        "body-lg": ["Work Sans"],
+                        "label-sm": ["Work Sans"],
+                        "h2": ["Newsreader"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked full-width top-0 z-50 flex justify-between items-center w-full px-md h-16">
+<div class="flex items-center gap-sm">
+<button class="hover:bg-on-primary/10 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h3 text-h3 font-bold text-on-primary dark:text-on-primary-container">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hover:bg-on-primary/10 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md pt-base">
+<!-- Hero Section: Modern Heritage Welcome -->
+<section class="py-md lg:py-lg">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-1 space-y-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Good Morning, Tinashe</span>
+<h2 class="font-h1 text-h1 text-primary">Your gateway to the digital nation.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Securely manage your utilities, transport, and finances through Zimbabwe's unified service hub.
+                    </p>
+</div>
+<div class="w-full md:w-[400px] aspect-square rounded-xl overflow-hidden shadow-lg border border-primary/10">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality photograph of the Great Zimbabwe ruins during golden hour. The warm sunset light bathes the ancient stone walls in a rich amber glow, emphasizing the historical architectural detail and cultural heritage. The composition is clean and modern, evoking a sense of enduring stability and national pride, perfectly aligned with a professional corporate-modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBermM1XDED_FW5IFw9CpfUlYaSFYXrJQ5kpiYtJYcgb6Wq1lRdBbkTDITfNvxHxVSMPOhVFQLQj-K7i61XmGA6VdXsMlw9_oz1GEQSwUTF6ko6HA-mSPmGNwHmcOagR9VxamjU1DaD4T5yh1_krUa3PSHdlg3h3wMTnYmlTokgfFYLw13lmrd7vEvkJGS4CTR9TRMEhTdhjGU-rrFAv0WyjZ7pDUsn2aKKdbc36RoJAg09HRQxGZMaF4bbY6JrqWsKGeKseoxSmMBW"/>
+</div>
+</div>
+</section>
+<!-- Wallet Summary: Tonal Layering & Asymmetric Layout -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-md items-start">
+<div class="lg:col-span-8 bg-surface-container-lowest border border-primary/10 rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Wallet Balance</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ZiG Account &amp; EcoCash Hub</p>
+</div>
+<div class="text-right">
+<span class="font-h2 text-h2 text-on-surface">ZiG 14,250.00</span>
+<div class="flex items-center justify-end gap-xs text-primary font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm text-label-sm">+2.4%</span>
+</div>
+</div>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase border-b border-primary/5 pb-2">Recent Activity</h4>
+<!-- Activity Item -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-primary-fixed text-on-primary-fixed p-2 rounded-full">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">ZESA Prepaid Token</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24 Oct, 08:15 AM</p>
+</div>
+</div>
+<p class="text-error font-bold">- ZiG 450.00</p>
+</div>
+<!-- Activity Item -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-secondary-fixed text-on-secondary-fixed p-2 rounded-full">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">EcoCash Cash-In</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">23 Oct, 04:30 PM</p>
+</div>
+</div>
+<p class="text-primary font-bold">+ ZiG 1,200.00</p>
+</div>
+</div>
+</div>
+<!-- Quick Service Cards: Bento Grid Style -->
+<div class="lg:col-span-4 grid grid-cols-2 gap-sm">
+<div class="bg-primary text-on-primary p-md rounded-xl flex flex-col justify-between aspect-square hover:scale-[1.02] transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-h2" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-body-md text-body-md font-semibold">Payments</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container p-md rounded-xl flex flex-col justify-between aspect-square hover:scale-[1.02] transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-h2" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-body-md text-body-md font-semibold">Utilities</span>
+</div>
+<div class="bg-surface-container-high text-primary p-md rounded-xl flex flex-col justify-between aspect-square border border-primary/10 hover:scale-[1.02] transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-h2" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+<span class="font-body-md text-body-md font-semibold">Transport</span>
+</div>
+<div class="bg-surface-container-lowest text-on-surface p-md rounded-xl flex flex-col justify-between aspect-square border border-primary/10 hover:scale-[1.02] transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-h2" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+<span class="font-body-md text-body-md font-semibold">Groceries</span>
+</div>
+</div>
+</section>
+<!-- Community News Carousel -->
+<section class="mt-xl">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h2 text-h2 text-primary">Community Spotlight</h3>
+<button class="text-secondary font-bold font-label-sm text-label-sm flex items-center gap-xs">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-md">
+<!-- News Card -->
+<div class="min-w-[280px] md:min-w-[400px] group">
+<div class="aspect-[16/9] rounded-xl overflow-hidden mb-sm border border-primary/10">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant outdoor marketplace in Harare during the morning hours. Local vendors are displaying fresh produce under bright umbrellas, creating a scene full of life and community interaction. The lighting is natural and bright, with a color palette featuring lush greens and warm earthy tones, maintaining a high-quality editorial and professional visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhz9jPTDDAefm3PQ0hJTJWmkg9HI88iyWujkObhCGyOHLLIkF5R431vgpKRxhXnL-sQVy_r2hysFKJZnnz0ZSHhVAnH_xyWIFdhHo76aKrMuCpRkANe8nqWR4VatkaXLNUudH7W_YrMZv4nadKmuBPFybWDxaDIYKqAsOkFn4n3Y1EuSWE7l13Poo2i8DOPXINk_1Yo6z-mZjqIyQvIF47_3GCx8XJRDXTjyYoDG36mx8Z8rWoIUU21RLbpP4y6fW_j7uzmALYBiN"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed/30 px-2 py-0.5 rounded">Development</span>
+<h4 class="font-h3 text-h3 text-on-surface mt-xs group-hover:text-primary transition-colors">Harare Smart-Grid Initiative Launches Next Phase</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">Improving electrical stability across the northern suburbs with automated switching technology.</p>
+</div>
+<!-- News Card -->
+<div class="min-w-[280px] md:min-w-[400px] group">
+<div class="aspect-[16/9] rounded-xl overflow-hidden mb-sm border border-primary/10">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic digital representation of agricultural technology in a Zimbabwean landscape. Green fields of maize are overlaid with subtle, glowing data visualizations like moisture levels and crop health icons. The aesthetic is clean, professional, and optimistic, blending heritage farming with future vitality using a primary green and golden yellow color scheme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdsm-lrSLBs2boa3A5qNt84PU7dSeI80RVnha0nMRC8AvPOvZtpjUaK-JVbKuGZnCDjprlLH1d8p75gLjCG1gpqYa_1vE4GmAhidiT8_w7bS6BsJeQPEhsCCe3LrhhRhfzX0-sJNAobr5jfs9UHI1wSI_F0myti4EerZFMdoVnR4q6NbEaWfciyrsBFEshBj8Fsr4xkeQBJ7eEGufVEwdl53E6xePwvKl-ieNFXE819nIPz90DoS4LqhvWJ_v4fjdhycOib6oTHUWz"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed/30 px-2 py-0.5 rounded">Agri-Tech</span>
+<h4 class="font-h3 text-h3 text-on-surface mt-xs group-hover:text-primary transition-colors">Zim-Farmers Portal Integrated with Connect Wallet</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">Direct seed and fertilizer subsidies now payable through your secure digital wallet.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-2 px-2 pb-safe border-t border-primary/10 bg-surface dark:bg-surface-container shadow-[0_-1px_3px_0_rgba(6,78,59,0.08)]">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1.5 scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm font-medium">Home</span>
+</a>
+<!-- Chat -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm font-medium">Chat</span>
+</a>
+<!-- Wallet -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm font-medium">Wallet</span>
+</a>
+<!-- Mall -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm font-medium">Mall</span>
+</a>
+<!-- Transport -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm font-medium">Transport</span>
+</a>
+</nav>
+<!-- FAB: Contextual to Home -->
+<button class="fixed right-md bottom-24 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform active:scale-95 z-40">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</button>
+</body></html>

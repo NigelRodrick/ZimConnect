@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moments | Zim-Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#002117",
+                      "primary-container": "#064e3b",
+                      "surface": "#f9f9ff",
+                      "secondary-fixed": "#ffdf9f",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#ffc329",
+                      "on-primary-container": "#80bea6",
+                      "inverse-on-surface": "#edf0ff",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#d3daef",
+                      "surface-container-highest": "#dce2f7",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e1e8fd",
+                      "on-tertiary-fixed": "#201c02",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "on-secondary-fixed": "#261a00",
+                      "on-secondary-container": "#6f5100",
+                      "on-surface-variant": "#404944",
+                      "surface-container": "#e9edff",
+                      "primary-fixed-dim": "#95d3ba",
+                      "primary-fixed": "#b0f0d6",
+                      "outline-variant": "#bfc9c3",
+                      "tertiary-fixed-dim": "#d1c79d",
+                      "on-tertiary-container": "#453f20",
+                      "secondary": "#795900",
+                      "background": "#f9f9ff",
+                      "surface-bright": "#f9f9ff",
+                      "tertiary-fixed": "#ede3b8",
+                      "inverse-surface": "#293040",
+                      "surface-variant": "#dce2f7",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#95d3ba",
+                      "secondary-fixed-dim": "#f9bd22",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#141b2b",
+                      "tertiary-container": "#b4ab84",
+                      "outline": "#707974",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#003527",
+                      "tertiary": "#665f3d",
+                      "surface-container-low": "#f1f3ff",
+                      "on-background": "#141b2b",
+                      "on-tertiary-fixed-variant": "#4d4727",
+                      "surface-tint": "#2b6954"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "xl": "80px",
+                      "gutter": "20px"
+              },
+              "fontFamily": {
+                      "h3": ["Newsreader"],
+                      "label-sm": ["Work Sans"],
+                      "body-lg": ["Work Sans"],
+                      "h1": ["Newsreader"],
+                      "h2": ["Newsreader"],
+                      "body-md": ["Work Sans"]
+              },
+              "fontSize": {
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { background-color: #f9f9ff; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 53, 39, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-primary shadow-sm flex justify-between items-center px-md h-16">
+<div class="flex items-center gap-sm">
+<button class="text-on-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-h2 text-h2 font-semibold text-on-primary">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-on-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-16 pb-24 max-w-container-max mx-auto md:px-xl">
+<!-- Profile Header / Cover -->
+<section class="relative w-full h-64 md:h-80 overflow-hidden md:rounded-xl mt-4">
+<img alt="Landscape of Eastern Highlands" class="w-full h-full object-cover" data-alt="A panoramic landscape photograph of the lush Eastern Highlands of Zimbabwe at sunrise. The scene features rolling green mountains shrouded in soft morning mist, with warm golden light spilling over the peaks. The atmosphere is serene and majestic, captured in a high-key, premium editorial style with rich greens and warm yellow highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyANdFXO4R0EYTVX3QDAO5q3G2hzz8kbByXcxGtZRU2F2hIjZG7OmUM8Z5INKR1_iIavxkDBSFAW8LxMiRG6D5tvc-rWHz71RSt4Roc-5Xyb2mwqnzEAhMxK35e4nJzbCX7x4cMAZMo3L6P1ToSMQkij7JCmZf6l7-1-NLp1HVrm4wpQrFZoSaeiYPdcRq94naWAV8wiC3zxupkQCE1slAD-sl2Du2KW_FnJgo9KaqZwE8r3lz6-CJL32C3Qc3cSObpB4QegumkvRt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-md left-md flex items-end gap-md">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-surface-container-lowest overflow-hidden shadow-lg bg-surface">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional and warm portrait of a Zimbabwean woman in her early 30s, smiling confidently. She is wearing modern corporate attire with subtle traditional patterns. The lighting is soft and flattering, emphasizing a bright, professional aesthetic that fits a high-end national super-app identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYxmNosgKggFjJjLVN2tcLtbNmK236FzZSJhKFQxLzit248xCoVVtYR9fjndqd9iVOYJh-O7zGBGeyUpAd5-0o-w5c_iCuJzUewyTRJ-N6IT2A9hHQ4tPjchHJJIbpwYtGI6KShVMfLZrqRTPZw79mEsSO5wjDVfGl5H8CjsW378mwyEaO4oWHpeb_PVH5R8i1iOqEsA-6PeISFZwtO1QgD3iJQYX9oXQMCrz5wGaf2oKtYZpeu48S3ma824Wz1S29noq9MqBSsKpD"/>
+</div>
+<div class="pb-base">
+<h2 class="font-h1 text-h1 text-surface-container-lowest leading-tight">Farai Moyo</h2>
+<p class="font-label-sm text-surface-container-highest uppercase tracking-widest">Tech Architect • Harare</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md px-md md:px-0 mt-md">
+<!-- Left Sidebar: News Integration (Desktop) -->
+<aside class="hidden lg:block lg:col-span-3 space-y-md">
+<div class="glass-card p-md rounded-xl">
+<h3 class="font-h3 text-h3 text-primary mb-md">National Pulse</h3>
+<div class="space-y-sm">
+<div class="pb-sm border-b border-primary/10">
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-label-sm text-[10px] mb-xs">ECONOMY</span>
+<p class="font-h3 text-md text-on-surface leading-snug">New Infrastructure Project Set for Bulawayo Corridor</p>
+<p class="text-xs text-outline mt-xs">2 hours ago</p>
+</div>
+<div class="pb-sm border-b border-primary/10">
+<span class="inline-block bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full font-label-sm text-[10px] mb-xs">TECH</span>
+<p class="font-h3 text-md text-on-surface leading-snug">Zim-Connect Reaches 5 Million Active Users Milestone</p>
+<p class="text-xs text-outline mt-xs">5 hours ago</p>
+</div>
+<div class="pt-sm">
+<button class="text-primary font-label-sm flex items-center gap-xs hover:underline">
+                                View all headlines <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card p-md rounded-xl">
+<h3 class="font-h3 text-h3 text-primary mb-md">Trending Topics</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-sm text-on-surface-variant font-medium">#VictoriaFalls</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-sm text-on-surface-variant font-medium">#StartupZim</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-sm text-on-surface-variant font-medium">#SolarEnergy</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-sm text-on-surface-variant font-medium">#Harvest2024</span>
+</div>
+</div>
+</aside>
+<!-- Main Feed -->
+<section class="lg:col-span-6 space-y-md">
+<!-- Create Post (Mobile/Tablet Quick View) -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-primary/10 flex items-center gap-md shadow-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTtbDpdgC5PzfrDvwgF_DmxGLjPbedaDYG1-o61eudxYyEGU2KRfx_VpC7uzcV1I5wRD4SNkV3W3XLJmAZDd-7na8fk4w-lwMLj5kwfY-knE-HLnOsFURmZHOilL3aMTeUuWaQ8SlRZrsIH9IPtwKG_x0Rc9WtdsMyQwMpz2-k7DTnE5WQvYhOAFwRTVTZn1h318nH3rjsUMu5hle9P_nUxWO_-0mfNQTjtDuByA2nc2w8XAeeV-KHl2D1JllKmAA5DkPlCo2tcrbw"/>
+</div>
+<button class="flex-grow bg-surface-container-low text-left px-md py-sm rounded-full text-outline hover:bg-surface-container-high transition-colors">
+                        Share a moment, Farai...
+                    </button>
+<button class="text-primary p-sm">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</button>
+</div>
+<!-- Feed Items -->
+<!-- Post 1: Image Post -->
+<article class="bg-surface-container-lowest rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+<div class="p-md flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Author" data-alt="Portrait of a young Zimbabwean man in a casual white t-shirt, outdoor natural lighting with a soft blurred garden background. High-quality digital photography style with natural skin tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDUflUKJUKmz_UmoThfq3spaSChhw5jS1lR2_ssT_2yAUTiaWrXRVFy3cs1aiMbUxuSSO5j8kGZu-B0qTCwtsxdEpbJbcNbkYSePP17cyi4qVlgV6Zg_yMkbQelg-z87vgSySETe3MFXTrJbfh6W8vFcjSKRXgVQaSpNC3_UvgskIpHBRSE5oWhGWBkqWJijJY9MNKE3YcU4iJGiCiOVHZCYvr_12JfU2jTuUve1jwzPx-CWJKcj7Dj4RSy0BleB4ZA39OINmnsJ33"/>
+</div>
+<div>
+<h4 class="font-h3 text-md text-on-surface">Tinashe Choga</h4>
+<p class="text-xs text-outline">Harare • 45 mins ago</p>
+</div>
+</div>
+<button class="text-outline"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="px-md pb-sm">
+<p class="font-body-md text-on-surface-variant mb-md">Sunset views from the balancing rocks tonight. Zimbabwe truly is the Jewel of Africa. 🇿🇼 #Nature #Heritage</p>
+</div>
+<div class="aspect-video w-full">
+<img alt="Post Image" class="w-full h-full object-cover" data-alt="A breathtaking photograph of the iconic Balancing Rocks in Epworth, Zimbabwe during the golden hour. The sky is a gradient of deep orange and purple, casting long, dramatic shadows across the ancient granite formations. The image has a majestic, heritage-focused aesthetic with high contrast and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7C121s-7SZPWwCO8WivHpNqMrNGyO6ZS5Nf_GCjVLXYbmjg8YCDOcjIp6IEyUI0JgVwCb-5lajp6s0pMaRH8JpflBSVfJuFu-rPDjDs0dEUslNggyKM753RwrczN8OILbASJWTtohin1P-3NbP2yWncSayoAbXU3wDvqYpvGaPxFbsmNqNnzpHusPHBdMscJlNhzvAJ-pUeP5UfEMGqHfy_YpOksM682uNywXqGt1sogUqrc1gfUQ9B9Fav8Jj-RbUO9RDuT1Ju83"/>
+</div>
+<div class="p-md flex items-center justify-between border-t border-primary/5">
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-xs text-primary group active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm">2.4k</span>
+</button>
+<button class="flex items-center gap-xs text-on-surface-variant group">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-sm">128</span>
+</button>
+<button class="flex items-center gap-xs text-on-surface-variant group">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Post 2: Text/Link Post -->
+<article class="bg-surface-container-lowest rounded-xl border border-primary/10 shadow-sm p-md">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container flex items-center justify-center text-on-primary-container font-h3">
+                                ZC
+                            </div>
+<div>
+<h4 class="font-h3 text-md text-on-surface flex items-center gap-xs">Zim-Connect News <span class="material-symbols-outlined text-sm text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span></h4>
+<p class="text-xs text-outline">Official • 2 hours ago</p>
+</div>
+</div>
+</div>
+<p class="font-h3 text-xl text-primary leading-tight mb-md italic">"Innovation is the bridge between our heritage and our future."</p>
+<p class="font-body-md text-on-surface-variant mb-md">We've just updated our Wallet feature to include seamless integration with local agriculture markets. Supporting our farmers, building our nation.</p>
+<div class="bg-surface-container-low p-md rounded-lg border-l-4 border-secondary flex items-center gap-md mb-md">
+<div class="bg-surface-container-lowest p-sm rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<p class="font-label-sm text-primary">NEW FEATURE</p>
+<p class="font-body-md font-semibold">Agri-Market Wallet Integration</p>
+</div>
+<button class="ml-auto text-primary"><span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span></button>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-primary/5">
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-xs text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm">856</span>
+</button>
+<button class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-sm">42</span>
+</button>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</article>
+<!-- Post 3: Short Moment Bento Grid -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-secondary-container/20 p-md rounded-xl flex flex-col justify-between aspect-square">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="format_quote">format_quote</span>
+<p class="font-h3 text-on-secondary-container">The rain in Masvingo today is a blessing for the crops. Nature's rhythm.</p>
+<div class="flex items-center gap-sm mt-md">
+<div class="w-8 h-8 rounded-full bg-surface"></div>
+<p class="text-xs font-semibold">Tendai G.</p>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden aspect-square">
+<img alt="Portrait" class="w-full h-full object-cover" data-alt="A warm, candid portrait of a young Zimbabwean man laughing. He is in an urban outdoor setting with modern architecture in the background. The lighting is bright and airy, reflecting a positive and vibrant lifestyle aesthetic suited for a modern social feed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWUW9FTzQILOBIcUOnCllPhaD_gaEBEVa_A794uJjoNVcoqxPQYgwDrKzNP2AsjTPHUrHuqs7MJJ02Nu64KeYqJ2XH2ds3EoRJVPUKeobmqHtxO0Xy_iVk07_H1U6xRc1kPsqLa60IjCFyH2uSR2Q8Lj381mrUxUIk1kFoViK41z06JYUmo_Dr9RDimiQY-LZSH9uJKLVOrlgmMBDGB87wb6E9W7xe3wsYsusVS2Cki6GyZIc7P7fpz_UdmbgaJ5dpDrZ7Ekjyb-zU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<p class="text-white font-label-sm">Just shared a moment!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Suggested / Connect -->
+<aside class="hidden lg:block lg:col-span-3 space-y-md">
+<div class="glass-card p-md rounded-xl">
+<h3 class="font-h3 text-h3 text-primary mb-md">People to Connect</h3>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
+<img alt="user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHE0s3J5jscRBOZoRVE71c7d4Dky_G30Id9vrFasSvaC_NjeHglTzO1bdg7YCERt4Sw051U6iFmwlzSgUY2h_bS4RoIR8VY9rcGyYhncM-HqNVWZQrTquN3OqAqeujiw2NaBWTkMeWSN38iEK0LMo96N4EY-sJXMrjWOFfevh1A-XNuEMOnNT2Noo4z71vRTQfSYvjTpFwvILV4GEI0hgRsuTnFe6PVv5uRV2lAEeIFnQWCynvEtbIn0NYCv5K-IkZh2SPTmmqgECy"/>
+</div>
+<div>
+<p class="font-label-sm">Nyasha Z.</p>
+<p class="text-xs text-outline">Entrepreneur</p>
+</div>
+</div>
+<button class="text-primary bg-primary/5 hover:bg-primary/10 px-3 py-1 rounded-full text-xs font-semibold">Follow</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
+<img alt="user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvrg3XuhubvHea9QXLHuEBygSCcyr_t9GASK74-UTXXvg9YPLPpzYfw9u9yHr0gMzCkx2Qk108rO6om4XpUtaHHjrZWc7BefDts6Qg6J7XTHm3hAVIGpUWDPo8EtGBYZgJSMt4iEP-I3vbaA4lYewjUfMtOEWMwSeBwqIeuUcRm5kcE4Yu8sLgh-IsnwwOYuHwnS3Q_oSw7Oxy67aalirZ10C6UEXV10dHw5WcqleS5_Ja_8cfwjG_nTPSx6yKGbkfd2o8r1Yo_8f9"/>
+</div>
+<div>
+<p class="font-label-sm">Kundai M.</p>
+<p class="text-xs text-outline">Digital Artist</p>
+</div>
+</div>
+<button class="text-primary bg-primary/5 hover:bg-primary/10 px-3 py-1 rounded-full text-xs font-semibold">Follow</button>
+</div>
+</div>
+</div>
+<div class="p-md rounded-xl bg-primary text-on-primary">
+<span class="material-symbols-outlined mb-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<h4 class="font-h3 text-lg mb-xs">Go Premium</h4>
+<p class="text-xs text-on-primary/70 mb-md">Support local creators and get verified badge with Z-Premium.</p>
+<button class="w-full bg-secondary-container text-on-secondary-container py-2 rounded-lg font-label-sm">UPGRADE NOW</button>
+</div>
+</aside>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 pb-safe bg-surface-container-lowest shadow-[0_-2px_10px_rgba(6,78,59,0.08)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1.5 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Mall</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-label-sm">Transport</span>
+</button>
+</nav>
+</body></html>

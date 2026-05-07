@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fresh Produce | Zim-Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&amp;family=Newsreader:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#2b6954",
+                    "on-surface-variant": "#404944",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary": "#855300",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#121c2a",
+                    "primary-fixed": "#b0f0d6",
+                    "tertiary-fixed": "#d9e3f7",
+                    "on-secondary-container": "#684000",
+                    "inverse-primary": "#95d3ba",
+                    "primary-fixed-dim": "#95d3ba",
+                    "outline-variant": "#bfc9c3",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#707974",
+                    "surface": "#f7f9fb",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-container": "#3b4555",
+                    "on-tertiary-fixed-variant": "#3d4757",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#bdc7db",
+                    "on-secondary-fixed": "#2a1700",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "primary-container": "#064e3b",
+                    "on-primary-container": "#80bea6",
+                    "on-tertiary-container": "#a8b2c6",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002117",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#252f3e",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "background": "#f7f9fb",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-container": "#fea619",
+                    "on-surface": "#191c1e",
+                    "on-background": "#191c1e",
+                    "secondary-fixed": "#ffddb8",
+                    "primary": "#003527"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin": "20px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "lg": "32px",
+                    "md": "24px",
+                    "gutter": "16px",
+                    "sm": "16px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "label-md": ["Public Sans"],
+                    "headline-lg": ["Newsreader"],
+                    "body-lg": ["Public Sans"],
+                    "label-sm": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "headline-md": ["Newsreader"],
+                    "display": ["Newsreader"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        h1, h2, h3, .font-display { font-family: 'Newsreader', serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin h-16 z-50 bg-surface dark:bg-on-surface-variant border-b border-outline-variant dark:border-outline fixed top-0">
+<div class="flex items-center gap-base">
+<button class="p-base hover:bg-surface-container transition-colors duration-200 active:opacity-80">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+</button>
+<h1 class="font-display text-headline-md text-primary dark:text-primary-fixed-dim ml-xs">Zim-Market</h1>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-base hover:bg-surface-container transition-colors duration-200 active:opacity-80">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-margin max-w-screen-xl mx-auto">
+<!-- Breadcrumbs & Title -->
+<div class="mb-lg">
+<nav class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<span class="font-label-sm text-label-sm">Home</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Fresh Produce</span>
+</nav>
+<h2 class="font-display text-display text-primary">Farm Fresh Deliveries</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Sourced directly from Zimbabwean smallholder farmers to your doorstep.</p>
+</div>
+<!-- Filter Bar -->
+<section class="mb-lg overflow-x-auto">
+<div class="flex items-center gap-sm min-w-max pb-xs">
+<button class="flex items-center gap-xs px-md py-xs bg-primary-container text-on-primary-container rounded-full border border-primary transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+<span class="font-label-md text-label-md">All Produce</span>
+</button>
+<button class="flex items-center gap-xs px-md py-xs bg-surface border border-outline rounded-full hover:bg-surface-container-low transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+<span class="font-label-md text-label-md">Organic</span>
+</button>
+<button class="flex items-center gap-xs px-md py-xs bg-surface border border-outline rounded-full hover:bg-surface-container-low transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">agriculture</span>
+<span class="font-label-md text-label-md">Local Farmer</span>
+</button>
+<button class="flex items-center gap-xs px-md py-xs bg-surface border border-outline rounded-full hover:bg-surface-container-low transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span class="font-label-md text-label-md">Flash Deals</span>
+</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1: Nyanga Potatoes -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A rustic wooden basket filled with earthy Nyanga potatoes, captured in bright, natural morning sunlight in a Zimbabwean mountain farm setting. The potatoes have rich, dark soil clinging to them, emphasizing their fresh-from-the-earth quality. The visual style is high-utility minimalism with a focus on natural textures and deep emerald tones in the background greenery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoOH0rt9nFaMpATES_ccyR9gw4A4_EaxF2KEERgI4L7CLBQXtmT86dwRH5FQhdtEScsZwgsH55ULezmfeIEkuYCCyWcPDCBC3S42a_n792H7tpbYZreQhgmj3LuVkSHeJrBwgxWnoAm8Wk4gD8OJaDtjv9UC2EnC15VO7XTQ2U_XzQwkf7JPc5sG00FtRlMGW_7fW9pKvax8j_cav7ydxAMN78SfoCtiX2n-ehHHjZHws2g_mHGoE8aAh2T_xsSptr3ZiunnDEENBC"/>
+<div class="absolute top-xs left-xs bg-secondary-container text-on-secondary-fixed px-xs py-1 rounded-lg font-label-sm text-label-sm font-bold">Local Farmer</div>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Nyanga Potatoes</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">5kg Bag</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 145.00</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2: Mazowe Oranges -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Vibrant, sun-kissed Mazowe oranges with glossy skins and small green leaves still attached, displayed on a clean charcoal surface. The lighting is crisp and direct, highlighting the juicy texture of the citrus. The color palette features brilliant oranges against deep emerald greens and clean white accents, reflecting a premium corporate heritage aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaLUjWGt2WelzbpqVjewvg-xjCzxKnQk3WIW0dGPJUXuUXEcMfPRqWVDgIx62ogyEotWR3OAKtGTPWU6TesN2oqGfqtiUlcZIITwMeib_21sa6JCdXbRTtXsf-KtrEpQ7K9pZ3O1wG7iFodefW21zbD5cl8v3bokh5sLvvGin74QsGoUzCw2FQ6M5eq0mqXWEEbTqmJxCqAZlBvtr_7ZqtPRnZ91vRj8V1-0E2Oyu1cchN573yYpGcNmu2iAF6OIayK4BytPI7UgNu"/>
+<div class="absolute top-xs left-xs bg-tertiary text-on-tertiary px-xs py-1 rounded-lg font-label-sm text-label-sm font-bold">Organic</div>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Mazowe Oranges</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1kg (Approx 6-8)</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 32.50</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3: Local Greens (Covo/Tsunga) -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A tight bundle of vibrant green local Zimbabwean leafy vegetables like Covo or Tsunga, fresh with water droplets. The greens are set against a minimalist light gray background with soft, diffuse lighting that emphasizes their crispness. The style is professional and clean, using high-contrast deep emerald green for the produce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Qr3HghEpD06p2_mqayfORm_EKTudTA6rFmXMZT0lLNx5OJwOJQsrWQ0NB-YDn1zpzGhZ-4PAsR0Gc5zZ0OzrdSgPXcYxw_AD4Uw-4rb6GpwoR0DcrBRZMuH5_JEXRhEUQ_j4-qSR5PV--X4EzwKaSaDpfRqeFsxH7L59zpSVD1g59Ydi7MFmIbdPVfitbIyJuB79PvlGbYRpm5UHUFWRVGdJOnPibdHdZ4RNhtS5J5mLydaBRyc3t8a7CHEGksolSa1yBH4iRufQ"/>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Fresh Covo Greens</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Large Bundle (500g)</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 18.00</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4: Tomatoes -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Plump, deep red vine-ripened tomatoes arranged on a neutral gray stone surface. High-key lighting creates sharp reflections on the smooth skin of the tomatoes. The aesthetic is corporate and modern, focusing on clarity and high-quality food photography that fits a premium grocery delivery interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjrs1pWkYvJl3UED9bgzpkfKF2_tWzfGw11N6T8MtYY8mQp9LRRd_SIe2gcNr3EO9KPltlDNiQIHElkAKLR-fUBWNa5VLRag0n2YEmxBE_QpM9ORtSvGY03uUddwEZNnbLDVtrz9C3SjtNdXlwE7o_Gso0pAS-sBhHhFHtON39vJk0ngwcYyMlKcYlFtmtbxDVQ-PlN6j21R5oNNShSYdWAzpX0NUcwku-678Vo8uW_T_I7LUGLJGmp9Y0U-Y9mu5cKLwKZjZsJpnd"/>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Vine Tomatoes</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tray (1kg)</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 45.00</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 5: Garlic -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Bulbs of fresh garlic with papery white skins and purple-tinted veins, captured in a clean, brightly lit kitchen setting. The image uses a minimalist high-key lighting style to align with a modern light-mode UI. The focus is on the intricate natural details of the produce against a neutral surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbOwtvyqAoTG1xlr8aWa2CCQVq-xoQhFv_LlhQEnLwk57gd3CyZoEi_IFgwbvbIn1NZx2U7pHIyFKI4Mfsztc0GTdwA8-7KF_kQZbnJyLgasorRNRASCJurQGng60yFa0eaXpR-OSs1eX8_NIqi6hjRZOF0uf6nOdfVA5LTe_B2rVwTkr_5teMyEknmBBoZCcC2Oxf6fbhKdG_TfNDP68PD6OBCqT3_d0knR08OO_tVzDIvbLza_vx4PJfF2Vphe1ejSRzZik_tyI1"/>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Local Garlic</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">250g Pack</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 28.00</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 6: Carrots -->
+<article class="bg-surface border border-outline-variant rounded-xl overflow-hidden group shadow-[2px_2px_0_0_rgba(0,53,39,0.1)] hover:shadow-none transition-all">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A bunch of bright orange organic carrots with their lush green leafy tops intact, lying on a white minimalist backdrop. The lighting is soft yet professional, creating a clean product shot that feels premium and fresh. The color palette emphasizes the contrast between the saturated orange and vibrant emerald greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_m9bjAeVIq0KSj7XFRkdYlPLZ76YFFrM4Okm9da9kmjiyAeorAkNj148VhtvOyofAZJxki2XXuRc6t2k3bfZSK6-D55-tp8nvVsHaDVuh-uu-LjN87lh77CtaMarg_Hgi6AFMMYgkkyuMDd2hOFZykaY6n-4sWJfSHIuzDfiL7jCkpQMiajNQOm5r2ptEE6UwXKNumMfFZHC9ZpcsukXj_jx93nWeGIH4Wlcc3UngCzhyW6Ic8KSn1MtD2AWB5bEMlPJY_6mlWOm7"/>
+<div class="absolute top-xs left-xs bg-tertiary text-on-tertiary px-xs py-1 rounded-lg font-label-sm text-label-sm font-bold">Organic</div>
+</div>
+<div class="p-sm flex flex-col gap-xs">
+<div>
+<h3 class="font-headline-md text-label-md text-on-surface truncate">Nantes Carrots</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Bunch (1kg)</p>
+</div>
+<div class="flex justify-between items-end mt-base">
+<span class="font-display text-headline-md text-primary">ZiG 22.00</span>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-[2px_2px_0_0_rgba(0,0,0,0.1)] active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Empty State/Bottom Spacing -->
+<div class="py-xl text-center">
+<p class="font-body-md text-on-surface-variant">Showing 6 items from Zimbabwean farms</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-xs bg-surface dark:bg-on-surface-variant shadow-[0_-2px_0_0_rgba(0,0,0,0.05)] border-t border-outline-variant dark:border-outline z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-label-sm">Produce</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">group_work</span>
+<span class="font-label-sm text-label-sm">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-transform duration-150 scale-95 active:scale-90 relative" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+<span class="absolute -top-1 -right-1 bg-secondary-container text-on-secondary-container w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold">2</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</a>
+</nav>
+</body></html>

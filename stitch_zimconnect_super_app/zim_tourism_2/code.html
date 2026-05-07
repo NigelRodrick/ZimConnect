@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#b0f0d6",
+                        "on-primary-fixed": "#002117",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary-container": "#064e3b",
+                        "on-secondary-container": "#6f5100",
+                        "surface-tint": "#2b6954",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#b4ab84",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#795900",
+                        "surface-dim": "#d3daef",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "surface-container-low": "#f1f3ff",
+                        "secondary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface-container-high": "#e1e8fd",
+                        "outline-variant": "#bfc9c3",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#453f20",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "tertiary-fixed": "#ede3b8",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "primary": "#003527",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "surface-variant": "#dce2f7",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#665f3d",
+                        "on-surface": "#141b2b",
+                        "on-background": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "inverse-primary": "#95d3ba",
+                        "outline": "#707974",
+                        "on-tertiary-fixed": "#201c02",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-container": "#ffc329",
+                        "surface-container": "#e9edff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "container-max": "1280px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Newsreader"],
+                        "body-lg": ["Work Sans"],
+                        "label-sm": ["Work Sans"],
+                        "h2": ["Newsreader"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked full-width top-0 z-50 flex justify-between items-center w-full px-md h-16 sticky">
+<div class="flex items-center gap-4">
+<button class="hover:bg-on-primary/10 transition-colors p-2 rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h3 text-h3 font-bold text-on-primary dark:text-on-primary-container">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-on-primary/10 transition-colors p-2 rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pb-24">
+<!-- Hero Section -->
+<section class="relative w-full h-[500px] overflow-hidden">
+<div class="absolute inset-0 bg-primary/40 z-10"></div>
+<img alt="Experience Zimbabwe" class="w-full h-full object-cover" data-alt="A majestic cinematic landscape of Victoria Falls in Zimbabwe, capturing the massive veil of water crashing into the gorge with a vibrant rainbow arching through the mist. The lighting is warm golden hour, reflecting off the lush green foliage and dark basalt rocks. The aesthetic is high-end travel photography with a rich palette of deep forest greens and golden yellows, evoking a sense of national pride and natural wonder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXjaU4vu0-RjAwrWY6FGvk5D6cLNowQ5laYlNfLPM1soNp_on1lE8tmHn8PeIo8VO0Zy3cT3bXQ1k92KpxF7rBABsJGAhuxJ5ZMgTeAn1Z7bQJHuvpSYyPJIkVOW-Fsv-iFra9CKq5nMh9Dmaet2QK__xKw70p6y9U7hqjSZ_lNNImVs1TRh7vinjzfUYGpNHMnyxGh-M0tJ7VV0yrxn_tBv9_Pide8Qek2fk-V42qd-cSE6pbo-QzCj9wRi-DfEQb9T2hWlbNIdQg"/>
+<div class="absolute inset-0 z-20 flex flex-col justify-end px-md pb-xl container-max mx-auto">
+<div class="max-w-2xl">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm mb-4 inline-block">Official Tourism Portal</span>
+<h2 class="font-h1 text-h1 text-on-primary mb-2">Experience Zimbabwe</h2>
+<p class="font-body-lg text-body-lg text-on-primary/90">From the thunderous smoke of Mosi-oa-Tunya to the silent majesty of the Eastern Highlands.</p>
+</div>
+</div>
+</section>
+<!-- Travel Search (Floating Overlay Style) -->
+<div class="container-max mx-auto px-md -mt-16 relative z-30">
+<div class="bg-surface-container-lowest border border-outline/10 rounded-xl shadow-lg p-6 flex flex-col md:flex-row gap-6 items-end">
+<div class="flex-1 w-full">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2">WHERE TO?</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container border-b-2 border-outline/20 focus:border-primary outline-none text-body-md font-body-md rounded-t-lg" placeholder="Explore destinations..." type="text"/>
+</div>
+</div>
+<div class="flex-1 w-full">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2">WHEN?</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">calendar_month</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container border-b-2 border-outline/20 focus:border-primary outline-none text-body-md font-body-md rounded-t-lg" placeholder="Select dates" type="text"/>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3.5 rounded-lg font-label-sm text-label-sm flex items-center gap-2 hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">search</span>
+                    SEARCH
+                </button>
+</div>
+</div>
+<!-- Popular Destinations (Bento Style) -->
+<section class="container-max mx-auto px-md mt-lg">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-h2 text-h2 text-primary">Popular Destinations</h3>
+<a class="text-secondary font-label-sm text-label-sm hover:underline" href="#">VIEW ALL</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Kariba -->
+<div class="md:col-span-8 relative rounded-xl overflow-hidden group cursor-pointer border border-outline/5 shadow-sm">
+<img alt="Kariba" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A serene sunset over Lake Kariba in Zimbabwe, with the iconic silhouettes of drowned leadwood trees reflected in the calm, copper-colored water. The sky is a gradient of deep orange and soft violet. A luxury houseboat is visible in the far distance. The scene is peaceful and vast, emphasizing the unique beauty of this man-made inland sea." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTcoa96s7qQDKnjuKUGZFqk5k00YKAscTbzs_bAt0B-XlxCmhLaHlnLp2XPSz882oprtLFfx-BsIl3SCMblXClsI7vOO_Aqq9oURxw7I1Q10ms0s_3vREtVEfIWwEihAxtkGtgYUv0_nVF4K2fe8huRSSfVw6tWNZpx0iC8BboZjbSyQcyHK0SY8PgUayBj6KNLR9HfNI_MWTLNewGw1Avs4MLa2e1KdxSO8W28-GTEL0uka6r6MRcmDUam6SonH_hNEWB4A3yM3ce"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<span class="text-secondary-fixed-dim font-label-sm text-label-sm tracking-widest mb-2 block">ADVENTURE</span>
+<h4 class="font-h3 text-h3 text-white">Kariba &amp; The Zambezi</h4>
+<p class="text-white/80 font-body-md mt-2 max-w-md">Sunset cruises and world-class tiger fishing on the world's largest man-made lake.</p>
+</div>
+</div>
+<!-- Nyanga -->
+<div class="md:col-span-4 relative rounded-xl overflow-hidden group cursor-pointer border border-outline/5 shadow-sm">
+<img alt="Nyanga" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="The rolling green hills of Nyanga National Park in the Eastern Highlands of Zimbabwe. Mist clings to the peaks of Mount Nyangani in the early morning light. The landscape is lush with pine forests and sparkling waterfalls. The mood is cool, refreshing, and tranquil, with a color palette dominated by vibrant emerald greens and soft misty whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfQdyYd5edSVDVq9-MEsm4pMwvHW3uCfHjf_ZihEjUfdMSt6WOpC_9XV0swhiyJB2qzBYvZ7Yw3O8i8SbIa3oE_gQ6ILdVD5L178IkNRLxGwBTgvhxwxWP9V7EziMqfg-WhoKw7YP3jk6vrPf1IiBuvmrLh9ffKBYoz0RSV3RGdozz8j8lLbMy1r9TX0raQ0aLBE2qGBPnurt0wtxc-5cZRSMnuScE_ZPFwEBa1Q7jLPzH_f2bwIhyKa7IUWN391R3NPTXXuanFgWp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-6">
+<span class="text-secondary-fixed-dim font-label-sm text-label-sm tracking-widest mb-2 block">RETREAT</span>
+<h4 class="font-h3 text-h3 text-white">Nyanga Highlands</h4>
+<p class="text-white/80 font-body-md mt-2">Crisp mountain air and rolling green vistas.</p>
+</div>
+</div>
+<!-- Hwange -->
+<div class="md:col-span-12 relative rounded-xl overflow-hidden group cursor-pointer border border-outline/5 shadow-sm min-h-[300px]">
+<img alt="Hwange" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A wide-angle shot of a large herd of elephants gathering at a watering hole in Hwange National Park during the dry season. The earth is a rich ochre red, and the sparse acacia trees provide thin shadows under the bright midday sun. The sky is a clear, brilliant blue. The composition captures the raw, wild essence of Zimbabwe's largest game reserve." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyP9EQMfJkp_czs4AD_RMdy4vT37TyzJkMYuVDpN7zugHzOnv5XgcDxlgt9E38F7YThid4QM1KHpTaaNxyBxqVh0Bljtyj0e3HRyoS_OAmZS-sA6JKVLIpM8bvE9U74GQT99_BJFiI1BDs8O-zLd6V_oP4kbmqkZ-KReQdi6-rnTlVkiNm-c0s2hGBIfVZtt2ZMx3oIPSpOLhJ_j1LPLoGUAGFY5xdZ482xtDBDveuPf7M1jSfSbDE78q81rr60MP-ZR1lNbB9-AX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 p-8 flex justify-between items-end w-full">
+<div>
+<span class="text-secondary-fixed-dim font-label-sm text-label-sm tracking-widest mb-2 block">WILDLIFE</span>
+<h4 class="font-h3 text-h3 text-white">Hwange National Park</h4>
+<p class="text-white/80 font-body-md mt-2">Home to the Presidential Elephant Herd and diverse savannah species.</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-lg hidden md:block">
+<p class="text-white font-label-sm text-label-sm">NEXT SAFARI</p>
+<p class="text-secondary-fixed-dim font-h3 text-h3">May 15</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Special Offers (Editorial Layout) -->
+<section class="bg-surface-container-low mt-xl py-xl border-y border-outline/5">
+<div class="container-max mx-auto px-md">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1 order-2 md:order-1">
+<h3 class="font-h2 text-h2 text-primary mb-6">Resident Special Offers</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Exclusive travel packages designed for Zimbabwean citizens. Support local heritage and enjoy premium hospitality at discounted rates.</p>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-secondary flex justify-between items-center group cursor-pointer hover:shadow-md transition-all">
+<div>
+<h5 class="font-h3 text-h3 text-primary">Victoria Falls Weekend</h5>
+<p class="text-on-surface-variant font-body-md">3 Days / 2 Nights at Kingdom Hotel</p>
+</div>
+<div class="text-right">
+<p class="text-secondary font-bold text-h3">$149</p>
+<p class="text-on-surface-variant font-label-sm">per person</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary flex justify-between items-center group cursor-pointer hover:shadow-md transition-all">
+<div>
+<h5 class="font-h3 text-h3 text-primary">Great Zimbabwe Tour</h5>
+<p class="text-on-surface-variant font-body-md">Historical guided walk &amp; accommodation</p>
+</div>
+<div class="text-right">
+<p class="text-secondary font-bold text-h3">$85</p>
+<p class="text-on-surface-variant font-label-sm">per person</p>
+</div>
+</div>
+</div>
+<button class="mt-10 border-2 border-primary text-primary px-8 py-3 rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all">
+                            EXPLORE ALL DEALS
+                        </button>
+</div>
+<div class="flex-1 order-1 md:order-2 w-full">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-secondary-fixed-dim/20 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-primary-fixed-dim/20 rounded-full blur-3xl"></div>
+<img alt="Resident Offer Luxury" class="rounded-2xl relative z-10 w-full shadow-2xl border border-white/50" data-alt="An editorial-style close-up of a high-end lodge dining area overlooking a river in Zimbabwe. The table is elegantly set with local artisanal pottery and fresh tropical fruits. Warm, diffused sunlight filters through a thatched roof. The atmosphere is sophisticated and inviting, showcasing the premium side of Zimbabwean hospitality with a focus on textures like wood, woven grass, and ceramic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYJKIk7eazOjBqIvZ2a_PQeF4zeiRb5pTpXHzhi5rquuNOn4ALpqJKzwTkTc9BKiOdsYzzxMTh9AOTMzo2Db4KtJWuBCG24Vl3GeMnBDyKWpeD2w2I1xLnDzi-DEhtj_qDJiEHTIT9rYmLLYRK_STb-frpcHkwgNZU2taxuiIUjTPrMsX_i-8snMS4W3d_C0HThrzUjANlt6qzKp9DsZDAyJUboVId_-VDtgJ2vmlPqzQnXjgRfoyC5NWg4PDQb4xGGnyQy_g1vHQI"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-container text-primary dark:text-primary-fixed-dim fixed bottom-0 w-full z-50 border-t border-primary/10 shadow-[0_-1px_3px_0_rgba(6,78,59,0.08)] flex justify-around items-center w-full py-2 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm font-medium">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1.5 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm font-medium">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm font-medium">Transport</span>
+</a>
+</nav>
+</body></html>

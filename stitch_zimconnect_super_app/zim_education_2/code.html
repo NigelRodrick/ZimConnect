@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zim-Education | National Digital Learning Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#b0f0d6",
+                        "on-primary-fixed": "#002117",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary-container": "#064e3b",
+                        "on-secondary-container": "#6f5100",
+                        "surface-tint": "#2b6954",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#b4ab84",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#795900",
+                        "surface-dim": "#d3daef",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261a00",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "surface-container-low": "#f1f3ff",
+                        "secondary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface-container-high": "#e1e8fd",
+                        "outline-variant": "#bfc9c3",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#453f20",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "tertiary-fixed": "#ede3b8",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "primary": "#003527",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "surface-variant": "#dce2f7",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#665f3d",
+                        "on-surface": "#141b2b",
+                        "on-background": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "inverse-primary": "#95d3ba",
+                        "outline": "#707974",
+                        "on-tertiary-fixed": "#201c02",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-container": "#ffc329",
+                        "surface-container": "#e9edff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "container-max": "1280px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Newsreader"],
+                        "body-lg": ["Work Sans"],
+                        "label-sm": ["Work Sans"],
+                        "h2": ["Newsreader"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+            color: #141b2b;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full h-16 flex justify-between items-center px-md bg-primary text-on-primary">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-on-primary/10 transition-colors rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-h3 text-h3 font-bold text-on-primary">Zim-Connect</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-on-primary/10 transition-colors rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-md max-w-container-max mx-auto">
+<!-- Hero & Search Section -->
+<section class="mb-lg">
+<div class="mb-md">
+<h2 class="font-h1 text-h1 text-primary mb-2">Empowering National Talent</h2>
+<p class="text-on-surface-variant font-body-lg">Access curriculum resources, vocational training, and academic services.</p>
+</div>
+<div class="relative max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b-2 border-outline focus:border-primary focus:ring-0 transition-all rounded-t-lg font-body-md" placeholder="Search for courses, modules, or schools..." type="text"/>
+</div>
+</section>
+<!-- Rapid Service Grid -->
+<section class="mb-lg grid grid-cols-2 md:grid-cols-4 gap-4">
+<button class="flex flex-col items-center justify-center p-6 bg-white border border-primary/10 rounded-xl hover:bg-primary-fixed transition-all group">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container" data-weight="fill">payments</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Pay School Fees</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 bg-white border border-primary/10 rounded-xl hover:bg-primary-fixed transition-all group">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">laptop_chromebook</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">E-Learning Hub</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 bg-white border border-primary/10 rounded-xl hover:bg-primary-fixed transition-all group">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">assignment_turned_in</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Exam Results</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 bg-white border border-primary/10 rounded-xl hover:bg-primary-fixed transition-all group">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">school</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Scholarships</span>
+</button>
+</section>
+<!-- Featured Vocational Bento -->
+<section class="mb-lg">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h3 class="font-h2 text-h2 text-primary">Vocational Excellence</h3>
+<p class="text-on-surface-variant font-body-md">Acquire practical skills for the future economy.</p>
+</div>
+<button class="text-primary font-label-sm flex items-center gap-1 hover:underline">
+                    View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="bento-grid">
+<!-- Large Feature: Agribusiness -->
+<div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-xl bg-primary-container text-on-primary min-h-[320px]">
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A cinematic, wide shot of a modern Zimbabwean commercial farm at sunrise, featuring lush green crops and sophisticated irrigation systems. The lighting is golden and warm, emphasizing growth and productivity. The style is professional and high-quality, reflecting a vision of national prosperity and agricultural innovation with deep greens and warm yellows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5zyf6iUQxjl2kYCnFhCpRcqk0QypxsklfXOB2W_CqzpvlWGqURFXICUYOARw_x6KTYplcLoVwKZVav0gNLPGnmTjxtf5_uC8dMSHE8UxIAyV6wUhaW_3j3bVMUkhPO_KglV6O3lGsvMqTuKLfkQ0tNYj9BbNwIjEztU5rlDsnsKe1QTDVIZrApG0ia8ruvIYRAD38I4H57Ujf8iJEwaqLDNBaLe56LstU9rlyZlalJrRnXg17P_0ajOrInGzi8m8ve2bd9YTPf0mu"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-primary-container/20 to-transparent"></div>
+<div class="relative z-10 p-md h-full flex flex-col justify-end">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full mb-3 w-fit">Featured Module</span>
+<h4 class="font-h2 text-h2 mb-2">Sustainable Agribusiness</h4>
+<p class="font-body-md mb-4 opacity-90 max-w-sm">Master modern crop production, livestock management, and financial planning for large-scale agricultural success.</p>
+<button class="px-6 py-3 bg-white text-primary font-label-sm rounded-lg hover:bg-secondary-fixed transition-colors w-fit">Start Learning</button>
+</div>
+</div>
+<!-- Small Feature: Tech -->
+<div class="md:col-span-2 relative overflow-hidden rounded-xl border border-primary/10 bg-white p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">code</span>
+</div>
+<span class="text-label-sm text-on-surface-variant">12 Modules</span>
+</div>
+<div>
+<h4 class="font-h3 text-h3 text-primary mb-1">Software Development</h4>
+<p class="text-on-surface-variant text-body-md">Learn coding foundations focused on local fintech solutions.</p>
+</div>
+</div>
+<!-- Small Feature: Craft -->
+<div class="md:col-span-1 relative overflow-hidden rounded-xl border border-primary/10 bg-white p-6 flex flex-col justify-between">
+<div class="w-10 h-10 bg-surface-container rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary mb-1">Advanced Welding</h4>
+<p class="text-on-surface-variant text-label-sm">Industrial standards and safety.</p>
+</div>
+</div>
+<!-- Small Feature: Tourism -->
+<div class="md:col-span-1 relative overflow-hidden rounded-xl border border-primary/10 bg-white p-6 flex flex-col justify-between">
+<div class="w-10 h-10 bg-surface-container rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary">travel_explore</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary mb-1">Tourism &amp; Arts</h4>
+<p class="text-on-surface-variant text-label-sm">Heritage and hospitality management.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Pathways -->
+<section class="mb-lg">
+<h3 class="font-h2 text-h2 text-primary mb-md">Formal Pathways</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- ECD -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container-high overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A joyful scene of young Zimbabwean children in a bright, colorful classroom engaging in interactive play and learning. The room is filled with soft natural light, creating a warm and welcoming atmosphere. The visual style is clean and high-contrast, focusing on vibrant educational materials and the energy of early childhood development." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo4R9PxXzZkV7cwkYTu8VmuiuQUPlhNbVZnVfzTENotTYDkTdRDY74JBAHx_pzJz3xTV2MUsjzJthZ1fv6M4q_oz0LUJf_hIJSj2vVkf-NhkP2N0IjC0rXiH-DJ_xyJKVXBzmMBOqHqdCLYl2x2FNsE1YoaD_g15BsI5MUea-EY5TfJyLKkNqxR7wNi37heb4Cv7BeBJ8hq901VUaW8LpxxY0NkplFuP1kUDLaiflWtjIILcOIWL-5JdO3s30zQLN66FYH8NRtTBjI"/>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">ECD &amp; Pre-School</h4>
+<p class="text-on-surface-variant text-label-sm">Foundations for ages 3-6</p>
+</div>
+<!-- Primary -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container-high overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright, modern library setting where primary school students are quietly reading and using tablets. The environment is clean and intellectual, with bookshelves in the background and soft, directional lighting. The color palette reflects the primary forest green and cream tones of the design system, promoting a studious yet vibrant feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC_KiMj_2UGFWNm3_67zC3weNIntHqTq2sRETinKp2MQuVfeOOOXlrrb8DxzFWOte7XdCUQjea5uT-eMAv6DV-hpPm1VXo9QgYjDrHtcSKM_138J_-EH4j-26CIkDL6eBFGqF-vvCG_-w8qzLcScOtSvZWPWn7dvheSkPp39bXk_ZxcCtsqTAVuZSK46wRL6TsOJ0PZZIOrWYC7rrcn06fxoLQ1Q4eILKbTuXNpM4f19-BPNDVTSekVubSkXUCHgfZKRsr4ohJ8q08"/>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">Primary Education</h4>
+<p class="text-on-surface-variant text-label-sm">Grades 1 to 7 curriculum</p>
+</div>
+<!-- Secondary -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container-high overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A group of diverse secondary school students collaborating on a science project in a well-equipped laboratory. The lighting is crisp and professional, highlighting modern scientific tools. The overall mood is focused and ambitious, utilizing the corporate modern aesthetic with accents of golden yellow to represent innovation and future vitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvqLGKSHcgcl3D3n8zoMJXJnL8SnU0eZO0FRtWaiWFPsGv2sCG5Ul62roHOEZVxixwRQ2CSMdrrnQdYsd1UJVlIEXHWPvIa3GQ6uFYdvUilzwDHI7lPR8CE6M2_9vO547QgzIVMewBubMiG04RvOfpXUV8CEu6ItxYeNRIq92qGS0VbDQeZlYMXzD_wrHzuSJco2IwsUkrp7-6st0S9meI73Z5IUmOZGiVUc95Y2NUVnnqVyewNHvTHmQxVJoHR5hqPpcS3BCRiwpx"/>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">Secondary School</h4>
+<p class="text-on-surface-variant text-label-sm">O-Level and A-Level paths</p>
+</div>
+<!-- Tertiary -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container-high overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="The grand entrance of a prestigious university building with students walking through large, open plazas. The architecture is a blend of heritage and modern design, shot during the bright midday sun. The image evokes stability and institutional trust, aligning with the brand's authoritative yet accessible digital presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhL9yxE5BD8SEDGzYQWGIJNspYn1Oujt1JuJYW4mJx8tl_5Wv4a4X-W4njEJBNLCCtVBvif0bOVd-ga1Va5MFgvOd2he1amAyBi63TCFtqOv38iGYiSsnX5cUBeNccHGFqkfPZj4dspbLp57X24Fl8NEAOrAjQkQiWyzqVv7IbGeWB45EdsnKST3fQao7XtvMgpeDF99Lych9j5fnX-5jk9I1B1F6QCRNOURzV_pAmNkFDQ393QbqPPBeJZ03Iiw2N820JW4UC4Ggb"/>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">Tertiary &amp; Varsity</h4>
+<p class="text-on-surface-variant text-label-sm">Degrees and Diplomas</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-primary/10 shadow-[0_-1px_3px_0_rgba(6,78,59,0.08)]">
+<div class="flex justify-around items-center w-full py-2 px-2 pb-safe h-16">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-container-high transition-all px-4 py-1.5" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-container-high transition-all px-4 py-1.5" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-container-high transition-all px-4 py-1.5" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm font-medium">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1.5 scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-weight="fill">shopping_basket</span>
+<span class="font-label-sm text-label-sm font-medium">Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-container-high transition-all px-4 py-1.5" href="#">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm font-medium">Transport</span>
+</a>
+</div>
+</nav>
+<!-- Floating Action Button for "Help / Ask Zim-Ed" -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined">support_agent</span>
+</button>
+</div>
+</body></html>

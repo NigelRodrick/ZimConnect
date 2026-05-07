@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Registration | Zim-Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary-container": "#6f5100",
+                        "inverse-surface": "#293040",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-container-highest": "#dce2f7",
+                        "on-primary-fixed": "#002117",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "primary": "#003527",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#bfc9c3",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#b0f0d6",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-primary-container": "#80bea6",
+                        "surface-container": "#e9edff",
+                        "on-surface": "#141b2b",
+                        "secondary-container": "#ffc329",
+                        "surface-tint": "#2b6954",
+                        "on-background": "#141b2b",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#95d3ba",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "on-tertiary-container": "#453f20",
+                        "on-tertiary-fixed": "#201c02",
+                        "on-surface-variant": "#404944",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#261a00",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "surface-dim": "#d3daef",
+                        "outline": "#707974",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ede3b8",
+                        "tertiary-container": "#b4ab84",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed": "#ffdf9f",
+                        "secondary": "#795900",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#dce2f7",
+                        "primary-container": "#064e3b",
+                        "tertiary": "#665f3d",
+                        "background": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "xl": "80px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "h2": ["Newsreader"],
+                        "h1": ["Newsreader"],
+                        "label-sm": ["Work Sans"],
+                        "h3": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Cream-based surface from guidance */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-primary shadow-sm flex justify-between items-center px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary" data-icon="menu">menu</span>
+<span class="font-h2 text-h2 font-bold text-secondary-fixed">Zim-Connect</span>
+</div>
+<div class="active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-secondary-fixed">
+<img alt="Profile" data-alt="A professional headshot of a Zimbabwean entrepreneur in a bright, modern office setting. The lighting is warm and natural, emphasizing a high-key light-mode aesthetic with soft cream and deep forest green tones. The individual looks confident and welcoming, representing the future vitality of the national digital economy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkG-1U36NSs050Z4JRKvllytJT7yhWF61PKCk7NX6089VlK3bhC0B63urOsDwhxsa6_j762Y9En9iQ3BS415Kzih_2WYTRNK6uPUtsB-_AWD3o9OqOyHdO6gxaor4PNBcabCWwFe95Qi47_xf62_oHYmiZwQMmOyHcnTClQTAV1VocYlmP470sOVM9ysy7sD0kLKrVbqMgAMpT_4sUAjEjTZVswvny-XVClx8H5PTo5-_5MSLo7wTkZxlgV4B2c4fNqulddo-C3Oyp"/>
+</div>
+</div>
+</header>
+<main class="pt-xl pb-xl px-md md:px-xl max-w-container-max mx-auto mt-lg">
+<!-- Hero Section -->
+<section class="mb-xl text-center md:text-left">
+<div class="grid md:grid-cols-2 gap-lg items-center">
+<div class="space-y-md">
+<h1 class="font-h1 text-h1 text-primary">Grow Your Business with Zim-Connect</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Join the national super-app ecosystem. Register your business today to access the Zim-Marketplace, manage payments via Zim-Wallet, and connect with millions of customers across the nation.
+                    </p>
+</div>
+<div class="relative hidden md:block">
+<div class="aspect-video bg-surface-container-high rounded-xl overflow-hidden shadow-lg border border-primary/10">
+<img class="w-full h-full object-cover" data-alt="A vibrant, bustling Zimbabwean outdoor marketplace scene captured in professional high-end photography. The composition shows local vendors with high-quality produce and crafts under warm sunlight. The color palette is rich with deep greens and golden highlights, reflecting a sense of national pride and economic vitality in a clean, modern editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr0eJ4y670wRUSzch1tvR0d2A3CrB8_GEKWcFWGSKfPtg04RMue6Ucoy7U4xtxxbNySX7f6apE2xLE9vfC6-brKbEfqCSLS3zGfIvY3lrMaLa4owxEqM-t0PKPkgXTToPe0fZ_Gj1k7jRhwEHKXk8BVow82U8UJq7Gxypb9LTtcJLFTfwHUwzRE05O9EjupnlUYIzBJQCxkRwuE3DmGkuEI16oPJF1LJlQw08dV_fELjTE8T_BvQAt6sz4-N2C_INnxJQ0cQ_ozdtz"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration Journey -->
+<div class="grid lg:grid-cols-12 gap-lg items-start">
+<!-- Step Indicators -->
+<nav class="lg:col-span-3 space-y-md">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm p-sm rounded-lg bg-secondary-container text-on-secondary-container shadow-sm border border-secondary">
+<span class="material-symbols-outlined" data-icon="business_center" style="font-variation-settings: 'FILL' 1;">business_center</span>
+<span class="font-label-sm text-label-sm">Step 1: Details</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-label-sm">Step 2: Verification</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Step 3: Payments</span>
+</div>
+</div>
+</nav>
+<!-- Multi-Step Form Canvas -->
+<form class="lg:col-span-9 bg-surface-container-lowest rounded-xl border border-primary/10 p-md md:p-xl shadow-sm space-y-xl">
+<!-- Step 1: Business Details -->
+<section class="space-y-md">
+<div class="border-b border-primary/10 pb-sm mb-md">
+<h3 class="font-h3 text-h3 text-primary">Business Details</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us about your enterprise</p>
+</div>
+<div class="grid md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-primary">Business Name</label>
+<input class="bg-surface-container-low border-b-2 border-t-0 border-x-0 border-outline focus:border-primary focus:ring-0 rounded-t-lg p-sm font-body-md" placeholder="e.g. Harare Highlands Crafts" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-primary">Business Category</label>
+<select class="bg-surface-container-low border-b-2 border-t-0 border-x-0 border-outline focus:border-primary focus:ring-0 rounded-t-lg p-sm font-body-md">
+<option>Agriculture</option>
+<option>Retail &amp; Wholesale</option>
+<option>Handmade Crafts</option>
+<option>Technology Services</option>
+<option>Transport &amp; Logistics</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-sm text-label-sm text-primary">Business Location</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b-2 border-t-0 border-x-0 border-outline focus:border-primary focus:ring-0 rounded-t-lg p-sm pl-10 font-body-md" placeholder="Search City or Province" type="text"/>
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-primary" data-icon="location_on">location_on</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 2: Verification -->
+<section class="space-y-md">
+<div class="border-b border-primary/10 pb-sm mb-md">
+<h3 class="font-h3 text-h3 text-primary">Verification</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Official identification documents</p>
+</div>
+<div class="grid md:grid-cols-2 gap-md items-end">
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-primary">ZIMRA TIN (Tax Identification Number)</label>
+<input class="bg-surface-container-low border-b-2 border-t-0 border-x-0 border-outline focus:border-primary focus:ring-0 rounded-t-lg p-sm font-body-md" placeholder="000-0000-000" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-primary">Business ID / Incorporation Document</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-md flex flex-center gap-sm bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer text-center flex-col items-center">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Click to Upload PDF or JPG</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 3: Payment Settings -->
+<section class="space-y-md">
+<div class="border-b border-primary/10 pb-sm mb-md">
+<h3 class="font-h3 text-h3 text-primary">Payment Settings</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Connect your Zim-Wallet account</p>
+</div>
+<div class="p-md rounded-xl bg-primary-container/5 border border-primary/10 flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="wallet">wallet</span>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-primary">Link to Zim-Wallet</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Required for processing payments</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-md py-sm rounded-full font-label-sm text-label-sm hover:bg-primary-container transition-colors" type="button">
+                            Link Account
+                        </button>
+</div>
+</section>
+<!-- CTA -->
+<div class="pt-lg flex flex-col md:flex-row gap-md justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="shield_lock" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs">Your data is secured by the National Digital Trust protocol.</p>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-xl py-md rounded-full font-label-sm text-label-sm text-lg flex items-center justify-center gap-sm hover:shadow-lg transition-all active:scale-95" type="submit">
+                        Register Business
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center py-base px-xs">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="storefront" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm">Mall</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-label-sm">Transport</span>
+</div>
+</nav>
+</body></html>

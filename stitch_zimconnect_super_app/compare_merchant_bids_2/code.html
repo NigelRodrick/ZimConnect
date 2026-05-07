@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bid Comparison - ZimMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface from Style Guidance */
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-fixed": "#261a00",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#dce2f7",
+                    "primary-container": "#064e3b",
+                    "on-surface-variant": "#404944",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "surface": "#f9f9ff",
+                    "secondary": "#795900",
+                    "on-primary-container": "#80bea6",
+                    "on-tertiary-container": "#453f20",
+                    "on-secondary-container": "#6f5100",
+                    "tertiary-fixed": "#ede3b8",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#665f3d",
+                    "on-surface": "#141b2b",
+                    "surface-tint": "#2b6954",
+                    "surface-dim": "#d3daef",
+                    "secondary-fixed": "#ffdf9f",
+                    "inverse-on-surface": "#edf0ff",
+                    "primary": "#003527",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#dce2f7",
+                    "secondary-fixed-dim": "#f9bd22",
+                    "inverse-surface": "#293040",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#bfc9c3",
+                    "tertiary-container": "#b4ab84",
+                    "background": "#f9f9ff",
+                    "secondary-container": "#ffc329",
+                    "primary-fixed": "#b0f0d6",
+                    "on-background": "#141b2b",
+                    "surface-container-high": "#e1e8fd",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#d1c79d",
+                    "primary-fixed-dim": "#95d3ba",
+                    "surface-container": "#e9edff",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary-fixed": "#201c02",
+                    "outline": "#707974",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "inverse-primary": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#4d4727"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "container-max": "1280px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "h2": ["Newsreader"],
+                    "h3": ["Newsreader"],
+                    "h1": ["Newsreader"],
+                    "label-sm": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface bg-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm docked full-width top-0 z-50 flex items-center justify-between px-md py-base w-full">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined hover:bg-on-primary/10 transition-colors p-2 rounded-full">arrow_back</button>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined hover:bg-on-primary/10 transition-colors p-2 rounded-full" data-icon="search">search</button>
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim border border-on-primary/20 flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a Zimbabwean businessman in a sharp navy suit, looking confident and approachable. The lighting is warm and natural, suggesting a modern office setting in Harare with a blurred cityscape in the background. The aesthetic is clean, high-end, and corporate, emphasizing trust and digital sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA115sILj0FzlIjMlTVMBwApKyBhgUGc6qMUWSKTLdz9zcg_4WE_Ra34dOAb_nxdhVOjXKGTBijW08PHXQ4QaR9Fej6VuNv9AqSQ55bHQlLbmovl_Q9QFiYZiKNiW2-V0kE6tcFrk9FCCJOHZLybaHZnSlNUrLKRMnEng7_x5-MFeJurjaLDCtD04sJR0ZWWAceWovR2SSh_kQIftZH-x4Y07DlQw4emILaijKljj5z5_MMpUDUpBIg1sAazS6yCZInqUpfi-eLSOu_"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md mt-md">
+<!-- Summary Section: Original Request -->
+<section class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-md mb-lg shadow-sm">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1 block">Active Request</span>
+<h2 class="font-h2 text-h2 text-primary">500kg Pure Organic Forest Honey</h2>
+<p class="text-on-surface-variant flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                        Delivery to: Central Harare Hub
+                    </p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-md py-sm rounded-lg border border-secondary/20">
+<div class="font-label-sm text-label-sm opacity-80">BUDGET RANGE (USD)</div>
+<div class="font-h3 text-h3 font-bold">$1,200 - $1,500</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md mt-md pt-md border-t border-outline-variant/10">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">BID STATUS</div>
+<div class="font-body-md font-semibold text-primary">8 Bids Received</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DEADLINE</div>
+<div class="font-body-md font-semibold text-primary">24 Oct 2023</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">QUALITY</div>
+<div class="font-body-md font-semibold text-primary">Grade A Organic</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">PACKAGING</div>
+<div class="font-body-md font-semibold text-primary">25kg Tubs</div>
+</div>
+</div>
+</section>
+<!-- Bids Comparison Section -->
+<div class="flex flex-col gap-4 mb-md">
+<div class="flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-primary">Merchant Bids</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant border border-outline px-3 py-1.5 rounded-full hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filter
+                </button>
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant border border-outline px-3 py-1.5 rounded-full hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span> Sort
+                </button>
+</div>
+</div>
+<!-- Currency Toggle -->
+<div class="flex items-center gap-2 self-start bg-surface-container-high p-1 rounded-lg border border-outline-variant/30">
+<button class="px-4 py-1.5 rounded-md font-label-sm text-label-sm bg-primary text-on-primary shadow-sm transition-all">USD ($)</button>
+<button class="px-4 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:bg-on-surface/5 transition-all">ZiG (Symbol)</button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<!-- Bid Card 1: Best Value -->
+<div class="relative bg-white border-2 border-secondary-container rounded-xl p-md shadow-md transition-all hover:shadow-lg">
+<div class="absolute -top-3 left-6 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> BEST VALUE
+                </div>
+<div class="flex flex-col lg:flex-row gap-md lg:items-center">
+<!-- Merchant Info -->
+<div class="flex items-center gap-md min-w-[280px]">
+<div class="relative">
+<img alt="Merchant" class="w-16 h-16 rounded-full object-cover border-2 border-primary-fixed" data-alt="A portrait of a smiling female agricultural entrepreneur in front of a modern beehive installation. She wears professional but practical farming attire. The lighting is golden hour, casting a warm, trustworthy glow over the scene. The image represents modern Zimbabwean artisanal farming practices with high-quality standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXDaLYUfMLW1MaybnljW4KpRODVxVkhjcU23zRamq00413xHgDruUQK9kR9E8H9P68OMjREh7YJ0Xlh3RZezV4IxwyUSVuD-mUHIbyICP48XvvaKV-x-zfJCtMyWI6JT_Eoa-6r5pgu7IQXqKBCBy_uraPDckPZ1RDWUFGeQ6nFTm6NB1MWHo8jKH-4Ra3fTQIQO19bj0qRmfwWRWzTSPoNHWZA6Jh2dcCqHJiQmxJo6S58tuTB7JduaSKVb1hOGEF9dJN_CWY9An0"/>
+<span class="absolute bottom-0 right-0 bg-primary text-white p-0.5 rounded-full border-2 border-white material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<div class="font-body-lg font-bold text-primary">Mukuvisi Bee Farms</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Verified</span>
+<div class="flex items-center text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 font-semibold">4.9</span>
+<span class="text-on-surface-variant/60 ml-1">(128)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bid Details -->
+<div class="flex-grow grid grid-cols-2 md:grid-cols-3 gap-md">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">UNIT PRICE (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$2.40<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">TOTAL BID (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$1,200.00</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DELIVERY</div>
+<div class="font-body-md font-semibold text-on-surface">3-5 Business Days</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row lg:flex-col gap-2 min-w-[160px]">
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-primary-container active:scale-95 transition-all">ACCEPT BID</button>
+<button class="flex-1 border border-primary text-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-surface-variant/50 transition-all">VIEW DETAILS</button>
+</div>
+</div>
+</div>
+<!-- Bid Card 2: Fastest Delivery -->
+<div class="relative bg-white border border-outline-variant/30 rounded-xl p-md shadow-sm transition-all hover:shadow-md">
+<div class="absolute -top-3 left-6 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bolt</span> FASTEST DELIVERY
+                </div>
+<div class="flex flex-col lg:flex-row gap-md lg:items-center">
+<!-- Merchant Info -->
+<div class="flex items-center gap-md min-w-[280px]">
+<div class="relative">
+<img alt="Merchant" class="w-16 h-16 rounded-full object-cover border-2 border-outline-variant" data-alt="A portrait of a male logistics and supply chain manager standing in a clean, high-tech agricultural warehouse in Bulawayo. He is wearing a professional polo shirt with a company logo. Behind him, neatly stacked crates of high-quality produce are visible under bright, cool-toned LED lighting, suggesting speed and efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXCo-flywQwpPDPH1cQQnNayzwyRN2-_oTuPFISxgQLQ1oEYWOJk7KfFEN_eqCpWjK4sskUc4EiS2C4gqe3-e2Iuyg13LvcwXQ1gWQxEUxruHryDL_Cdiqf3_McnsQ-AOJXfF0FCvlW5HT_oXNSo_2xYEyd6gtxlldIMjXJO8eAJYU-UhXxJCEdUZIcL7ABA6VKlbndsrBWD_6qvlRzxww4LheloaPLFg7dLmr6KMOkSaktGUjuS8P2lpCcx534nn1B3PZKsgt7LOY"/>
+</div>
+<div>
+<div class="font-body-lg font-bold text-primary">Savanna Logistics Ltd.</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Top Rated</span>
+<div class="flex items-center text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 font-semibold">4.7</span>
+<span class="text-on-surface-variant/60 ml-1">(245)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bid Details -->
+<div class="flex-grow grid grid-cols-2 md:grid-cols-3 gap-md">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">UNIT PRICE (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$2.90<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">TOTAL BID (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$1,450.00</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DELIVERY</div>
+<div class="font-body-md font-semibold text-secondary">Within 24 Hours</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row lg:flex-col gap-2 min-w-[160px]">
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-primary-container active:scale-95 transition-all">ACCEPT BID</button>
+<button class="flex-1 border border-primary text-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-surface-variant/50 transition-all">VIEW DETAILS</button>
+</div>
+</div>
+</div>
+<!-- Bid Card 3: Standard -->
+<div class="bg-white border border-outline-variant/30 rounded-xl p-md shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row gap-md lg:items-center">
+<!-- Merchant Info -->
+<div class="flex items-center gap-md min-w-[280px]">
+<div class="relative">
+<img alt="Merchant" class="w-16 h-16 rounded-full object-cover border-2 border-outline-variant" data-alt="A medium shot of an experienced agricultural wholesaler discussing business over a tablet. He is in a sunlit outdoor market environment with a backdrop of colorful, fresh produce. The scene is vibrant and busy, capturing the essence of a thriving local digital economy with traditional roots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrbat7-y7umHTysM5LKNM8XA2qzzLbFQiHk-pkj96Ep5G9rcDRmfn6uG6vydmVd42zgLH3pG_VE-tk7ZFZwYhPyH4LHwujoW2swPv9CGdVudixZGCmboPZXA5IQExoVNpY0oThxP7bJOThbL37uA4AEJ8GhegXSTz4ZDoh089vR-ZQUt_DpaoXK1-4VcxRwif8ZcFcFHOk0l7WZr42UFgT2EJbzjXhV56prwSugem7ytSkgJt6zU2XYlw7eeuZEon53HAsQFdb7k2v"/>
+</div>
+<div>
+<div class="font-body-lg font-bold text-primary">Eastern Highlands Cooperatives</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 font-semibold">4.5</span>
+<span class="text-on-surface-variant/60 ml-1">(52)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bid Details -->
+<div class="flex-grow grid grid-cols-2 md:grid-cols-3 gap-md">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">UNIT PRICE (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$2.65<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">TOTAL BID (USD)</div>
+<div class="font-h3 text-h3 text-primary font-bold">$1,325.00</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DELIVERY</div>
+<div class="font-body-md font-semibold text-on-surface">4-7 Business Days</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row lg:flex-col gap-2 min-w-[160px]">
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-primary-container active:scale-95 transition-all">ACCEPT BID</button>
+<button class="flex-1 border border-primary text-primary font-label-sm text-label-sm py-3 px-4 rounded-lg hover:bg-surface-variant/50 transition-all">VIEW DETAILS</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Help/Info section -->
+<div class="mt-lg p-md bg-surface-container-low rounded-xl border border-outline-variant/20 flex items-start gap-md">
+<span class="material-symbols-outlined text-primary-container p-2 bg-primary-fixed rounded-full">info</span>
+<div>
+<h4 class="font-body-md font-bold text-primary">ZimMarket Buyer Protection</h4>
+<p class="text-on-surface-variant text-sm mt-1">All payments are held in escrow until you confirm receipt and quality of the goods. Merchants are vetted and insured for up to $5,000 per transaction.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant/10 shadow-[0_-2px_10px_rgba(6,78,59,0.08)] flex justify-around items-center px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="storefront" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Directory</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm mt-1">Forum</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-label-sm text-label-sm mt-1">Hubs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Account</span>
+</div>
+</nav>
+</body></html>

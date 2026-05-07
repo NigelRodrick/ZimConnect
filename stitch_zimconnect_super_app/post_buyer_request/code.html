@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZimMarket - Post RFQ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #f9f9ff;
+        }
+        h1, h2, h3 {
+            font-family: 'Newsreader', serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e1e8fd",
+                      "on-secondary-fixed": "#261a00",
+                      "surface": "#f9f9ff",
+                      "inverse-surface": "#293040",
+                      "on-background": "#141b2b",
+                      "secondary-fixed": "#ffdf9f",
+                      "secondary": "#795900",
+                      "primary": "#003527",
+                      "primary-container": "#064e3b",
+                      "primary-fixed": "#b0f0d6",
+                      "on-surface": "#141b2b",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f9f9ff",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "on-tertiary-fixed": "#201c02",
+                      "tertiary": "#665f3d",
+                      "inverse-primary": "#95d3ba",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#453f20",
+                      "surface-tint": "#2b6954",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#d1c79d",
+                      "on-secondary-container": "#6f5100",
+                      "tertiary-container": "#b4ab84",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#80bea6",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e9edff",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "tertiary-fixed": "#ede3b8",
+                      "on-tertiary-fixed-variant": "#4d4727",
+                      "outline": "#707974",
+                      "surface-container-low": "#f1f3ff",
+                      "inverse-on-surface": "#edf0ff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#002117",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#ffc329",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#95d3ba",
+                      "surface-bright": "#f9f9ff",
+                      "surface-dim": "#d3daef",
+                      "secondary-fixed-dim": "#f9bd22",
+                      "outline-variant": "#bfc9c3",
+                      "surface-variant": "#dce2f7",
+                      "surface-container-highest": "#dce2f7",
+                      "on-surface-variant": "#404944"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "container-max": "1280px",
+                      "xs": "4px",
+                      "sm": "12px",
+                      "base": "8px",
+                      "md": "24px",
+                      "xl": "80px",
+                      "gutter": "20px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Work Sans"],
+                      "h1": ["Newsreader"],
+                      "body-md": ["Work Sans"],
+                      "h3": ["Newsreader"],
+                      "label-sm": ["Work Sans"],
+                      "h2": ["Newsreader"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-primary shadow-sm fixed top-0 z-50 flex items-center justify-between px-md py-base w-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary">close</span>
+<h3 class="font-h3 text-h3 font-semibold text-on-primary">ZimMarket</h3>
+</div>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-on-primary">search</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="User profile photo" data-alt="A professional headshot of a Zimbabwean woman entrepreneur smiling warmly against a soft studio backdrop. She wears a modern blazer with subtle ethnic patterns. The lighting is bright and high-key, reflecting a light-mode UI aesthetic with professional clarity and high-end editorial feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxn2oVvSmW05PdgdqvOo-so8LFTwdi-eSwbUzGqKao0xhg1ob9g2onFjnR1raX49nXZJ_RubPIjSdFo-HTERWTTp4THfBhxDctu48ucdovoU2joRGz7qBzJOEPBawpgkm0pAnR2pJf4yHSukKOM5rZmddS59YrwpFabs8zNDu8SQEik1Yuhs3O75WGIhNwYkONhxiGTBqBNpDN-bXthIBuEJpSryrxBNr7GZEivfLVQ1LWOqdFktrL99QFiYF9qLSu_lrhL6-zoz6"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-md max-w-xl mx-auto">
+<!-- Progress Stepper -->
+<nav aria-label="Progress" class="mb-lg">
+<ol class="flex items-center justify-between w-full">
+<li class="flex flex-col items-center gap-base flex-1">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<span class="font-label-sm text-label-sm text-primary">Details</span>
+</li>
+<li class="h-px bg-outline-variant/30 flex-1 -mt-10"></li>
+<li class="flex flex-col items-center gap-base flex-1">
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Budget</span>
+</li>
+<li class="h-px bg-outline-variant/30 flex-1 -mt-10"></li>
+<li class="flex flex-col items-center gap-base flex-1">
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Urgency</span>
+</li>
+</ol>
+</nav>
+<!-- Form Hero -->
+<header class="mb-lg">
+<h1 class="font-h1 text-h1 text-primary mb-xs">Post a Request</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell vendors exactly what you need and get the best offers in ZiG.</p>
+</header>
+<!-- Step 1 Content: Item Details -->
+<form class="space-y-lg">
+<!-- Section: What are you looking for? -->
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider block" for="item_name">Item Details</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-base font-body-lg text-body-lg text-on-surface transition-colors placeholder:text-outline" id="item_name" placeholder="e.g. 50kg Organic Maize" type="text"/>
+</div>
+</div>
+<!-- Section: Quantity & Region -->
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-on-surface uppercase block" for="quantity">Quantity</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-base font-body-lg text-body-lg" id="quantity" placeholder="100" type="number"/>
+</div>
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-on-surface uppercase block" for="region">Preferred Region</label>
+<select class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-base font-body-lg text-body-lg" id="region">
+<option>Harare</option>
+<option>Bulawayo</option>
+<option>Manicaland</option>
+<option>Mashonaland West</option>
+<option>Matabeleland North</option>
+</select>
+</div>
+</div>
+<!-- Section: Vendor Type (Bento Cards Style) -->
+<div class="space-y-md">
+<label class="font-label-sm text-label-sm text-on-surface uppercase block">Preferred Vendor Type</label>
+<div class="grid grid-cols-3 gap-sm">
+<label class="group relative cursor-pointer">
+<input checked="" class="peer sr-only" name="vendor" type="radio"/>
+<div class="h-full p-md bg-surface-container-lowest border border-outline-variant/30 rounded-xl flex flex-col items-center gap-sm text-center group-hover:border-primary transition-all peer-checked:bg-primary-fixed peer-checked:border-primary">
+<span class="material-symbols-outlined text-primary text-3xl">agriculture</span>
+<span class="font-label-sm text-label-sm text-on-surface">Farmer</span>
+</div>
+</label>
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="vendor" type="radio"/>
+<div class="h-full p-md bg-surface-container-lowest border border-outline-variant/30 rounded-xl flex flex-col items-center gap-sm text-center group-hover:border-primary transition-all peer-checked:bg-primary-fixed peer-checked:border-primary">
+<span class="material-symbols-outlined text-primary text-3xl">palette</span>
+<span class="font-label-sm text-label-sm text-on-surface">Artisan</span>
+</div>
+</label>
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="vendor" type="radio"/>
+<div class="h-full p-md bg-surface-container-lowest border border-outline-variant/30 rounded-xl flex flex-col items-center gap-sm text-center group-hover:border-primary transition-all peer-checked:bg-primary-fixed peer-checked:border-primary">
+<span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+<span class="font-label-sm text-label-sm text-on-surface">Wholesaler</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Visual Hint: Heritage imagery -->
+<div class="mt-xl rounded-xl overflow-hidden shadow-sm relative h-40 group">
+<img class="w-full h-full object-cover" data-alt="A lush Zimbabwean agricultural landscape at dawn with rows of healthy crops stretching toward the horizon. The golden morning sun casts a warm, hopeful glow over the fertile soil, symbolizing growth and digital prosperity. The atmosphere is calm and authoritative, reflecting the trust and stability of a national super-app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOloVUdRzWGQw2UbgPHjhDIY7RlxAZl95WBXUDpcSUh34-m3AaEpxSJVEiWIYTjq71EKalHjpwpYNs8k9OGgDsYoXPBI_I5cOsp2Otq4MRihGKCEDhh_TY1bLS9e38Mk2YuIUcTP_GGnjS2PglJA2GMpTR_6acDzc9oIsP6I_gjAYbHprUXjjNOH4t33YkCQW6D3jJVTvgGiBHx6V1-GwsXAo3VrwBra7UkWITy0yK_nZMdpBOehTNaXB_udkr95y8XFO2aL-NTD0r"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-md">
+<p class="text-white font-body-md italic">"Connecting Zimbabwean buyers with trusted local producers."</p>
+</div>
+</div>
+<!-- Footer Action Area (Fixed or Floated style) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/10 px-md py-md flex items-center justify-between z-50">
+<button class="flex items-center gap-xs text-primary font-label-sm py-base px-md hover:bg-primary/5 rounded-full transition-colors" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Back
+                </button>
+<button class="bg-primary text-on-primary px-xl py-base rounded-full font-label-sm flex items-center gap-base hover:shadow-lg active:scale-95 transition-all" type="submit">
+                    Next Step
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</form>
+</main>
+<!-- Bottom Navigation Bar (Hidden on transaction flow per mandate, but included for structure reference) -->
+<!-- Prohibited on transactional pages like RFQ creation -->
+</body></html>

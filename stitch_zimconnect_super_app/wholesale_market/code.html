@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#80bea6",
+                    "on-secondary-fixed": "#261a00",
+                    "on-primary-fixed": "#002117",
+                    "tertiary-fixed": "#ede3b8",
+                    "surface-variant": "#dce2f7",
+                    "on-background": "#141b2b",
+                    "inverse-primary": "#95d3ba",
+                    "error-container": "#ffdad6",
+                    "outline": "#707974",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdf9f",
+                    "on-surface-variant": "#404944",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e9edff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "primary": "#003527",
+                    "background": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9ff",
+                    "on-tertiary-fixed": "#201c02",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "secondary": "#795900",
+                    "secondary-fixed-dim": "#f9bd22",
+                    "inverse-surface": "#293040",
+                    "inverse-on-surface": "#edf0ff",
+                    "surface-tint": "#2b6954",
+                    "on-surface": "#141b2b",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#b0f0d6",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f1f3ff",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "tertiary": "#665f3d",
+                    "tertiary-fixed-dim": "#d1c79d",
+                    "primary-container": "#064e3b",
+                    "on-secondary-container": "#6f5100",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#dce2f7",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-container": "#453f20",
+                    "tertiary-container": "#b4ab84",
+                    "surface-dim": "#d3daef",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ffc329",
+                    "surface-container-high": "#e1e8fd",
+                    "on-tertiary-fixed-variant": "#4d4727",
+                    "outline-variant": "#bfc9c3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "container-max": "1280px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Work Sans"],
+                    "h3": ["Newsreader"],
+                    "h1": ["Newsreader"],
+                    "h2": ["Newsreader"],
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface */
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container docked full-width top-0 z-50 shadow-sm flex items-center justify-between px-md py-base w-full">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-primary text-h3">menu</span>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<nav class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-primary font-bold active:scale-95 transition-transform" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors p-2 rounded" href="#">Directory</a>
+<a class="font-label-sm text-label-sm text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors p-2 rounded" href="#">Forum</a>
+<a class="font-label-sm text-label-sm text-on-primary-container/70 dark:text-outline-variant hover:bg-on-primary/10 transition-colors p-2 rounded" href="#">Hubs</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-on-primary p-2 hover:bg-on-primary/10 rounded-full transition-all">search</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-on-primary/20">
+<img alt="User Profile" data-alt="A professional portrait of a business executive in a high-quality corporate setting. The lighting is soft and flattering, reflecting a high-end light-mode aesthetic with warm cream undertones. He wears a tailored suit, suggesting authority and trust within a national financial context. The background is a blurred modern office space with subtle green accents consistent with the forest green brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFh1LFFYMqXlGRc-3tqIaiJT89q92Dq8PWn3vG3aQf7t5N0L2daw2A8SJxjm2NnsUE-6qAKF9JhFhGUR28KR2aDyOABBX4NYawL2YorgyZVKSgZ39YPsr04VWN34nCS0Hx_2EtjymClvbD5mOxtVAJFwWDF2QH9F1enbgr5L9Diw8yar7YHS9kF3iQKv56xblBKOOGF5Kc4accYDoQrN2dA17fmBOLZVWYKLc0K042NxtwFLEzbDzT50cEQG8BT8cgiP_g4twKQPz8"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md md:px-xl py-lg mb-24">
+<!-- Hero / Section Title -->
+<section class="mb-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-h1 text-h1 text-primary mb-xs">Wholesale Marketplace</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">High-volume B2B trade portal. Access Zimbabwe's primary commodity reserves with verified logistics and volume-tiered pricing.</p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-lg py-sm rounded-xl font-label-sm text-label-sm shadow-sm active:scale-95 transition-all flex items-center gap-base">
+<span class="material-symbols-outlined">add_business</span>
+                    Post a New RFQ
+                </button>
+</div>
+</section>
+<!-- Bento Grid for Market Insights & Quick Actions -->
+<div class="bento-grid mb-lg">
+<!-- Active RFQs -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3 text-primary">Live Request for Quotes (RFQs)</h3>
+<span class="text-primary font-label-sm text-label-sm cursor-pointer hover:underline">View All</span>
+</div>
+<div class="space-y-sm">
+<!-- RFQ Item -->
+<div class="flex items-center justify-between p-base hover:bg-surface-container-low rounded-lg border border-transparent hover:border-outline-variant/20 transition-all">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">agriculture</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary">Maize (White Grains)</p>
+<p class="text-[12px] text-on-surface-variant">Qty: 500 Metric Tons • Bulawayo Region</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary">8 Bids Received</p>
+<p class="text-[12px] text-on-surface-variant">Closing in 14h</p>
+</div>
+</div>
+<!-- RFQ Item -->
+<div class="flex items-center justify-between p-base hover:bg-surface-container-low rounded-lg border border-transparent hover:border-outline-variant/20 transition-all">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">foundation</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary">Teak Timber Planks</p>
+<p class="text-[12px] text-on-surface-variant">Qty: 2,500 Units • Mutare Sawmills</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary">3 Bids Received</p>
+<p class="text-[12px] text-on-surface-variant">Closing in 2d</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Market Status Card -->
+<div class="col-span-12 md:col-span-4 bg-primary text-on-primary rounded-xl p-md flex flex-col justify-between shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">National Reserve</span>
+<h4 class="font-h3 text-h3 mt-base">Logistics Integrated</h4>
+<p class="text-on-primary-container text-body-md mt-xs opacity-90">Instant shipping quotes for orders over 10 Tons with ZimRail &amp; Road Haulage.</p>
+</div>
+<div class="mt-lg relative z-10">
+<button class="w-full bg-on-primary text-primary py-sm rounded-lg font-label-sm text-label-sm font-bold flex items-center justify-center gap-base">
+<span class="material-symbols-outlined">local_shipping</span>
+                        Track Cargo
+                    </button>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[160px]">conveyor_belt</span>
+</div>
+</div>
+</div>
+<!-- Wholesale Listings -->
+<h3 class="font-h2 text-h2 text-primary mb-md">Bulk Commodities</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Commodity Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Maize Bulk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up macro photography of high-quality organic maize kernels piled in a professional grain elevator setting. The lighting is bright and crisp, emphasizing the rich golden textures of the grain. The background shows a blurred industrial harvesting facility, evoking a sense of scale and national agricultural abundance. The color palette is dominated by warm yellows and deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-4bj7JlJEWY5KiudT8g4KqLRcRR18F--MiwO-l_hIfQomZVxDnoNj9ddMpPC69d6ENfHTyav4K3gNqmaUeMk0P2APlpdIwf4AlhBsj5Pyu-UXGMFwdrAIUBIUQpsdKoJE0zpGAAZIUKkI0ktGM8X2XU2Q-5QFeZbf3VhtZ3tFZe9M_Wg1Cl-rbKUJnwmkIAbTSRCY-y9VrS6Fg0C60wAuJyMiLbJiy90nOY_gA9dKFkjt5VGpOvHRT01GPWiDpofonrkM1VyIYEgx"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-primary">In Stock</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-h3 text-h3 text-primary">Grade A White Maize</h4>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded">Verified Seller</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-md">Minimum Order: 50 Metric Tons. Certified moisture levels below 12.5%.</p>
+<!-- Pricing Tiers -->
+<div class="bg-surface-container-low rounded-lg p-sm mb-md">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Volume Pricing</p>
+<div class="flex justify-between text-[13px] border-b border-outline-variant/10 pb-1 mb-1">
+<span>50 - 200 Tons</span>
+<span class="font-bold text-secondary">$340/Ton</span>
+</div>
+<div class="flex justify-between text-[13px]">
+<span>200+ Tons</span>
+<span class="font-bold text-secondary">$315/Ton</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-white transition-colors">Request Quote</button>
+<button class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Commodity Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Timber Wholesale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stacks of premium construction-grade timber in a large, modern industrial warehouse. High-key natural light pours from industrial skylights, highlighting the smooth texture of the wood. The environment is clean, orderly, and professional, reflecting a high-volume B2B marketplace. The palette incorporates natural wood tones with deep forest green brand accents in the equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZwpJMBojTZz1fKKOmFziVwV99vt8CY8jxb0-ZFpiTHYg2f4dZnMghAvA-hjOpeUmAwgs5NLjgCUFRbn_k-rcAeXacRmHDeGB_v0iJsLRkRU81AcK0LFNV8m4QZrvDhaeF4zN0vO5jWu-PXyMMIQOqbK30B6hxK24vPi1P1SUZD-_43oxPHLIl6wKcYqSciAh2sy8AqCVaR2Xw8GglVeD9Bt3vtDYRN4ZfSzYPhSnp5fepnl1f3y341Tr22Ro2RPeYfooZo-9rHg5c"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-primary">Limited Supply</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-h3 text-h3 text-primary">Teak Sawn Timber</h4>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded">Forestry Auth.</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-md">Available in standard dimensions. Export grade with full certification.</p>
+<div class="bg-surface-container-low rounded-lg p-sm mb-md">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Volume Pricing</p>
+<div class="flex justify-between text-[13px] border-b border-outline-variant/10 pb-1 mb-1">
+<span>1000 - 5000 Units</span>
+<span class="font-bold text-secondary">$12.50/ea</span>
+</div>
+<div class="flex justify-between text-[13px]">
+<span>5000+ Units</span>
+<span class="font-bold text-secondary">$10.80/ea</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-white transition-colors">Request Quote</button>
+<button class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Commodity Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Wheat Grain Bulk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle shot of a sophisticated industrial processing facility for grains and legumes. The equipment is modern stainless steel, gleaming under soft, high-end artificial lighting. Workers in professional safety gear are visible in the background, ensuring quality control. The image conveys a sense of high-volume industrial reliability and corporate trust, using a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqD1Gg14pnBinVgwPZdZ5bLDzTssuGmRfgLzunKmInUqPjl6z5T4SAC6iHvh95SS9-DnCqEodXESn7eQqAoXNqLonS5PgTlKjOPQ0h4guKgE5B_zwmt46n1zB5_inXnqy3LS_1ak-ExK8VVgDZ4TYQSTA6SuKZ2c_cPJo8v8b_9BUiK7ixNufAzmjkOD-Mvlbs-nRSRLMg3y4qQ9_MXAP-ESp-RJBkxwEF0pLiQJMKKPvv8yXMQNORslBzoQ3XYOLrd8mWuwu6TYeS"/>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-primary">In Stock</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-h3 text-h3 text-primary">Premium Winter Wheat</h4>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded">ISO Certified</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-md">High protein content suitable for industrial milling. Bulk silos ready for dispatch.</p>
+<div class="bg-surface-container-low rounded-lg p-sm mb-md">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Volume Pricing</p>
+<div class="flex justify-between text-[13px] border-b border-outline-variant/10 pb-1 mb-1">
+<span>20 - 100 Tons</span>
+<span class="font-bold text-secondary">$410/Ton</span>
+</div>
+<div class="flex justify-between text-[13px]">
+<span>100+ Tons</span>
+<span class="font-bold text-secondary">$385/Ton</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 border border-primary text-primary py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-white transition-colors">Request Quote</button>
+<button class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">shopping_cart</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest dark:bg-surface-dim fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant/10 shadow-[0_-2px_10px_rgba(6,78,59,0.08)] flex justify-around items-center px-4 py-2 pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-sm text-label-sm">Hubs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</a>
+</nav>
+<!-- FAB for Logistics (Contextual) -->
+<button class="fixed bottom-24 right-md md:bottom-12 md:right-12 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</button>
+</body></html>

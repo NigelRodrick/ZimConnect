@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZimMarket - My Requests</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary-fixed": "#261a00",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#293040",
+                        "on-background": "#141b2b",
+                        "secondary-fixed": "#ffdf9f",
+                        "secondary": "#795900",
+                        "primary": "#003527",
+                        "primary-container": "#064e3b",
+                        "primary-fixed": "#b0f0d6",
+                        "on-surface": "#141b2b",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-fixed": "#201c02",
+                        "tertiary": "#665f3d",
+                        "inverse-primary": "#95d3ba",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#453f20",
+                        "surface-tint": "#2b6954",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d1c79d",
+                        "on-secondary-container": "#6f5100",
+                        "tertiary-container": "#b4ab84",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#80bea6",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e9edff",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "tertiary-fixed": "#ede3b8",
+                        "on-tertiary-fixed-variant": "#4d4727",
+                        "outline": "#707974",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002117",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#ffc329",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface-bright": "#f9f9ff",
+                        "surface-dim": "#d3daef",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "outline-variant": "#bfc9c3",
+                        "surface-variant": "#dce2f7",
+                        "surface-container-highest": "#dce2f7",
+                        "on-surface-variant": "#404944"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Work Sans"],
+                        "h1": ["Newsreader"],
+                        "body-md": ["Work Sans"],
+                        "h3": ["Newsreader"],
+                        "label-sm": ["Work Sans"],
+                        "h2": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdfcf7; /* Heritage Cream Surface */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-sm fixed top-0 z-50 flex items-center justify-between px-md py-base w-full">
+<div class="flex items-center gap-sm">
+<img alt="User profile photo" class="w-10 h-10 rounded-full border-2 border-on-primary/20" data-alt="A professional headshot of a Zimbabwean business owner, radiating confidence and trust. The portrait is captured in warm, natural afternoon sunlight against a soft-focus background of a modern office space. The lighting is flattering and high-key, aligning with a premium light-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQibyQMsqGCwQkx3zTlRbYzdFcutApjWiHKsVudpMHVM6O-WXtjG_vbMsbWioaCo1GRh2ROgyxi0wQ79H9u5-wC0YgX8NvkyaeUlENl_efVEOyrEiQU0KBGnSUZmg88hJy0xiOTiHYRTHx6zLsW_0cJEomQec0sP3imzQ0eVMxo4a_NEBsOTkSUPSnVDiv3RIw1u_iSsalMaytU1gkEtNUzBOiZsjyrx2BlSVZ_6QgelwpV-SRko_kLuCAPO44lj5HzaxEsPAuVdI-"/>
+<h1 class="font-h3 text-h3 font-semibold text-on-primary dark:text-primary-fixed">ZimMarket</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-on-primary/10 transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="pt-[80px] pb-[100px] px-md md:px-xl max-w-container-max mx-auto">
+<!-- Page Header & Savings Summary -->
+<section class="mb-lg mt-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-xs block">Procurement Dashboard</span>
+<h2 class="font-h1 text-h1 text-primary">My Requests</h2>
+<p class="text-on-surface-variant max-w-xl">Manage your sourcing requests and review competitive bids from verified national suppliers.</p>
+</div>
+<!-- Savings Card - Asymmetric UI -->
+<div class="bg-primary-fixed text-on-primary-fixed-variant p-md rounded-xl shadow-sm border border-primary/10 flex flex-col items-start gap-xs relative overflow-hidden min-w-[240px]">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="trending_up">trending_up</span>
+</div>
+<p class="font-label-sm text-label-sm opacity-80 uppercase">Total Savings Achieved</p>
+<p class="font-h2 text-h2 font-bold">$12,450.00</p>
+<div class="flex items-center gap-xs text-[12px] font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+<span>Across 24 orders</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Request Tabs -->
+<nav class="flex gap-md border-b border-outline-variant/30 mb-lg overflow-x-auto pb-1">
+<button class="px-md py-sm font-bold border-b-2 border-primary text-primary whitespace-nowrap">Active (3)</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Pending Approval (1)</button>
+<button class="px-md py-sm text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Completed (18)</button>
+</nav>
+<!-- Bento Grid Layout for Requests -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Active Request Item 1: 500kg Honey -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A macro shot of pure, amber-colored organic honey dripping from a wooden dipper into a crystal jar. The lighting is warm and golden, emphasizing the viscous texture and natural purity. The background is a clean, rustic kitchen setting with a soft, bright exposure to match the premium design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo_izo8BY8_pO5_mW0p_qkNda4KHqh3XPiasrOH_oeTCpq2Y8N8MRmMTFaE3WjeubCil1wW3IvzSxP4UjgSd04h7ysWHrciFzD3Rx06_xuXk2NWQGK2HeZLhilBR2GsO2RyB0Quk3AcWw5ukNqVuZTMSpMKIs73B6TnAqoffENfCetzbl-Th5vLagAOGhJ94wuvI77eSh7KRWMepeQejyL6m4c4GVJyY_wMXXvPTxqY1p0A0l0uYD0oMBEjjAgPv6AfCSAtSbUFw3d"/>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">500kg Raw Organic Honey</h3>
+<p class="text-on-surface-variant font-label-sm">Request ID: #REQ-9921 • Posted 2 days ago</p>
+<div class="mt-base flex items-center gap-xs text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span>
+<span class="text-label-sm">12 Bids Received</span>
+</div>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full text-label-sm font-bold flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-on-secondary-container"></span>
+                        Active
+                    </div>
+</div>
+<div class="flex flex-wrap items-center gap-sm mt-md pt-md border-t border-outline-variant/10">
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-bold hover:bg-primary-container transition-colors flex items-center gap-xs active:scale-95">
+                        Compare Bids
+                        <span class="material-symbols-outlined text-[18px]" data-icon="compare_arrows">compare_arrows</span>
+</button>
+<button class="border border-outline px-md py-sm rounded-lg font-bold hover:bg-surface-container-low transition-colors active:scale-95">
+                        Edit Request
+                    </button>
+<div class="ml-auto text-on-surface-variant italic text-label-sm">Best bid currently: $4.20/kg</div>
+</div>
+</div>
+<!-- Stats/Context Card (Asymmetric) -->
+<div class="md:col-span-4 bg-tertiary-container/30 border border-tertiary-container rounded-xl p-md flex flex-col justify-between">
+<div>
+<h4 class="font-h3 text-h3 text-tertiary mb-base">Bid Insights</h4>
+<p class="text-on-tertiary-container text-body-md">On average, you receive 8 bids within the first 24 hours of posting.</p>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-sm">Market Competitiveness</span>
+<span class="text-label-sm font-bold text-primary">High</span>
+</div>
+<div class="w-full bg-outline-variant/30 h-2 rounded-full">
+<div class="bg-primary h-2 rounded-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<!-- Active Request Item 2: Fertilizer -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-start mb-md">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="High-quality organic agricultural fertilizer granules held in a farmer's weathered hand. The shot is high-contrast with a focus on texture and natural earth tones. The lighting is bright and airy, reflecting an authoritative and professional agricultural context for the super-app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YcZJb6QlqhjhpzRU9fvSsKQc9vyuzKuvzPBOkLBpt8rGrvgZa3aQV-UiUKDDob44cwbpuV7OU14XhsPvmxvS3LEgoX5f8kVk2vRr5sQF09_zu-PNWcadc5p7K0bsF4KlkhjWBU9WuF5I1oO5z55yZPqeSOPq5Y8NGDBTDn4Cdwyitl4GQVzW6BScnqpsoaIqQh2_1gkAQvFaDZ4ywk5QtNGOGZoIW3ejr65Y5R9f8QKpzqEsfkJEs-wSGGqSHT-tlm76awUPHdXB"/>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">2 Tons Compound D</h3>
+<p class="text-on-surface-variant font-label-sm">Request ID: #REQ-8842</p>
+<div class="mt-base flex items-center gap-xs text-secondary font-bold">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span>
+<span class="text-label-sm">4 Bids Received</span>
+</div>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full text-label-sm font-bold flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-on-secondary-container"></span>
+                        Active
+                    </div>
+</div>
+<div class="flex gap-sm mt-md">
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-bold flex-1 hover:bg-primary-container transition-colors active:scale-95">Accept Offer</button>
+<button class="border border-outline px-md py-sm rounded-lg font-bold flex-1 hover:bg-surface-container-low transition-colors active:scale-95">View All</button>
+</div>
+</div>
+<!-- Active Request Item 3: Grain Bags -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-start mb-md">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Stacks of woven polypropylene grain bags in a bright, organized warehouse. The scene is clean, emphasizing commercial scale and logistics reliability. Soft daylight floods the warehouse, creating a professional and secure atmosphere consistent with a national digital economy app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4AXrrXx80T99O3tK4bZrCmB28FhBityqmazM-iZvyRxy7bSGIfkkwh8mFzMXlNX9G9CNWDtJUlmwJyuSeDDO-7hIQYSU4j-JNpDglcG1AJ93WPZuV0SyNj8poTTukS2rIyxIKjL3y_zMll_SWMv02CqNTEuvPdpYTs6d_gVZCyzcCp_aGkwZ3KIq2WdNVz8ZvGnitlTpeJaCvp50FOBvBAYymB83Xy4s48hN-JzH2UUXu2tgbp_wMOB1SFghZ5c4fik1rPbZRHnPN"/>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">1,000 Woven Grain Bags</h3>
+<p class="text-on-surface-variant font-label-sm">Request ID: #REQ-7719</p>
+<div class="mt-base flex items-center gap-xs text-error font-bold">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications_active">notifications_active</span>
+<span class="text-label-sm">Bidding Ends in 2h</span>
+</div>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full text-label-sm font-bold flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-on-secondary-container"></span>
+                        Active
+                    </div>
+</div>
+<div class="flex gap-sm mt-md">
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-bold flex-1 hover:bg-primary-container transition-colors active:scale-95">Compare Bids (8)</button>
+</div>
+</div>
+</div>
+<!-- Create New FAB (Only for this context) -->
+<button class="fixed bottom-24 right-6 md:right-xl bg-secondary-container text-on-secondary-container p-4 rounded-full shadow-lg hover:shadow-xl active:scale-90 transition-all z-40 flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="add_task">add_task</span>
+<span class="font-bold pr-1 hidden md:inline">New Request</span>
+</button>
+</main>
+<!-- NavigationDrawer (Hidden by default, used for structural reference) -->
+<aside class="fixed left-0 top-0 h-full w-80 bg-surface dark:bg-background shadow-xl z-[60] flex flex-col py-lg -translate-x-full lg:translate-x-0 hidden lg:flex border-r border-outline-variant/10">
+<div class="px-md mb-lg">
+<h2 class="font-h2 text-h2 font-bold text-primary">ZimMarket</h2>
+<p class="text-on-surface-variant text-label-sm">Connecting the Nation</p>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-r-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="font-body-md">Local Farmers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-r-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-body-md">Artisans</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-r-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-md">Wholesalers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-fixed text-on-primary-fixed-variant font-bold rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart_checkout">shopping_cart_checkout</span>
+<span class="font-body-md">My Requests</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-r-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-md">Logistics</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant/10 flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">ZM</div>
+<div>
+<p class="font-label-sm font-bold">Zimbabwe Super-App</p>
+<p class="text-[12px] opacity-60">v1.2.0</p>
+</div>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-dim flex justify-around items-center px-4 py-2 pb-safe shadow-[0_-2px_10px_rgba(6,78,59,0.08)] border-t border-outline-variant/10 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-label-sm text-label-sm">Hubs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</button>
+</nav>
+</body></html>
