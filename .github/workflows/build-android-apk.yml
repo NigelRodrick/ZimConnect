@@ -48,7 +48,7 @@ jobs:
         id: eas_build
         run: |
           npx eas-cli build --platform android --profile preview --non-interactive --wait --json > eas-build.json
-          node -e "const fs=require('fs');const raw=fs.readFileSync('eas-build.json','utf8').trim();const data=JSON.parse(raw);const build=Array.isArray(data)?data[0]:data;const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,`build_id=${build.id||''}\n`);fs.appendFileSync(out,`build_page=${build.buildDetailsPageUrl||''}\n`);fs.appendFileSync(out,`apk_url=${(build.artifacts&&build.artifacts.buildUrl)||''}\n`);"
+          node -e 'const fs=require("fs");const raw=fs.readFileSync("eas-build.json","utf8").trim();const data=JSON.parse(raw);const build=Array.isArray(data)?data[0]:data;const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,"build_id="+(build.id||"")+"\n");fs.appendFileSync(out,"build_page="+(build.buildDetailsPageUrl||"")+"\n");fs.appendFileSync(out,"apk_url="+((build.artifacts&&build.artifacts.buildUrl)||"")+"\n");'
 
       - name: Download APK
         if: steps.eas_build.outputs.apk_url != ''
