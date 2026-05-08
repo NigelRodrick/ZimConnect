@@ -18,9 +18,16 @@ const tabs: TabItem[] = [
   { key: "services", label: "Services", icon: "◫" },
 ];
 
+function getTimeBasedGreeting(hour: number) {
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabKey>("home");
   const [searchQuery, setSearchQuery] = useState("");
+  const greeting = getTimeBasedGreeting(new Date().getHours());
 
   const goToTab = (tab: TabKey) => {
     setActiveTab(tab);
@@ -40,10 +47,10 @@ export default function App() {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar style="dark" />
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollContent}>
+        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
           <View style={styles.shellHeader}>
             <View>
-              <Text style={styles.greeting}>Good evening, Rudo</Text>
+              <Text style={styles.greeting}>{`${greeting}, Nigel`}</Text>
               <Text style={styles.identityMeta}>Verified Account - Harare</Text>
             </View>
             <View style={styles.notificationBadge}>
@@ -78,7 +85,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  scrollView: {
+    flex: 1,
+  },
   scrollContent: {
+    flexGrow: 1,
     padding: 16,
     paddingBottom: 110,
   },

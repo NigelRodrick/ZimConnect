@@ -8,6 +8,22 @@ const transactions = [
   { label: "ZETDC Bill Payment", amount: "-$20.00", tone: "debit" },
 ];
 
+const zimbabweBanks = [
+  "CBZ Bank",
+  "Steward Bank",
+  "Stanbic Bank Zimbabwe",
+  "CABS",
+  "NMB Bank",
+  "FBC Bank",
+  "BancABC Zimbabwe",
+  "ZB Bank",
+  "Ecobank Zimbabwe",
+  "First Capital Bank Zimbabwe",
+  "POSB",
+  "Metbank",
+  "Agrisure Bank",
+];
+
 type WalletScreenProps = {
   searchQuery: string;
 };
@@ -15,6 +31,7 @@ type WalletScreenProps = {
 export function WalletScreen({ searchQuery }: WalletScreenProps) {
   const [showBalances, setShowBalances] = useState(true);
   const [activeCurrency, setActiveCurrency] = useState<"USD" | "ZiG">("USD");
+  const [loggedInBanks, setLoggedInBanks] = useState<string[]>([]);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
   const activeBalance = useMemo(
@@ -25,6 +42,16 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
     if (!normalizedQuery) return transactions;
     return transactions.filter((item) => item.label.toLowerCase().includes(normalizedQuery));
   }, [normalizedQuery]);
+  const visibleBanks = useMemo(() => {
+    if (!normalizedQuery) return zimbabweBanks;
+    return zimbabweBanks.filter((bank) => bank.toLowerCase().includes(normalizedQuery));
+  }, [normalizedQuery]);
+
+  const toggleBankLogin = (bank: string) => {
+    setLoggedInBanks((current) =>
+      current.includes(bank) ? current.filter((item) => item !== bank) : [...current, bank]
+    );
+  };
 
   return (
     <View>
@@ -104,6 +131,29 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
       ))}
       {!filteredTransactions.length ? (
         <Text style={styles.emptyText}>No transactions found for this search.</Text>
+      ) : null}
+
+      <Text style={styles.sectionTitle}>Linked Banks (Zimbabwe)</Text>
+      <Text style={styles.banksHint}>
+        Tap a bank to log in. You can be logged into multiple banks at the same time.
+      </Text>
+      {visibleBanks.map((bank) => {
+        const isLoggedIn = loggedInBanks.includes(bank);
+        return (
+          <Pressable
+            key={bank}
+            onPress={() => toggleBankLogin(bank)}
+            style={[styles.bankRow, isLoggedIn && styles.bankRowActive]}
+          >
+            <Text style={[styles.bankName, isLoggedIn && styles.bankNameActive]}>{bank}</Text>
+            <Text style={[styles.bankStatus, isLoggedIn && styles.bankStatusActive]}>
+              {isLoggedIn ? "Logged in" : "Log in"}
+            </Text>
+          </Pressable>
+        );
+      })}
+      {!visibleBanks.length ? (
+        <Text style={styles.emptyText}>No bank found for this search.</Text>
       ) : null}
       <Text style={styles.signatureText}>Fidinsky Tech Solutions</Text>
     </View>
@@ -233,6 +283,43 @@ const styles = StyleSheet.create({
   emptyText: {
     color: colors.muted,
     marginTop: 8,
+  },
+  banksHint: {
+    color: colors.muted,
+    marginBottom: 8,
+    lineHeight: 18,
+  },
+  bankRow: {
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 12,
+    marginBottom: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  bankRowActive: {
+    borderColor: colors.primary,
+    backgroundColor: "#F0F6F4",
+  },
+  bankName: {
+    color: colors.text,
+    fontWeight: "600",
+    flex: 1,
+    marginRight: 8,
+  },
+  bankNameActive: {
+    color: colors.primary,
+  },
+  bankStatus: {
+    color: colors.info,
+    fontSize: 12,
+    fontWeight: "700",
+  },
+  bankStatusActive: {
+    color: colors.success,
   },
   signatureText: {
     marginTop: 4,

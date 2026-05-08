@@ -21,12 +21,46 @@ const deals = [
   { title: "Weekend Outfit Bundle", merchant: "City Fashion", price: "$31.20", category: "Fashion" },
 ];
 
+const storeTypes = [
+  "Supermarkets",
+  "Hardware",
+  "Pharmacies",
+  "Electronics",
+  "Fashion",
+  "Home & Furniture",
+] as const;
+type StoreType = (typeof storeTypes)[number];
+
+const onlineStores: { name: string; type: StoreType; city: string }[] = [
+  { name: "OK Zimbabwe Online", type: "Supermarkets", city: "Harare" },
+  { name: "TM Pick n Pay Online", type: "Supermarkets", city: "Bulawayo" },
+  { name: "Food World Online", type: "Supermarkets", city: "Mutare" },
+  { name: "Spar Zimbabwe Online", type: "Supermarkets", city: "Gweru" },
+  { name: "N. Richards Hardware", type: "Hardware", city: "Harare" },
+  { name: "Electrosales Hardware", type: "Hardware", city: "Bulawayo" },
+  { name: "Halsted Brothers", type: "Hardware", city: "Mutare" },
+  { name: "PG Timbers Online", type: "Hardware", city: "Masvingo" },
+  { name: "Booties Pharmacy Online", type: "Pharmacies", city: "Harare" },
+  { name: "HealthPoint Pharmacy", type: "Pharmacies", city: "Bulawayo" },
+  { name: "PlusB Pharmacy", type: "Pharmacies", city: "Gweru" },
+  { name: "Sam Levy Electronics Hub", type: "Electronics", city: "Harare" },
+  { name: "Techzim Marketplace", type: "Electronics", city: "Mutare" },
+  { name: "Gadget Zone ZW", type: "Electronics", city: "Bulawayo" },
+  { name: "Edgars Zimbabwe Online", type: "Fashion", city: "Harare" },
+  { name: "Jet Zimbabwe Online", type: "Fashion", city: "Bulawayo" },
+  { name: "Truworths Zimbabwe", type: "Fashion", city: "Gweru" },
+  { name: "TV Sales & Home", type: "Home & Furniture", city: "Harare" },
+  { name: "Restapedic ZW Online", type: "Home & Furniture", city: "Bulawayo" },
+  { name: "City Home Centre", type: "Home & Furniture", city: "Mutare" },
+];
+
 type MallScreenProps = {
   searchQuery: string;
 };
 
 export function MallScreen({ searchQuery }: MallScreenProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("Groceries");
+  const [selectedStoreType, setSelectedStoreType] = useState<StoreType>("Supermarkets");
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
   const filteredDeals = useMemo(
@@ -39,6 +73,17 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
             deal.merchant.toLowerCase().includes(normalizedQuery))
       ),
     [selectedCategory, normalizedQuery]
+  );
+  const filteredStores = useMemo(
+    () =>
+      onlineStores.filter(
+        (store) =>
+          store.type === selectedStoreType &&
+          (!normalizedQuery ||
+            store.name.toLowerCase().includes(normalizedQuery) ||
+            store.city.toLowerCase().includes(normalizedQuery))
+      ),
+    [selectedStoreType, normalizedQuery]
   );
 
   return (
@@ -72,6 +117,37 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
       ))}
       {!filteredDeals.length ? (
         <Text style={styles.emptyText}>No deals found for this category/search.</Text>
+      ) : null}
+
+      <Text style={styles.sectionTitle}>Online Stores in Zimbabwe</Text>
+      <Text style={styles.subtitle}>
+        Browse by store type: supermarkets, hardware, pharmacies, electronics, fashion, and home.
+      </Text>
+      <View style={styles.categoryRow}>
+        {storeTypes.map((type) => (
+          <Pressable
+            key={type}
+            onPress={() => setSelectedStoreType(type)}
+            style={[styles.chip, selectedStoreType === type && styles.chipActive]}
+          >
+            <Text style={[styles.chipText, selectedStoreType === type && styles.chipTextActive]}>
+              {type}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      {filteredStores.map((store) => (
+        <View key={store.name} style={styles.dealCard}>
+          <View>
+            <Text style={styles.dealTitle}>{store.name}</Text>
+            <Text style={styles.dealMeta}>{store.city}</Text>
+          </View>
+          <Text style={styles.dealPrice}>{store.type}</Text>
+        </View>
+      ))}
+      {!filteredStores.length ? (
+        <Text style={styles.emptyText}>No stores found for this type/search.</Text>
       ) : null}
       <Text style={styles.signatureText}>Fidinsky Tech Solutions</Text>
     </View>

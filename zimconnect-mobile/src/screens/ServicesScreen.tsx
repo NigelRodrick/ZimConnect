@@ -4,8 +4,24 @@ import { colors } from "../theme/colors";
 
 const services = [
   {
+    title: "Zim-Bill",
+    description: "Pay utility bills, buy tokens, and manage recurring payments.",
+  },
+  {
+    title: "zim-government",
+    description: "Access key government payments, renewals, and service requests.",
+  },
+  {
+    title: "zim-agric",
+    description: "Farm input marketplace, weather insights, and produce price updates.",
+  },
+  {
+    title: "zim-jobs",
+    description: "Find jobs, gigs, and verified service providers near you.",
+  },
+  {
     title: "Zim-Health",
-    description: "Book doctors, tele-health, and manage family records.",
+    description: "Ambulance, polyclinics, hospitals, and all related health services.",
   },
   {
     title: "Zim-Housing",
@@ -19,6 +35,18 @@ const services = [
     title: "Zim-Education",
     description: "School fee payments and learning material access.",
   },
+];
+const zimHealthServices = [
+  "Ambulance",
+  "Polyclinics",
+  "Hospitals",
+  "Doctor Appointments",
+  "Tele-health",
+  "Pharmacies",
+  "Laboratory Tests",
+  "Maternal Care",
+  "Emergency Care",
+  "Family Health Records",
 ];
 
 type ServicesScreenProps = {
@@ -64,6 +92,15 @@ export function ServicesScreen({ searchQuery }: ServicesScreenProps) {
             </Text>
           </View>
           <Text style={styles.serviceDescription}>{service.description}</Text>
+          {service.title === "Zim-Health" ? (
+            <View style={styles.healthTags}>
+              {zimHealthServices.map((item) => (
+                <View key={item} style={styles.healthTag}>
+                  <Text style={styles.healthTagText}>{item}</Text>
+                </View>
+              ))}
+            </View>
+          ) : null}
         </Pressable>
       ))}
       {!visibleServices.length ? (
@@ -118,6 +155,25 @@ const styles = StyleSheet.create({
     marginTop: 4,
     color: colors.muted,
     lineHeight: 20,
+  },
+  healthTags: {
+    marginTop: 10,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  healthTag: {
+    backgroundColor: "#EEF4F2",
+    borderWidth: 1,
+    borderColor: "#DDE9E5",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  healthTagText: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: "600",
   },
   emptyText: {
     color: colors.muted,
