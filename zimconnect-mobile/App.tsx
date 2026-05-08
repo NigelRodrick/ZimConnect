@@ -47,14 +47,7 @@ export default function App() {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar style="dark" />
       <View style={styles.container}>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          scrollEnabled
-          nestedScrollEnabled
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
+        <View style={styles.topBar}>
           <View style={styles.shellHeader}>
             <View>
               <Text style={styles.greeting}>{`${greeting}, Nigel`}</Text>
@@ -72,7 +65,16 @@ export default function App() {
             placeholderTextColor={colors.muted}
             style={styles.searchInput}
           />
+        </View>
 
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          scrollEnabled
+          nestedScrollEnabled
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
           {content}
           <Text style={styles.ownershipText}>
             Developed and owned by Fidinsky Tech Solutions
@@ -91,6 +93,12 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  topBar: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+    backgroundColor: colors.background,
   },
   scrollView: {
     flex: 1,
