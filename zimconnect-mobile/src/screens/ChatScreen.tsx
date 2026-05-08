@@ -10,6 +10,7 @@ const conversations = [
     badge: "2",
     unread: true,
     official: false,
+    online: true,
   },
   {
     name: "ZETDC Official",
@@ -18,6 +19,7 @@ const conversations = [
     badge: "",
     unread: false,
     official: true,
+    online: false,
   },
   {
     name: "GreenGrocer",
@@ -26,6 +28,7 @@ const conversations = [
     badge: "1",
     unread: true,
     official: false,
+    online: true,
   },
 ];
 
@@ -37,6 +40,7 @@ type ChatScreenProps = {
 
 export function ChatScreen({ searchQuery }: ChatScreenProps) {
   const [filter, setFilter] = useState<"all" | "unread" | "official">("all");
+  const [chatTab, setChatTab] = useState<"friends" | "official">("friends");
   const [selectedProvider, setSelectedProvider] = useState<string>("Econet");
   const [mainNumber, setMainNumber] = useState("");
   const [accountName, setAccountName] = useState("");
@@ -46,12 +50,16 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
   const visibleConversations = useMemo(() => {
+    const byTab =
+      chatTab === "official"
+        ? conversations.filter((item) => item.official)
+        : conversations.filter((item) => !item.official || item.unread);
     const byFilter =
       filter === "unread"
-        ? conversations.filter((item) => item.unread)
+        ? byTab.filter((item) => item.unread)
         : filter === "official"
-          ? conversations.filter((item) => item.official)
-          : conversations;
+          ? byTab.filter((item) => item.official)
+          : byTab;
 
     if (!normalizedQuery) return byFilter;
     return byFilter.filter(
@@ -59,13 +67,12 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
         item.name.toLowerCase().includes(normalizedQuery) ||
         item.preview.toLowerCase().includes(normalizedQuery)
     );
-  }, [filter, normalizedQuery]);
+  }, [chatTab, filter, normalizedQuery]);
 
   const normalizedNumber = useMemo(
     () => mainNumber.replace(/\s+/g, "").replace(/-/g, ""),
     [mainNumber]
   );
-
   const canCreateAccount = normalizedNumber.length >= 9;
 
   const handleCreateAccount = () => {
@@ -83,9 +90,33 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
   return (
     <View>
       <Text style={styles.title}>Chat</Text>
-      <Text style={styles.subtitle}>
-        Voice notes, translation, and trusted official accounts.
-      </Text>
+      <Text style={styles.subtitle}>Voice notes, translation, and trusted official accounts.</Text>
+      <View style={styles.quickBar}>
+        <Pressable style={styles.quickButton}>
+          <Text style={styles.quickButtonText}>New Chat</Text>
+        </Pressable>
+        <Pressable style={styles.quickButton}>
+          <Text style={styles.quickButtonText}>Broadcast</Text>
+        </Pressable>
+      </View>
+      <View style={styles.topTabs}>
+        <Pressable
+          onPress={() => setChatTab("friends")}
+          style={[styles.topTab, chatTab === "friends" && styles.topTabActive]}
+        >
+          <Text style={[styles.topTabText, chatTab === "friends" && styles.topTabTextActive]}>
+            Friends
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setChatTab("official")}
+          style={[styles.topTab, chatTab === "official" && styles.topTabActive]}
+        >
+          <Text style={[styles.topTabText, chatTab === "official" && styles.topTabTextActive]}>
+            Official Accounts
+          </Text>
+        </Pressable>
+      </View>
 
       <View style={styles.accountCard}>
         <Text style={styles.accountTitle}>Create Chat Account</Text>
@@ -130,9 +161,7 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
         >
           <Text style={styles.createButtonText}>Create Account Name</Text>
         </Pressable>
-        {accountName ? (
-          <Text style={styles.accountNameText}>Account name: {accountName}</Text>
-        ) : null}
+        {accountName ? <Text style={styles.accountNameText}>Account name: {accountName}</Text> : null}
       </View>
 
       <View style={styles.dataCard}>
@@ -140,7 +169,6 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
         <Text style={styles.dataHint}>
           Control how Chat uses your mobile data for messages, media, and calls.
         </Text>
-
         <Pressable
           onPress={() => setDataSaverEnabled((prev) => !prev)}
           style={[styles.dataRow, dataSaverEnabled && styles.dataRowActive]}
@@ -150,7 +178,6 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
             {dataSaverEnabled ? "On" : "Off"}
           </Text>
         </Pressable>
-
         <Text style={styles.modeTitle}>Auto-download media</Text>
         <View style={styles.modeRow}>
           {(["off", "wifi", "mobile"] as const).map((mode) => (
@@ -170,7 +197,6 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
             </Pressable>
           ))}
         </View>
-
         <Pressable
           onPress={() => setLowDataCallsEnabled((prev) => !prev)}
           style={[styles.dataRow, lowDataCallsEnabled && styles.dataRowActive]}
@@ -180,7 +206,6 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
             {lowDataCallsEnabled ? "Enabled" : "Disabled"}
           </Text>
         </Pressable>
-
         <View style={styles.usageBox}>
           <Text style={styles.usageTitle}>Estimated Chat usage</Text>
           <Text style={styles.usageValue}>{estimatedDataUsage}</Text>
@@ -192,17 +217,13 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
           onPress={() => setFilter("all")}
           style={[styles.filterChip, filter === "all" && styles.filterChipActive]}
         >
-          <Text style={[styles.filterText, filter === "all" && styles.filterTextActive]}>
-            All
-          </Text>
+          <Text style={[styles.filterText, filter === "all" && styles.filterTextActive]}>All</Text>
         </Pressable>
         <Pressable
           onPress={() => setFilter("unread")}
           style={[styles.filterChip, filter === "unread" && styles.filterChipActive]}
         >
-          <Text
-            style={[styles.filterText, filter === "unread" && styles.filterTextActive]}
-          >
+          <Text style={[styles.filterText, filter === "unread" && styles.filterTextActive]}>
             Unread
           </Text>
         </Pressable>
@@ -210,9 +231,7 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
           onPress={() => setFilter("official")}
           style={[styles.filterChip, filter === "official" && styles.filterChipActive]}
         >
-          <Text
-            style={[styles.filterText, filter === "official" && styles.filterTextActive]}
-          >
+          <Text style={[styles.filterText, filter === "official" && styles.filterTextActive]}>
             Official
           </Text>
         </Pressable>
@@ -220,11 +239,17 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
 
       {visibleConversations.map((item) => (
         <View key={item.name} style={styles.row}>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{item.name[0]}</Text>
+          <View style={styles.avatarWrap}>
+            <View style={styles.avatar}>
+              <Text style={styles.avatarText}>{item.name[0]}</Text>
+            </View>
+            {item.online ? <View style={styles.onlineDot} /> : null}
           </View>
           <View style={styles.messageBody}>
-            <Text style={styles.name}>{item.name}</Text>
+            <View style={styles.nameRow}>
+              <Text style={styles.name}>{item.name}</Text>
+              {item.official ? <Text style={styles.officialBadge}>Official</Text> : null}
+            </View>
             <Text style={styles.preview}>{item.preview}</Text>
           </View>
           <View style={styles.meta}>
@@ -237,6 +262,9 @@ export function ChatScreen({ searchQuery }: ChatScreenProps) {
           </View>
         </View>
       ))}
+      <Pressable style={styles.loadOlderCard}>
+        <Text style={styles.loadOlderText}>Load older messages</Text>
+      </Pressable>
       {!visibleConversations.length ? (
         <Text style={styles.emptyText}>No conversations found for this search/filter.</Text>
       ) : null}
@@ -253,9 +281,55 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     marginTop: 6,
-    marginBottom: 14,
+    marginBottom: 10,
     fontSize: 14,
     color: colors.muted,
+  },
+  quickBar: {
+    flexDirection: "row",
+    gap: 8,
+    marginBottom: 10,
+  },
+  quickButton: {
+    flex: 1,
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 10,
+    paddingVertical: 10,
+    alignItems: "center",
+  },
+  quickButtonText: {
+    color: colors.primary,
+    fontWeight: "700",
+    fontSize: 12,
+  },
+  topTabs: {
+    flexDirection: "row",
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    padding: 4,
+    gap: 4,
+    marginBottom: 12,
+  },
+  topTab: {
+    flex: 1,
+    borderRadius: 10,
+    paddingVertical: 9,
+    alignItems: "center",
+  },
+  topTabActive: {
+    backgroundColor: "#F0F6F4",
+  },
+  topTabText: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "700",
+  },
+  topTabTextActive: {
+    color: colors.primary,
   },
   accountCard: {
     backgroundColor: colors.card,
@@ -470,6 +544,9 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
   },
+  avatarWrap: {
+    marginRight: 10,
+  },
   avatar: {
     width: 40,
     height: 40,
@@ -478,16 +555,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  onlineDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: colors.success,
+    borderWidth: 2,
+    borderColor: "#FFFFFF",
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+  },
   avatarText: {
     color: colors.primary,
     fontWeight: "700",
   },
   messageBody: {
     flex: 1,
-    marginLeft: 10,
+  },
+  nameRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
   },
   name: {
     color: colors.text,
+    fontWeight: "700",
+  },
+  officialBadge: {
+    color: colors.accent,
+    fontSize: 11,
     fontWeight: "700",
   },
   preview: {
@@ -516,6 +613,22 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 11,
     fontWeight: "700",
+  },
+  loadOlderCard: {
+    marginTop: 2,
+    marginBottom: 6,
+    backgroundColor: "#F8FAF9",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderStyle: "dashed",
+    borderColor: colors.border,
+    paddingVertical: 12,
+    alignItems: "center",
+  },
+  loadOlderText: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "600",
   },
   emptyText: {
     color: colors.muted,

@@ -24,6 +24,8 @@ const zimbabweBanks = [
   "Agrisure Bank",
 ];
 
+const walletActions = ["Add Funds", "Withdraw", "Transfer", "Scan"];
+
 type WalletScreenProps = {
   searchQuery: string;
 };
@@ -112,6 +114,21 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
         <Text style={styles.rateTitle}>Selected Balance</Text>
         <Text style={styles.rateText}>
           {activeCurrency}: {showBalances ? activeBalance : "******"}
+        </Text>
+      </View>
+
+      <View style={styles.quickActionsGrid}>
+        {walletActions.map((action) => (
+          <Pressable key={action} style={styles.quickActionCard}>
+            <Text style={styles.quickActionLabel}>{action}</Text>
+          </Pressable>
+        ))}
+      </View>
+
+      <View style={styles.protectionCard}>
+        <Text style={styles.protectionTitle}>Zim-Connect Buyer Protection</Text>
+        <Text style={styles.protectionText}>
+          Secure payments and 24/7 dispute support for wallet transactions.
         </Text>
       </View>
 
@@ -247,6 +264,45 @@ const styles = StyleSheet.create({
   rateText: {
     marginTop: 4,
     color: colors.muted,
+  },
+  quickActionsGrid: {
+    marginTop: 10,
+    marginBottom: 8,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  quickActionCard: {
+    width: "48%",
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    alignItems: "center",
+  },
+  quickActionLabel: {
+    color: colors.primary,
+    fontWeight: "700",
+    fontSize: 12,
+  },
+  protectionCard: {
+    backgroundColor: "#F3F7F6",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 12,
+    marginBottom: 4,
+  },
+  protectionTitle: {
+    color: colors.text,
+    fontWeight: "700",
+  },
+  protectionText: {
+    color: colors.muted,
+    marginTop: 4,
+    lineHeight: 18,
   },
   sectionTitle: {
     marginTop: 16,

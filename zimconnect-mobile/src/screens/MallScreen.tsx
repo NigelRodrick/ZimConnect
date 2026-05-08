@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useMemo, useState } from "react";
 import { colors } from "../theme/colors";
 
@@ -19,6 +19,18 @@ const deals = [
     category: "Wholesale",
   },
   { title: "Weekend Outfit Bundle", merchant: "City Fashion", price: "$31.20", category: "Fashion" },
+];
+
+const flashDeals = [
+  { title: "Smart Watch Pro", price: "$32.00", oldPrice: "$45.00" },
+  { title: "Swift Runners", price: "$22.80", oldPrice: "$35.00" },
+  { title: "Aero Audio G2", price: "$65.00", oldPrice: "$89.00" },
+];
+
+const verifiedVendors = [
+  { name: "Bongo Crafts", rating: "4.9" },
+  { name: "Mukuvisi Honey", rating: "4.8" },
+  { name: "Savanna Fresh", rating: "4.7" },
 ];
 
 const storeTypes = [
@@ -118,6 +130,32 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
       {!filteredDeals.length ? (
         <Text style={styles.emptyText}>No deals found for this category/search.</Text>
       ) : null}
+
+      <View style={styles.flashDealsCard}>
+        <View style={styles.flashDealsHeader}>
+          <Text style={styles.flashDealsTitle}>Flash Deals</Text>
+          <Text style={styles.flashDealsTimer}>Ends in 04:22:10</Text>
+        </View>
+        {flashDeals.map((item) => (
+          <View key={item.title} style={styles.flashRow}>
+            <Text style={styles.dealTitle}>{item.title}</Text>
+            <View style={styles.priceRow}>
+              <Text style={styles.dealPrice}>{item.price}</Text>
+              <Text style={styles.oldPrice}>{item.oldPrice}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
+
+      <Text style={styles.sectionTitle}>Verified Local Vendors</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.vendorScroll}>
+        {verifiedVendors.map((vendor) => (
+          <View key={vendor.name} style={styles.vendorCard}>
+            <Text style={styles.vendorName}>{vendor.name}</Text>
+            <Text style={styles.vendorMeta}>Rating {vendor.rating} ★</Text>
+          </View>
+        ))}
+      </ScrollView>
 
       <Text style={styles.sectionTitle}>Online Stores in Zimbabwe</Text>
       <Text style={styles.subtitle}>
@@ -221,6 +259,72 @@ const styles = StyleSheet.create({
   dealPrice: {
     color: colors.primary,
     fontWeight: "700",
+  },
+  flashDealsCard: {
+    backgroundColor: "#FFF8EE",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 12,
+    marginBottom: 14,
+  },
+  flashDealsHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  flashDealsTitle: {
+    fontSize: 17,
+    fontWeight: "700",
+    color: colors.primary,
+  },
+  flashDealsTimer: {
+    color: colors.accent,
+    fontWeight: "700",
+    fontSize: 12,
+  },
+  flashRow: {
+    backgroundColor: colors.card,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 10,
+    marginBottom: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  priceRow: {
+    flexDirection: "row",
+    alignItems: "baseline",
+    gap: 6,
+  },
+  oldPrice: {
+    color: colors.muted,
+    textDecorationLine: "line-through",
+    fontSize: 12,
+  },
+  vendorScroll: {
+    marginBottom: 14,
+  },
+  vendorCard: {
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 12,
+    marginRight: 8,
+    minWidth: 150,
+  },
+  vendorName: {
+    color: colors.text,
+    fontWeight: "700",
+  },
+  vendorMeta: {
+    marginTop: 3,
+    color: colors.muted,
+    fontSize: 12,
   },
   emptyText: {
     color: colors.muted,

@@ -16,6 +16,17 @@ const quickActions: QuickAction[] = [
   { title: "Pay Fees", subtitle: "School and utility", targetTab: "services" },
 ];
 
+const coreServices = [
+  "Housing",
+  "News",
+  "Education",
+  "Tourism",
+  "Groceries",
+  "Business",
+  "Services",
+  "Utilities",
+];
+
 type HomeScreenProps = {
   searchQuery: string;
   onSearchChange: (value: string) => void;
@@ -81,6 +92,21 @@ export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeS
           </Text>
         </View>
       ) : null}
+
+      <Text style={styles.sectionTitle}>Core Services</Text>
+      <View style={styles.serviceGrid}>
+        {coreServices.map((service) => (
+          <View key={service} style={styles.servicePill}>
+            <Text style={styles.servicePillText}>{service}</Text>
+          </View>
+        ))}
+      </View>
+
+      <View style={styles.promoCard}>
+        <Text style={styles.promoLabel}>PROMOTED</Text>
+        <Text style={styles.promoTitle}>Invest in Zim-Bonds</Text>
+        <Text style={styles.promoText}>Start today with as little as $10.</Text>
+      </View>
 
       <Text style={styles.sectionTitle}>Recent Updates</Text>
       <View style={styles.feedCard}>
@@ -179,6 +205,46 @@ const styles = StyleSheet.create({
   selectionText: {
     color: colors.muted,
     lineHeight: 20,
+  },
+  serviceGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+    marginBottom: 14,
+  },
+  servicePill: {
+    backgroundColor: "#EEF4F2",
+    borderWidth: 1,
+    borderColor: "#DDE9E5",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  servicePillText: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: "600",
+  },
+  promoCard: {
+    backgroundColor: colors.primary,
+    borderRadius: 14,
+    padding: 12,
+    marginBottom: 14,
+  },
+  promoLabel: {
+    color: "#CFE5DD",
+    fontSize: 11,
+    fontWeight: "700",
+    marginBottom: 4,
+  },
+  promoTitle: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    fontWeight: "700",
+  },
+  promoText: {
+    color: "#E3EFEA",
+    marginTop: 2,
   },
   emptyText: {
     color: colors.muted,
