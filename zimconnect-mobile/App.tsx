@@ -47,7 +47,14 @@ export default function App() {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar style="dark" />
       <View style={styles.container}>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          scrollEnabled
+          nestedScrollEnabled
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.shellHeader}>
             <View>
               <Text style={styles.greeting}>{`${greeting}, Nigel`}</Text>
@@ -89,9 +96,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    flexGrow: 1,
     padding: 16,
-    paddingBottom: 110,
+    paddingBottom: 140,
   },
   shellHeader: {
     flexDirection: "row",
