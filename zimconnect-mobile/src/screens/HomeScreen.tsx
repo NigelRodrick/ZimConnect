@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { useMemo, useState } from "react";
 import { colors } from "../theme/colors";
 import { TabKey } from "../types/navigation";
@@ -18,10 +18,11 @@ const quickActions: QuickAction[] = [
 
 type HomeScreenProps = {
   searchQuery: string;
+  onSearchChange: (value: string) => void;
   onQuickAction: (tab: TabKey) => void;
 };
 
-export function HomeScreen({ searchQuery, onQuickAction }: HomeScreenProps) {
+export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeScreenProps) {
   const [selectedAction, setSelectedAction] = useState<string | null>(null);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -42,6 +43,13 @@ export function HomeScreen({ searchQuery, onQuickAction }: HomeScreenProps) {
           One app for chat, wallet, commerce, and services.
         </Text>
       </View>
+      <TextInput
+        value={searchQuery}
+        onChangeText={onSearchChange}
+        placeholder="Search services, merchants, chats..."
+        placeholderTextColor={colors.muted}
+        style={styles.searchInput}
+      />
 
       <Text style={styles.sectionTitle}>Quick Actions</Text>
       <View style={styles.grid}>
@@ -109,6 +117,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#E5EFEA",
     lineHeight: 21,
+  },
+  searchInput: {
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 14,
+    color: colors.text,
   },
   sectionTitle: {
     fontSize: 18,

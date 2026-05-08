@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useMemo, useState } from "react";
 import { BottomTabs } from "./src/components/BottomTabs";
 import { ChatScreen } from "./src/screens/ChatScreen";
@@ -35,7 +35,13 @@ export default function App() {
 
   const content = useMemo(() => {
     if (activeTab === "home") {
-      return <HomeScreen searchQuery={searchQuery} onQuickAction={goToTab} />;
+      return (
+        <HomeScreen
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          onQuickAction={goToTab}
+        />
+      );
     }
     if (activeTab === "chat") return <ChatScreen searchQuery={searchQuery} />;
     if (activeTab === "wallet") return <WalletScreen searchQuery={searchQuery} />;
@@ -50,21 +56,10 @@ export default function App() {
         <View style={styles.topBar}>
           <View style={styles.shellHeader}>
             <View>
-              <Text style={styles.greeting}>{`${greeting}, Nigel`}</Text>
-              <Text style={styles.identityMeta}>Verified Account - Harare</Text>
-            </View>
-            <View style={styles.notificationBadge}>
-              <Text style={styles.notificationText}>3</Text>
+              <Text style={styles.greeting}>Welcome to Zim-Connect</Text>
+              <Text style={styles.identityMeta}>{greeting}</Text>
             </View>
           </View>
-
-          <TextInput
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-            placeholder="Search services, merchants, chats..."
-            placeholderTextColor={colors.muted}
-            style={styles.searchInput}
-          />
         </View>
 
         <ScrollView
@@ -108,10 +103,7 @@ const styles = StyleSheet.create({
     paddingBottom: 140,
   },
   shellHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 10,
+    marginBottom: 6,
   },
   greeting: {
     color: colors.text,
@@ -122,30 +114,6 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 12,
     marginTop: 2,
-  },
-  notificationBadge: {
-    minWidth: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: colors.primary,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 8,
-  },
-  notificationText: {
-    color: "#FFFFFF",
-    fontWeight: "700",
-    fontSize: 12,
-  },
-  searchInput: {
-    backgroundColor: colors.card,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    marginBottom: 14,
-    color: colors.text,
   },
   ownershipText: {
     marginTop: 10,
