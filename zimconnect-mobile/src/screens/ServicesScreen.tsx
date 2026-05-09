@@ -65,11 +65,38 @@ const zimHealthServices = [
   "Family Health Records",
 ];
 
+/** Typical bill & prepay categories people pay in Zimbabwe via Zim-Bill. */
+const zimBillItems = [
+  "ZESA (ZETDC) — electricity & tokens",
+  "City / town council — rates & refuse",
+  "Municipal water",
+  "ZINARA — vehicle licence & tolls",
+  "Harare City Council",
+  "Bulawayo City Council",
+  "Chitungwiza Municipality",
+  "Mutare City Council",
+  "Gweru City Council",
+  "Masvingo City Council",
+  "Kwekwe City Council",
+  "Kadoma Municipality",
+  "Marondera Municipality",
+  "Victoria Falls Municipality",
+  "Mobile airtime — Econet, NetOne, Telecel",
+  "Broadband & Wi-Fi",
+  "DStv & pay TV",
+  "School & college fees",
+  "University fees",
+  "Hospital & clinic bills",
+  "Insurance premiums",
+  "Rent & levies (landlord / body corporate)",
+];
+
 type ServicesScreenProps = {
   searchQuery: string;
+  onOpenZimJobs?: () => void;
 };
 
-export function ServicesScreen({ searchQuery }: ServicesScreenProps) {
+export function ServicesScreen({ searchQuery, onOpenZimJobs }: ServicesScreenProps) {
   const [savedServices, setSavedServices] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const normalizedQuery = searchQuery.trim().toLowerCase();
@@ -87,11 +114,15 @@ export function ServicesScreen({ searchQuery }: ServicesScreenProps) {
   };
   const visibleServices = services.filter((item) => {
     const categoryMatch = activeCategory === "All" || item.category === activeCategory;
+    const billSearchMatch =
+      item.title === "Zim-Bill" &&
+      zimBillItems.some((bill) => bill.toLowerCase().includes(normalizedQuery));
     const searchMatch =
       !normalizedQuery ||
       item.title.toLowerCase().includes(normalizedQuery) ||
       item.description.toLowerCase().includes(normalizedQuery) ||
-      item.category.toLowerCase().includes(normalizedQuery);
+      item.category.toLowerCase().includes(normalizedQuery) ||
+      billSearchMatch;
     return categoryMatch && searchMatch;
   });
   const featuredServices = services.filter((item) => item.featured);
@@ -162,9 +193,23 @@ export function ServicesScreen({ searchQuery }: ServicesScreenProps) {
             </Text>
           </View>
           <Text style={styles.serviceDescription}>{service.description}</Text>
+          {service.title === "zim-jobs" && onOpenZimJobs ? (
+            <Pressable onPress={onOpenZimJobs} style={styles.jobsCta}>
+              <Text style={styles.jobsCtaText}>Browse live vacancies & classifieds →</Text>
+            </Pressable>
+          ) : null}
           {service.title === "Zim-Health" ? (
             <View style={styles.healthTags}>
               {zimHealthServices.map((item) => (
+                <View key={item} style={styles.healthTag}>
+                  <Text style={styles.healthTagText}>{item}</Text>
+                </View>
+              ))}
+            </View>
+          ) : null}
+          {service.title === "Zim-Bill" ? (
+            <View style={styles.healthTags}>
+              {zimBillItems.map((item) => (
                 <View key={item} style={styles.healthTag}>
                   <Text style={styles.healthTagText}>{item}</Text>
                 </View>
@@ -332,6 +377,19 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 12,
     fontWeight: "600",
+  },
+  jobsCta: {
+    marginTop: 10,
+    alignSelf: "flex-start",
+    backgroundColor: colors.primary,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 10,
+  },
+  jobsCtaText: {
+    color: "#FFFFFF",
+    fontWeight: "700",
+    fontSize: 13,
   },
   emptyText: {
     color: colors.muted,

@@ -1,37 +1,22 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { useMemo, useState } from "react";
+import {
+  ActivityIndicator,
+  Linking,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { colors } from "../theme/colors";
+import {
+  CURATED_ONLINE_STORES,
+  fetchMallRetailSpotlight,
+  spotlightMatchesCategory,
+  type MallSpotlightItem,
+} from "../services/zimMall";
 
-const categories = ["Groceries", "Electronics", "Fashion", "Wholesale"];
-
-const deals = [
-  {
-    title: "Family Grocery Pack",
-    merchant: "GreenGrocer",
-    price: "$24.99",
-    category: "Groceries",
-  },
-  { title: "Solar Lantern", merchant: "Harare Tech", price: "$18.00", category: "Electronics" },
-  {
-    title: "Bulk Cooking Oil",
-    merchant: "B2B Supplies",
-    price: "$54.30",
-    category: "Wholesale",
-  },
-  { title: "Weekend Outfit Bundle", merchant: "City Fashion", price: "$31.20", category: "Fashion" },
-];
-
-const flashDeals = [
-  { title: "Smart Watch Pro", price: "$32.00", oldPrice: "$45.00" },
-  { title: "Swift Runners", price: "$22.80", oldPrice: "$35.00" },
-  { title: "Aero Audio G2", price: "$65.00", oldPrice: "$89.00" },
-];
-
-const verifiedVendors = [
-  { name: "Bongo Crafts", rating: "4.9" },
-  { name: "Mukuvisi Honey", rating: "4.8" },
-  { name: "Savanna Fresh", rating: "4.7" },
-];
+const categories = ["All", "Groceries", "Electronics", "Fashion", "Wholesale"] as const;
 
 const storeTypes = [
   "Supermarkets",
@@ -40,55 +25,66 @@ const storeTypes = [
   "Electronics",
   "Fashion",
   "Home & Furniture",
+  "Wholesale",
 ] as const;
 type StoreType = (typeof storeTypes)[number];
-
-const onlineStores: { name: string; type: StoreType; city: string }[] = [
-  { name: "OK Zimbabwe Online", type: "Supermarkets", city: "Harare" },
-  { name: "TM Pick n Pay Online", type: "Supermarkets", city: "Bulawayo" },
-  { name: "Food World Online", type: "Supermarkets", city: "Mutare" },
-  { name: "Spar Zimbabwe Online", type: "Supermarkets", city: "Gweru" },
-  { name: "N. Richards Hardware", type: "Hardware", city: "Harare" },
-  { name: "Electrosales Hardware", type: "Hardware", city: "Bulawayo" },
-  { name: "Halsted Brothers", type: "Hardware", city: "Mutare" },
-  { name: "PG Timbers Online", type: "Hardware", city: "Masvingo" },
-  { name: "Booties Pharmacy Online", type: "Pharmacies", city: "Harare" },
-  { name: "HealthPoint Pharmacy", type: "Pharmacies", city: "Bulawayo" },
-  { name: "PlusB Pharmacy", type: "Pharmacies", city: "Gweru" },
-  { name: "Sam Levy Electronics Hub", type: "Electronics", city: "Harare" },
-  { name: "Techzim Marketplace", type: "Electronics", city: "Mutare" },
-  { name: "Gadget Zone ZW", type: "Electronics", city: "Bulawayo" },
-  { name: "Edgars Zimbabwe Online", type: "Fashion", city: "Harare" },
-  { name: "Jet Zimbabwe Online", type: "Fashion", city: "Bulawayo" },
-  { name: "Truworths Zimbabwe", type: "Fashion", city: "Gweru" },
-  { name: "TV Sales & Home", type: "Home & Furniture", city: "Harare" },
-  { name: "Restapedic ZW Online", type: "Home & Furniture", city: "Bulawayo" },
-  { name: "City Home Centre", type: "Home & Furniture", city: "Mutare" },
-];
 
 type MallScreenProps = {
   searchQuery: string;
 };
 
 export function MallScreen({ searchQuery }: MallScreenProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Groceries");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedStoreType, setSelectedStoreType] = useState<StoreType>("Supermarkets");
+  const [spotlight, setSpotlight] = useState<MallSpotlightItem[]>([]);
+  const [spotlightLoading, setSpotlightLoading] = useState(true);
+  const [spotlightError, setSpotlightError] = useState<string | null>(null);
+
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
-  const filteredDeals = useMemo(
+  const loadSpotlight = useCallback(async () => {
+    setSpotlightError(null);
+    try {
+      const data = await fetchMallRetailSpotlight();
+      setSpotlight(data);
+    } catch (e) {
+      setSpotlightError(e instanceof Error ? e.message : "Could not load highlights.");
+      setSpotlight([]);
+    } finally {
+      setSpotlightLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    setSpotlightLoading(true);
+    loadSpotlight();
+  }, [loadSpotlight]);
+
+  const filteredSpotlight = useMemo(
     () =>
-      deals.filter(
-        (deal) =>
-          deal.category === selectedCategory &&
-          (!normalizedQuery ||
-            deal.title.toLowerCase().includes(normalizedQuery) ||
-            deal.merchant.toLowerCase().includes(normalizedQuery))
+      spotlight.filter(
+        (item) =>
+          spotlightMatchesCategory(item.title, selectedCategory) &&
+          (!normalizedQuery || item.title.toLowerCase().includes(normalizedQuery))
       ),
-    [selectedCategory, normalizedQuery]
+    [spotlight, selectedCategory, normalizedQuery]
   );
+
+  const flashItems = useMemo(() => {
+    const base = spotlight.filter(
+      (item) => !normalizedQuery || item.title.toLowerCase().includes(normalizedQuery)
+    );
+    return base.slice(0, 5);
+  }, [spotlight, normalizedQuery]);
+
+  const verifiedVendors = useMemo(
+    () => CURATED_ONLINE_STORES.filter((s) => s.verified),
+    []
+  );
+
   const filteredStores = useMemo(
     () =>
-      onlineStores.filter(
+      CURATED_ONLINE_STORES.filter(
         (store) =>
           store.type === selectedStoreType &&
           (!normalizedQuery ||
@@ -98,10 +94,43 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
     [selectedStoreType, normalizedQuery]
   );
 
+  const openUrl = (url: string) => {
+    Linking.openURL(url).catch(() => {});
+  };
+
   return (
     <View>
-      <Text style={styles.title}>Zim-Mall</Text>
-      <Text style={styles.subtitle}>B2C, C2C, and B2B shopping in one place.</Text>
+      <View style={styles.headerRow}>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.title}>Zim-Mall</Text>
+          <Text style={styles.subtitle}>B2C, C2C, and B2B shopping in one place.</Text>
+        </View>
+        <Pressable
+          onPress={() => {
+            setSpotlightLoading(true);
+            loadSpotlight();
+          }}
+          style={styles.refreshBtn}
+          disabled={spotlightLoading}
+        >
+          <Text style={styles.refreshBtnText}>{spotlightLoading ? "…" : "↻"}</Text>
+        </Pressable>
+      </View>
+
+      {spotlightError ? (
+        <View style={styles.errorBanner}>
+          <Text style={styles.errorText}>{spotlightError}</Text>
+          <Pressable onPress={loadSpotlight}>
+            <Text style={styles.retryLink}>Retry</Text>
+          </Pressable>
+        </View>
+      ) : null}
+
+      <Text style={styles.sectionTitle}>Retail headlines (online)</Text>
+      <Text style={styles.hint}>
+        Latest Zimbabwe retail & shopping news — tap a card to read. Stores below use real shop
+        links.
+      </Text>
 
       <View style={styles.categoryRow}>
         {categories.map((cat) => (
@@ -117,49 +146,68 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
         ))}
       </View>
 
-      <Text style={styles.sectionTitle}>Top Deals - {selectedCategory}</Text>
-      {filteredDeals.map((deal) => (
-        <View key={deal.title} style={styles.dealCard}>
-          <View>
-            <Text style={styles.dealTitle}>{deal.title}</Text>
-            <Text style={styles.dealMeta}>{deal.merchant}</Text>
-          </View>
-          <Text style={styles.dealPrice}>{deal.price}</Text>
+      {spotlightLoading && !spotlight.length ? (
+        <View style={styles.loadingRow}>
+          <ActivityIndicator color={colors.primary} />
+          <Text style={styles.loadingText}>Loading retail headlines…</Text>
         </View>
+      ) : null}
+
+      <Text style={styles.sectionTitle}>Top stories — {selectedCategory}</Text>
+      {filteredSpotlight.map((item, i) => (
+        <Pressable key={`${item.link}-${i}`} onPress={() => openUrl(item.link)} style={styles.dealCard}>
+          <View style={styles.dealTextCol}>
+            <Text style={styles.dealTitle}>{item.title}</Text>
+            <Text style={styles.dealMeta}>{item.pubDate ?? "Recent"}</Text>
+          </View>
+          <Text style={styles.dealAction}>Read →</Text>
+        </Pressable>
       ))}
-      {!filteredDeals.length ? (
-        <Text style={styles.emptyText}>No deals found for this category/search.</Text>
+      {!spotlightLoading && !filteredSpotlight.length ? (
+        <Text style={styles.emptyText}>No headlines for this category/search.</Text>
       ) : null}
 
       <View style={styles.flashDealsCard}>
         <View style={styles.flashDealsHeader}>
-          <Text style={styles.flashDealsTitle}>Flash Deals</Text>
-          <Text style={styles.flashDealsTimer}>Ends in 04:22:10</Text>
+          <Text style={styles.flashDealsTitle}>Flash · newest first</Text>
+          <Text style={styles.flashDealsTimer}>From live RSS</Text>
         </View>
-        {flashDeals.map((item) => (
-          <View key={item.title} style={styles.flashRow}>
-            <Text style={styles.dealTitle}>{item.title}</Text>
-            <View style={styles.priceRow}>
-              <Text style={styles.dealPrice}>{item.price}</Text>
-              <Text style={styles.oldPrice}>{item.oldPrice}</Text>
+        {flashItems.map((item, i) => (
+          <Pressable
+            key={`flash-${item.link}-${i}`}
+            onPress={() => openUrl(item.link)}
+            style={styles.flashRow}
+          >
+            <View style={styles.flashTextCol}>
+              <Text style={styles.dealTitle}>{item.title}</Text>
+              <Text style={styles.flashDate}>{item.pubDate ?? ""}</Text>
             </View>
-          </View>
+            <Text style={styles.dealAction}>Open</Text>
+          </Pressable>
         ))}
+        {!flashItems.length && !spotlightLoading ? (
+          <Text style={styles.emptyTextSmall}>No flash items yet.</Text>
+        ) : null}
       </View>
 
-      <Text style={styles.sectionTitle}>Verified Local Vendors</Text>
+      <Text style={styles.sectionTitle}>Verified local stores (directory)</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.vendorScroll}>
         {verifiedVendors.map((vendor) => (
-          <View key={vendor.name} style={styles.vendorCard}>
+          <Pressable
+            key={vendor.name + vendor.url}
+            onPress={() => openUrl(vendor.url)}
+            style={styles.vendorCard}
+          >
             <Text style={styles.vendorName}>{vendor.name}</Text>
-            <Text style={styles.vendorMeta}>Rating {vendor.rating} ★</Text>
-          </View>
+            <Text style={styles.vendorMeta}>{vendor.type}</Text>
+            <Text style={styles.vendorLink}>Shop online →</Text>
+          </Pressable>
         ))}
       </ScrollView>
 
-      <Text style={styles.sectionTitle}>Online Stores in Zimbabwe</Text>
+      <Text style={styles.sectionTitle}>Online stores in Zimbabwe</Text>
       <Text style={styles.subtitle}>
-        Browse by store type: supermarkets, hardware, pharmacies, electronics, fashion, and home.
+        Curated public shop links — tap a row to open in your browser.
       </Text>
       <View style={styles.categoryRow}>
         {storeTypes.map((type) => (
@@ -176,13 +224,17 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
       </View>
 
       {filteredStores.map((store) => (
-        <View key={store.name} style={styles.dealCard}>
-          <View>
+        <Pressable
+          key={store.name + store.url}
+          onPress={() => openUrl(store.url)}
+          style={styles.dealCard}
+        >
+          <View style={styles.dealTextCol}>
             <Text style={styles.dealTitle}>{store.name}</Text>
             <Text style={styles.dealMeta}>{store.city}</Text>
           </View>
-          <Text style={styles.dealPrice}>{store.type}</Text>
-        </View>
+          <Text style={styles.dealAction}>{store.type}</Text>
+        </Pressable>
       ))}
       {!filteredStores.length ? (
         <Text style={styles.emptyText}>No stores found for this type/search.</Text>
@@ -193,6 +245,42 @@ export function MallScreen({ searchQuery }: MallScreenProps) {
 }
 
 const styles = StyleSheet.create({
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 8,
+  },
+  refreshBtn: {
+    marginTop: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: "#EEF4F2",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#DDE9E5",
+  },
+  refreshBtnText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.primary,
+  },
+  errorBanner: {
+    backgroundColor: "#FFF4F4",
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  errorText: {
+    color: "#B42318",
+    fontSize: 13,
+  },
+  retryLink: {
+    marginTop: 6,
+    color: colors.info,
+    fontWeight: "700",
+  },
   title: {
     fontSize: 24,
     fontWeight: "700",
@@ -203,6 +291,22 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     fontSize: 14,
     color: colors.muted,
+  },
+  hint: {
+    fontSize: 12,
+    color: colors.muted,
+    marginBottom: 10,
+    lineHeight: 17,
+  },
+  loadingRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 12,
+  },
+  loadingText: {
+    color: colors.muted,
+    fontSize: 13,
   },
   categoryRow: {
     flexDirection: "row",
@@ -246,6 +350,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    gap: 8,
+  },
+  dealTextCol: {
+    flex: 1,
+    marginRight: 8,
   },
   dealTitle: {
     color: colors.text,
@@ -256,9 +365,10 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 12,
   },
-  dealPrice: {
+  dealAction: {
     color: colors.primary,
     fontWeight: "700",
+    fontSize: 13,
   },
   flashDealsCard: {
     backgroundColor: "#FFF8EE",
@@ -294,15 +404,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    gap: 8,
   },
-  priceRow: {
-    flexDirection: "row",
-    alignItems: "baseline",
-    gap: 6,
+  flashTextCol: {
+    flex: 1,
+    marginRight: 8,
   },
-  oldPrice: {
+  flashDate: {
+    marginTop: 4,
     color: colors.muted,
-    textDecorationLine: "line-through",
+    fontSize: 11,
+  },
+  emptyText: {
+    color: colors.muted,
+    marginTop: 8,
+  },
+  emptyTextSmall: {
+    color: colors.muted,
     fontSize: 12,
   },
   vendorScroll: {
@@ -315,7 +433,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: 12,
     marginRight: 8,
-    minWidth: 150,
+    minWidth: 160,
   },
   vendorName: {
     color: colors.text,
@@ -326,9 +444,11 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 12,
   },
-  emptyText: {
-    color: colors.muted,
+  vendorLink: {
     marginTop: 8,
+    color: colors.info,
+    fontWeight: "600",
+    fontSize: 12,
   },
   signatureText: {
     marginTop: 4,
@@ -338,4 +458,3 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
-

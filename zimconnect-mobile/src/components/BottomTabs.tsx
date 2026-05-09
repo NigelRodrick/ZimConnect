@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../theme/colors";
 import { TabItem, TabKey } from "../types/navigation";
 
@@ -9,35 +10,43 @@ type BottomTabsProps = {
 };
 
 export function BottomTabs({ tabs, activeTab, onTabPress }: BottomTabsProps) {
+  const insets = useSafeAreaInsets();
+  const bottomPad = Math.max(insets.bottom, 0) + 12;
+
   return (
-    <View style={styles.tabBar}>
-      {tabs.map((tab) => {
-        const isActive = activeTab === tab.key;
-        return (
-          <Pressable
-            key={tab.key}
-            onPress={() => onTabPress(tab.key)}
-            style={[styles.tabItem, isActive && styles.tabItemActive]}
-          >
-            <Text style={[styles.tabIcon, isActive && styles.tabIconActive]}>
-              {tab.icon}
-            </Text>
-            <Text style={[styles.tabLabel, isActive && styles.tabLabelActive]}>
-              {tab.label}
-            </Text>
-          </Pressable>
-        );
-      })}
+    <View style={[styles.tabBarOuter, { paddingBottom: bottomPad }]}>
+      <View style={styles.tabBar}>
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.key;
+          return (
+            <Pressable
+              key={tab.key}
+              onPress={() => onTabPress(tab.key)}
+              style={[styles.tabItem, isActive && styles.tabItemActive]}
+            >
+              <Text style={[styles.tabIcon, isActive && styles.tabIconActive]}>
+                {tab.icon}
+              </Text>
+              <Text style={[styles.tabLabel, isActive && styles.tabLabelActive]}>
+                {tab.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  tabBar: {
+  tabBarOuter: {
     position: "absolute",
-    left: 12,
-    right: 12,
-    bottom: 12,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingHorizontal: 12,
+  },
+  tabBar: {
     flexDirection: "row",
     justifyContent: "space-between",
     backgroundColor: "#FFFFFF",

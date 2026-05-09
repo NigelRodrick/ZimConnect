@@ -1,6 +1,13 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useMemo, useState } from "react";
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { colors } from "../theme/colors";
+import {
+  fetchZigMarketRates,
+  formatZarPerZig,
+  formatZigPerEur,
+  formatZigPerUsd,
+  type ZigMarketRates,
+} from "../services/zigMarketRates";
 
 const transactions = [
   { label: "QR Payment - Mbare Market", amount: "-$12.50", tone: "debit" },
@@ -34,7 +41,28 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
   const [showBalances, setShowBalances] = useState(true);
   const [activeCurrency, setActiveCurrency] = useState<"USD" | "ZiG">("USD");
   const [loggedInBanks, setLoggedInBanks] = useState<string[]>([]);
+  const [zigRates, setZigRates] = useState<ZigMarketRates | null>(null);
+  const [ratesLoading, setRatesLoading] = useState(true);
+  const [ratesError, setRatesError] = useState<string | null>(null);
   const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const loadRates = useCallback(async () => {
+    setRatesError(null);
+    try {
+      const data = await fetchZigMarketRates();
+      setZigRates(data);
+    } catch (e) {
+      setRatesError(e instanceof Error ? e.message : "Could not load rates.");
+      setZigRates(null);
+    } finally {
+      setRatesLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    setRatesLoading(true);
+    loadRates();
+  }, [loadRates]);
 
   const activeBalance = useMemo(
     () => (activeCurrency === "USD" ? "$1,284.73" : "ZiG 13,240.55"),
@@ -57,6 +85,52 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
 
   return (
     <View>
+      <View style={styles.marketRatesCard}>
+        <View style={styles.marketRatesHeader}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.marketRatesTitle}>ZiG · RBZ interbank</Text>
+            <Text style={styles.marketRatesSub}>
+              Official Reserve Bank of Zimbabwe tables as JSON via zimrate.statotec.com (bid / ask /
+              avg). Your bank may quote differently. Falls back to open FX data if this feed is
+              unavailable.
+            </Text>
+          </View>
+          <Pressable
+            onPress={() => {
+              setRatesLoading(true);
+              loadRates();
+            }}
+            style={styles.ratesRefreshBtn}
+            disabled={ratesLoading}
+          >
+            <Text style={styles.ratesRefreshText}>{ratesLoading ? "…" : "↻"}</Text>
+          </Pressable>
+        </View>
+        {ratesLoading && !zigRates ? (
+          <View style={styles.ratesLoadingRow}>
+            <ActivityIndicator color={colors.primary} size="small" />
+            <Text style={styles.ratesLoadingText}>Fetching rates…</Text>
+          </View>
+        ) : null}
+        {ratesError ? <Text style={styles.ratesErrorText}>{ratesError}</Text> : null}
+        {zigRates ? (
+          <View style={styles.ratesBody}>
+            <Text style={styles.rateProvider}>
+              Source: {zigRates.provider === "rbz" ? "RBZ (ZimRate)" : "Open FX fallback"}
+            </Text>
+            <Text style={styles.rateLine}>{formatZigPerUsd(zigRates.usd)}</Text>
+            <Text style={styles.rateLine}>{formatZarPerZig(zigRates.zarPerZig)}</Text>
+            <Text style={styles.rateLine}>{formatZigPerEur(zigRates.eur)}</Text>
+            {zigRates.dateLabel ? (
+              <Text style={styles.rateDate}>RBZ table date: {zigRates.dateLabel}</Text>
+            ) : null}
+            {zigRates.lastUpdated ? (
+              <Text style={styles.rateDate}>Feed updated: {zigRates.lastUpdated}</Text>
+            ) : null}
+          </View>
+        ) : null}
+      </View>
+
       <Text style={styles.title}>Zim-Wallet</Text>
       <Text style={styles.subtitle}>Multi-currency, QR pay, and P2P transfers.</Text>
 
@@ -178,6 +252,79 @@ export function WalletScreen({ searchQuery }: WalletScreenProps) {
 }
 
 const styles = StyleSheet.create({
+  marketRatesCard: {
+    backgroundColor: "#EEF6FF",
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: "#C5D9F5",
+    padding: 12,
+    marginBottom: 14,
+  },
+  marketRatesHeader: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 8,
+    marginBottom: 8,
+  },
+  marketRatesTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.primary,
+  },
+  marketRatesSub: {
+    marginTop: 4,
+    fontSize: 11,
+    color: colors.muted,
+    lineHeight: 15,
+  },
+  ratesRefreshBtn: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#C5D9F5",
+  },
+  ratesRefreshText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.info,
+  },
+  ratesLoadingRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingVertical: 6,
+  },
+  ratesLoadingText: {
+    fontSize: 13,
+    color: colors.muted,
+  },
+  ratesErrorText: {
+    color: "#B42318",
+    fontSize: 13,
+    marginTop: 4,
+  },
+  ratesBody: {
+    gap: 6,
+  },
+  rateProvider: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: colors.muted,
+    marginBottom: 2,
+  },
+  rateLine: {
+    fontSize: 13,
+    color: colors.text,
+    fontWeight: "600",
+    lineHeight: 19,
+  },
+  rateDate: {
+    marginTop: 6,
+    fontSize: 11,
+    color: colors.muted,
+  },
   title: {
     fontSize: 24,
     fontWeight: "700",

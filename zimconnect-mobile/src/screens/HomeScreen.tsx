@@ -1,19 +1,22 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { useMemo, useState } from "react";
+import { WeatherHomeCard } from "../components/WeatherHomeCard";
 import { colors } from "../theme/colors";
 import { TabKey } from "../types/navigation";
 
-type QuickAction = {
-  title: string;
-  subtitle: string;
-  targetTab: TabKey;
-};
+type QuickAction =
+  | { title: string; subtitle: string; kind: "tab"; targetTab: TabKey }
+  | { title: string; subtitle: string; kind: "news" };
 
 const quickActions: QuickAction[] = [
-  { title: "Scan to Pay", subtitle: "Instant QR payments", targetTab: "wallet" },
-  { title: "Wallet", subtitle: "USD / ZiG balances", targetTab: "wallet" },
-  { title: "Official News", subtitle: "Local updates", targetTab: "chat" },
-  { title: "Pay Fees", subtitle: "School and utility", targetTab: "services" },
+  { title: "Scan to Pay", subtitle: "Instant QR payments", kind: "tab", targetTab: "wallet" },
+  { title: "Wallet", subtitle: "USD / ZiG balances", kind: "tab", targetTab: "wallet" },
+  {
+    title: "Official News",
+    subtitle: "Live Zimbabwe headlines online",
+    kind: "news",
+  },
+  { title: "Pay Fees", subtitle: "School and utility", kind: "tab", targetTab: "services" },
 ];
 
 const coreServices = [
@@ -31,9 +34,15 @@ type HomeScreenProps = {
   searchQuery: string;
   onSearchChange: (value: string) => void;
   onQuickAction: (tab: TabKey) => void;
+  onOpenOfficialNews: () => void;
 };
 
-export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeScreenProps) {
+export function HomeScreen({
+  searchQuery,
+  onSearchChange,
+  onQuickAction,
+  onOpenOfficialNews,
+}: HomeScreenProps) {
   const [selectedAction, setSelectedAction] = useState<string | null>(null);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -46,14 +55,20 @@ export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeS
     );
   }, [normalizedQuery]);
 
+  const visibleCoreServices = useMemo(() => {
+    if (!normalizedQuery) return coreServices;
+    return coreServices.filter((name) => name.toLowerCase().includes(normalizedQuery));
+  }, [normalizedQuery]);
+
   return (
     <>
       <View style={styles.heroCard}>
-        <Text style={styles.heroTitle}>Welcome to Zim-Connect</Text>
+        <Text style={styles.heroTitle}>Zim-Connect</Text>
         <Text style={styles.heroSubtitle}>
           One app for chat, wallet, commerce, and services.
         </Text>
       </View>
+      <WeatherHomeCard />
       <TextInput
         value={searchQuery}
         onChangeText={onSearchChange}
@@ -69,6 +84,10 @@ export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeS
             key={item.title}
             onPress={() => {
               setSelectedAction(item.title);
+              if (item.kind === "news") {
+                onOpenOfficialNews();
+                return;
+              }
               onQuickAction(item.targetTab);
             }}
             style={[
@@ -88,19 +107,43 @@ export function HomeScreen({ searchQuery, onSearchChange, onQuickAction }: HomeS
         <View style={styles.selectionCard}>
           <Text style={styles.selectionTitle}>{selectedAction}</Text>
           <Text style={styles.selectionText}>
-            Shortcut selected. This will route to the full flow in the next build.
+            {selectedAction.toLowerCase().includes("news")
+              ? "Opens live Zimbabwe headlines from the web."
+              : "Shortcut selected. This will route to the full flow in the next build."}
           </Text>
         </View>
       ) : null}
 
       <Text style={styles.sectionTitle}>Core Services</Text>
       <View style={styles.serviceGrid}>
-        {coreServices.map((service) => (
-          <View key={service} style={styles.servicePill}>
-            <Text style={styles.servicePillText}>{service}</Text>
-          </View>
-        ))}
+        {visibleCoreServices.map((service) =>
+          service === "News" ? (
+            <Pressable
+              key={service}
+              onPress={() => {
+                setSelectedAction("News (Core Services)");
+                onOpenOfficialNews();
+              }}
+              style={({ pressed }) => [
+                styles.servicePill,
+                styles.servicePillPressable,
+                pressed && styles.servicePillPressed,
+                selectedAction === "News (Core Services)" && styles.servicePillSelected,
+              ]}
+            >
+              <Text style={styles.servicePillText}>{service}</Text>
+              <Text style={styles.servicePillHint}>Live headlines</Text>
+            </Pressable>
+          ) : (
+            <View key={service} style={styles.servicePill}>
+              <Text style={styles.servicePillText}>{service}</Text>
+            </View>
+          )
+        )}
       </View>
+      {!visibleCoreServices.length ? (
+        <Text style={styles.emptyText}>No core services match your search.</Text>
+      ) : null}
 
       <View style={styles.promoCard}>
         <Text style={styles.promoLabel}>PROMOTED</Text>
@@ -224,6 +267,23 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 12,
     fontWeight: "600",
+  },
+  servicePillPressable: {
+    alignItems: "center",
+    paddingVertical: 8,
+  },
+  servicePillPressed: {
+    opacity: 0.9,
+  },
+  servicePillSelected: {
+    borderColor: colors.primary,
+    backgroundColor: "#F0F6F4",
+  },
+  servicePillHint: {
+    marginTop: 2,
+    fontSize: 10,
+    color: colors.muted,
+    fontWeight: "500",
   },
   promoCard: {
     backgroundColor: colors.primary,

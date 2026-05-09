@@ -26,6 +26,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Zim-Connect uses your location to show local weather on Home.",
+          "locationWhenInUsePermission": "Zim-Connect uses your location to show local weather on Home."
+        }
+      ]
+    ]
   }
 }
